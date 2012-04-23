@@ -12,6 +12,7 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 filetype off
+set encoding=utf-8
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -25,9 +26,28 @@ Bundle 'tpope/vim-rails.git'
 Bundle 'majutsushi/tagbar'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdtree'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'garbas/vim-snipmate'
+Bundle 'sjl/gundo.vim'
+Bundle 'scrooloose/syntastic'
+Bundle 'tpope/vim-endwise'
+Bundle 'tsaleh/vim-align'
+Bundle 'nelstrom/vim-textobj-rubyblock'
+Bundle 'kana/vim-textobj-user'
+Bundle 'tpope/vim-surround'
+Bundle 'mileszs/ack.vim'
+Bundle 'ddollar/nerdcommenter'
+Bundle 'nel/vim-css-color'
+Bundle 'vim-scripts/AutoClose'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-git'
+Bundle 'matchit.zip'
+Bundle 'ruby-matchit'
+Bundle 'cocoa.vim'
+Bundle 'Match-Bracket-for-Objective-C'
 " vim-scripts repos
-Bundle 'ack.vim'
-Bundle 'AutoClose'
 Bundle 'rainbow_parentheses.vim'
 " non github repos
 Bundle 'git://git.wincent.com/command-t.git'
@@ -112,7 +132,13 @@ set colorcolumn=81              " highlight 81st column
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,doc/**,coverage/**
 
-let laststatus=2                " always show status bar
+set laststatus=2                " always show status bar
+set path=.
+
+" LaTeX settings
+set cole=2
+let g:tex_conceal='adgm'
+hi Conceal guibg=bg guifg=#66d9ef
 
 au FocusLost,TabLeave * :silent! wa     " TextMate style save on focus lost
 " }}}
@@ -123,8 +149,8 @@ let mapleader="," " Change the mapleader from \ to ,
 " turn off highlighting
 nnoremap <leader><space> :noh<cr>
 
-nnoremap <tab> %
-vnoremap <tab> %
+nmap <tab> %
+vmap <tab> %
 
 " Thanks to Steve Losh for this liberating tip
 " See http://stevelosh.com/blog/2010/09/coming-home-to-vim
@@ -143,7 +169,7 @@ nnoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
-nnoremap ; :
+noremap ; :
 
 " clean whitespace in file
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
@@ -176,6 +202,9 @@ nnoremap N Nzz
 
 " delete till eol
 nnoremap D d$
+
+" Ack
+nnoremap <leader>A :Ack 
 
 " toggle fold
 nnoremap <leader>f za
@@ -217,8 +246,8 @@ vmap <C-Up> [egv
 vmap <C-Down> ]egv
 
 " Quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :tabe $MYVIMRC<CR>
-nmap <silent> <leader>sv :silent! so $MYVIMRC<CR>
+nmap <silent> <leader>ev :tabe $MYGVIMRC<CR>:vsplit $MYVIMRC<CR>
+nmap <silent> <leader>sv :silent! so $MYVIMRC<CR>:silent! so $MYGVIMRC<CR>
 
 nnoremap <F5> :GundoToggle<CR>
 
@@ -227,6 +256,11 @@ map <leader>sh <ESC>:vs<CR>
 map <leader>sl <ESC>:vs<CR><C-w>l
 map <leader>sk <ESC>:sp<CR>
 map <leader>sj <ESC>:sp<CR><C-w>j
+" fast splitting to counterpart
+map <leader>ah <ESC>:vs<CR>:A<CR>
+map <leader>al <ESC>:vs<CR><C-w>l:A<CR>
+map <leader>ak <ESC>:sp<CR>:A<CR>
+map <leader>aj <ESC>:sp<CR><C-w>j:A<CR>
 
 " return in the middle of a line
 imap <C-CR> <ESC>o
@@ -237,6 +271,18 @@ nnoremap <leader>ll /\%>80v.\+<CR>
 " Adjust viewports to the same size
 map <Leader>= <C-w>=
 imap <Leader>= <Esc> <C-w>=
+
+" edit snippets
+nnoremap <leader>es :SnipMateOpenSnippetFiles<CR>
+
+" create new stuff
+nnoremap <leader>nt :tabnew<CR>
+nnoremap <leader>nb :new<CR>
+nnoremap <leader>nvb :vnew<CR>
+
+" close stuff
+nnoremap <leader>ct :tabclose<CR>
+nnoremap <leader>cb :bdelete<CR>
 " }}}
 
 " Folding Rules {{{
@@ -278,6 +324,15 @@ let g:CommandTMaxHeight=20
 " CTags
 map <Leader>rt :!/usr/local/bin/ctags --extra=+f -R *<CR><CR>
 map <C-\> :tnext<CR>
+
+func! RainbowLoad()
+  RainbowParenthesesLoadRound
+  RainbowParenthesesLoadSquare
+  RainbowParenthesesLoadBraces
+endfunc
+au VimEnter * :RainbowParenthesesToggle
+au Syntax * cal RainbowLoad()
+au FileType * cal RainbowLoad()
 " }}}
 
 " Editor Behaviour {{{
@@ -345,5 +400,48 @@ fun! DarkTheme()
   set background=dark
 endfunction
 
-call BrightTheme()
+call DarkTheme()
+map <leader>bt :call BrightTheme()<CR>
+map <leader>dt :call DarkTheme()<CR>
+
+" Project Tree
+autocmd FocusGained * call s:UpdateNERDTree()
+autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
+autocmd WinEnter * set path=.
+
+" Close all open buffers on entering a window if the only
+" buffer that's left is the NERDTree buffer
+function s:CloseIfOnlyNerdTreeLeft()
+  if exists("t:NERDTreeBufName")
+    if bufwinnr(t:NERDTreeBufName) != -1
+      if winnr("$") == 1
+        q
+      endif
+    endif
+  endif
+endfunction
+
+" NERDTree utility function
+function s:UpdateNERDTree(...)
+  let stay = 0
+
+  if(exists("a:1"))
+    let stay = a:1
+  end
+
+  if exists("t:NERDTreeBufName")
+    let nr = bufwinnr(t:NERDTreeBufName)
+    if nr != -1
+      exe nr . "wincmd w"
+      exe substitute(mapcheck("R"), "<CR>", "", "")
+      if !stay
+        wincmd p
+      end
+    endif
+  endif
+
+  if exists(":CommandTFlush") == 2
+    CommandTFlush
+  endif
+endfunction
 " }}}
