@@ -133,7 +133,6 @@ set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,doc/**,coverage/**
 
 set laststatus=2                " always show status bar
-set path=.
 
 " LaTeX settings
 set cole=2
@@ -313,6 +312,7 @@ set foldtext=MyFoldText()
 " Plugins Configuration {{{
 " NERDTree
 let NERDTreeIgnore=['\.rbc$', '\~$']
+let NERDTreeQuitOnOpen=1
 
 " Tagbar
 let g:tagbar_autoclose = 1
@@ -333,6 +333,8 @@ endfunc
 au VimEnter * :RainbowParenthesesToggle
 au Syntax * cal RainbowLoad()
 au FileType * cal RainbowLoad()
+
+au BufNewFile,BufRead *.{rabl,podspec} set filetype=ruby
 " }}}
 
 " Editor Behaviour {{{
@@ -407,7 +409,6 @@ map <leader>dt :call DarkTheme()<CR>
 " Project Tree
 autocmd FocusGained * call s:UpdateNERDTree()
 autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
-autocmd WinEnter * set path=.
 
 " Close all open buffers on entering a window if the only
 " buffer that's left is the NERDTree buffer
