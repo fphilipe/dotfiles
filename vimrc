@@ -47,10 +47,16 @@ Bundle 'matchit.zip'
 Bundle 'ruby-matchit'
 Bundle 'cocoa.vim'
 Bundle 'Match-Bracket-for-Objective-C'
+Bundle 'chriskempson/vim-tomorrow-theme'
+Bundle 'chriskempson/base16-vim'
+Bundle 'Conque-Shell'
+Bundle 'skwp/vim-ruby-conque'
+Bundle 'kien/ctrlp.vim'
+Bundle 'vim-coffee-script'
+Bundle 'slim-template/vim-slim'
 " vim-scripts repos
 Bundle 'rainbow_parentheses.vim'
 " non github repos
-Bundle 'git://git.wincent.com/command-t.git'
 " }}}
 
 " Editing Behaviour {{{
@@ -88,6 +94,7 @@ set pastetoggle=<F2>            " when in insert mode, press <F2> to go to
                                 "   paste mode, where you can paste mass data
                                 "   that won't be autoindented
 set t_Co=256                    " Explicitly tell that the terminal has 256 colors
+let base16colorspace=256
 " suppress all bells
 set novisualbell
 set noerrorbells
@@ -245,7 +252,7 @@ vmap <C-Up> [egv
 vmap <C-Down> ]egv
 
 " Quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :tabe $MYGVIMRC<CR>:vsplit $MYVIMRC<CR>
+nmap <silent> <leader>ev :tabe $MYVIMRC<CR>
 nmap <silent> <leader>sv :silent! so $MYVIMRC<CR>:silent! so $MYGVIMRC<CR>
 
 nnoremap <F5> :GundoToggle<CR>
@@ -282,6 +289,10 @@ nnoremap <leader>nvb :vnew<CR>
 " close stuff
 nnoremap <leader>ct :tabclose<CR>
 nnoremap <leader>cb :bdelete<CR>
+
+" run stuff
+map <Leader>r :w<CR>:make<CR>
+imap <Leader>r <Esc> :w<CR>:make<CR>
 " }}}
 
 " Folding Rules {{{
@@ -335,6 +346,42 @@ au Syntax * cal RainbowLoad()
 au FileType * cal RainbowLoad()
 
 au BufNewFile,BufRead *.{rabl,podspec} set filetype=ruby
+
+" add a definition for Objective-C to tagbar
+let tlist_objc_settings = 'ObjectiveC;P:protocols;i:interfaces;types(...)'
+let g:tagbar_type_objc = {
+    \ 'ctagstype' : 'ObjectiveC',
+    \ 'kinds'     : [
+        \ 'i:interface',
+        \ 'I:implementation',
+        \ 'p:Protocol',
+        \ 'm:Object_method',
+        \ 'c:Class_method',
+        \ 'v:Global_variable',
+        \ 'F:Object field',
+        \ 'f:function',
+        \ 'p:property',
+        \ 't:type_alias',
+        \ 's:type_structure',
+        \ 'e:enumeration',
+        \ 'M:preprocessor_macro',
+    \ ],
+    \ 'sro'        : ' ',
+    \ 'kind2scope' : {
+        \ 'i' : 'interface',
+        \ 'I' : 'implementation',
+        \ 'p' : 'Protocol',
+        \ 's' : 'type_structure',
+        \ 'e' : 'enumeration'
+    \ },
+    \ 'scope2kind' : {
+        \ 'interface'      : 'i',
+        \ 'implementation' : 'I',
+        \ 'Protocol'       : 'p',
+        \ 'type_structure' : 's',
+        \ 'enumeration'    : 'e'
+    \ }
+\ }
 " }}}
 
 " Editor Behaviour {{{
@@ -440,9 +487,14 @@ function s:UpdateNERDTree(...)
       end
     endif
   endif
-
-  if exists(":CommandTFlush") == 2
-    CommandTFlush
-  endif
 endfunction
+
+autocmd FileType ruby
+      \ if expand('%') =~# '_test\.rb$' |
+      \   compiler rubyunit | setl makeprg=testrb\ \"%:p\" |
+      \ elseif expand('%') =~# '_spec\.rb$' |
+      \   compiler rspec | setl makeprg=rspec\ \"%:p\" |
+      \ else |
+      \   compiler ruby | setl makeprg=ruby\ -wc\ \"%:p\" |
+      \ endif
 " }}}
