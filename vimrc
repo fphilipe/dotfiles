@@ -22,11 +22,11 @@ call vundle#rc()
 Bundle 'tpope/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'tpope/vim-rails.git'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-bundler'
 Bundle 'majutsushi/tagbar'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdtree'
-Bundle 'Lokaltog/vim-powerline'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
 Bundle 'garbas/vim-snipmate'
@@ -38,22 +38,21 @@ Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'kana/vim-textobj-user'
 Bundle 'tpope/vim-surround'
 Bundle 'mileszs/ack.vim'
-Bundle 'ddollar/nerdcommenter'
+Bundle 'scroolose/nerdcommenter'
 Bundle 'nel/vim-css-color'
-Bundle 'vim-scripts/AutoClose'
+Bundle 'Townk/AutoClose'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-git'
 Bundle 'matchit.zip'
 Bundle 'ruby-matchit'
-Bundle 'cocoa.vim'
-Bundle 'Match-Bracket-for-Objective-C'
+" Bundle 'cocoa.vim'
+" Bundle 'Match-Bracket-for-Objective-C'
 Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'chriskempson/base16-vim'
-Bundle 'Conque-Shell'
-Bundle 'skwp/vim-ruby-conque'
 Bundle 'kien/ctrlp.vim'
 Bundle 'vim-coffee-script'
 Bundle 'slim-template/vim-slim'
+Bundle 'airblade/vim-gitgutter'
 " vim-scripts repos
 Bundle 'rainbow_parentheses.vim'
 " non github repos
@@ -139,7 +138,8 @@ set colorcolumn=81              " highlight 81st column
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,doc/**,coverage/**
 
-set laststatus=2                " always show status bar
+set laststatus=2                " Always display the statusline in all windows
+set noshowmode                  " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 
 " LaTeX settings
 set cole=2
@@ -221,6 +221,8 @@ nmap <leader>y "*y
 nmap <leader>Y "*yy
 nmap <leader>p "*p
 nmap <leader>P "*P
+vmap <leader>y "*y
+vmap <leader>p "*p
 
 " space / shift-space scroll in normal mode
 noremap <S-space> <C-b>
@@ -231,17 +233,6 @@ map <down> <ESC>:bn<RETURN>
 map <up> <ESC>:bp<RETURN>
 map <left> <ESC>:NERDTreeToggle<RETURN>
 map <right> <ESC>:TagbarToggle<RETURN>
-
-" Opens an edit command with the path of the currently edited file filled in
-" Normal mode: <Leader>e
-map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-
-" Opens a tab edit command with the path of the currently edited file filled in
-map <Leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
-
-" Inserts the path of the currently edited file into a command
-" Command mode: Ctrl+P
-cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
 " Unimpaired configuration
 " Bubble single lines
@@ -283,16 +274,18 @@ nnoremap <leader>es :SnipMateOpenSnippetFiles<CR>
 
 " create new stuff
 nnoremap <leader>nt :tabnew<CR>
-nnoremap <leader>nb :new<CR>
-nnoremap <leader>nvb :vnew<CR>
 
 " close stuff
 nnoremap <leader>ct :tabclose<CR>
-nnoremap <leader>cb :bdelete<CR>
 
 " run stuff
 map <Leader>r :w<CR>:make<CR>
 imap <Leader>r <Esc> :w<CR>:make<CR>
+
+" open ControlP in tag mode
+map <C-t> :CtrlPTag<CR>
+" open ControlP in pwd
+map <C-p> :CtrlPCurWD<CR>
 " }}}
 
 " Folding Rules {{{
@@ -331,6 +324,9 @@ let g:tagbar_autofocus = 1
 
 " Command-T configuration
 let g:CommandTMaxHeight=20
+
+" Syntastic
+let g:syntastic_java_javac_args="-classpath /usr/local/Cellar/hadoop/1.1.1/libexec/hadoop-core-1.1.1.jar"
 
 " CTags
 map <Leader>rt :!/usr/local/bin/ctags --extra=+f -R *<CR><CR>
@@ -382,6 +378,12 @@ let g:tagbar_type_objc = {
         \ 'enumeration'    : 'e'
     \ }
 \ }
+
+" Powerline
+set rtp+=~/.virtualenv/default_env/lib/python2.7/site-packages/powerline/bindings/vim/
+
+" ControlP
+let g:ctrlp_extensions = ['tag']
 " }}}
 
 " Editor Behaviour {{{
@@ -440,12 +442,12 @@ map <leader>ht4 <ESC>:call HardTab4()<CR>
 
 " easy switching of themes
 fun! BrightTheme()
-  colorscheme solarized
+  colorscheme Tomorrow
   set background=light
 endfunction
 
 fun! DarkTheme()
-  colorscheme solarized
+  colorscheme Tomorrow-Night
   set background=dark
 endfunction
 
@@ -497,4 +499,13 @@ autocmd FileType ruby
       \ else |
       \   compiler ruby | setl makeprg=ruby\ -wc\ \"%:p\" |
       \ endif
+
+if ! has('gui_running')
+    set ttimeoutlen=10
+    augroup FastEscape
+        autocmd!
+        au InsertEnter * set timeoutlen=0
+        au InsertLeave * set timeoutlen=1000
+    augroup END
+endif
 " }}}
