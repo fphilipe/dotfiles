@@ -27,6 +27,7 @@ Bundle 'tpope/vim-bundler'
 Bundle 'majutsushi/tagbar'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdtree'
+Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
 Bundle 'garbas/vim-snipmate'
@@ -231,7 +232,7 @@ noremap <space> <C-f>
 " Make Arrow Keys Useful Again
 map <down> <ESC>:bn<RETURN>
 map <up> <ESC>:bp<RETURN>
-map <left> <ESC>:NERDTreeToggle<RETURN>
+map <left> <ESC>:NERDTreeTabsToggle<RETURN>
 map <right> <ESC>:TagbarToggle<RETURN>
 
 " Unimpaired configuration
@@ -284,8 +285,8 @@ imap <Leader>r <Esc> :w<CR>:make<CR>
 
 " open ControlP in tag mode
 map <C-t> :CtrlPTag<CR>
-" open ControlP in pwd
-map <C-p> :CtrlPCurWD<CR>
+" open ControlP in pwd mode by default
+let g:ctrlp_cmd = 'CtrlPCurWD'
 " }}}
 
 " Folding Rules {{{
@@ -315,7 +316,7 @@ set foldtext=MyFoldText()
 
 " Plugins Configuration {{{
 " NERDTree
-let NERDTreeIgnore=['\.rbc$', '\~$']
+let NERDTreeIgnore=['\.rbc$', '\~$', 'doc[[dir]]', 'tmp[[dir]]', 'build[[dir]]', 'doc[[dir]]', 'bin[[dir]]']
 let NERDTreeQuitOnOpen=1
 
 " Tagbar
@@ -454,42 +455,6 @@ endfunction
 call DarkTheme()
 map <leader>bt :call BrightTheme()<CR>
 map <leader>dt :call DarkTheme()<CR>
-
-" Project Tree
-autocmd FocusGained * call s:UpdateNERDTree()
-autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
-
-" Close all open buffers on entering a window if the only
-" buffer that's left is the NERDTree buffer
-function s:CloseIfOnlyNerdTreeLeft()
-  if exists("t:NERDTreeBufName")
-    if bufwinnr(t:NERDTreeBufName) != -1
-      if winnr("$") == 1
-        q
-      endif
-    endif
-  endif
-endfunction
-
-" NERDTree utility function
-function s:UpdateNERDTree(...)
-  let stay = 0
-
-  if(exists("a:1"))
-    let stay = a:1
-  end
-
-  if exists("t:NERDTreeBufName")
-    let nr = bufwinnr(t:NERDTreeBufName)
-    if nr != -1
-      exe nr . "wincmd w"
-      exe substitute(mapcheck("R"), "<CR>", "", "")
-      if !stay
-        wincmd p
-      end
-    endif
-  endif
-endfunction
 
 autocmd FileType ruby
       \ if expand('%') =~# '_test\.rb$' |
