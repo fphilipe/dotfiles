@@ -19,7 +19,9 @@ call vundle#rc()
 " }}}
 
 " Bundles {{{
-Bundle 'tpope/vundle'
+Bundle 'croaky/vim-colors-github'
+Bundle 'gmarik/vundle'
+Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-rails'
@@ -27,7 +29,6 @@ Bundle 'tpope/vim-bundler'
 Bundle 'majutsushi/tagbar'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdtree'
-Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
 Bundle 'garbas/vim-snipmate'
@@ -46,17 +47,13 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-git'
 Bundle 'matchit.zip'
 Bundle 'ruby-matchit'
-" Bundle 'cocoa.vim'
-" Bundle 'Match-Bracket-for-Objective-C'
 Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'chriskempson/base16-vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'vim-coffee-script'
 Bundle 'slim-template/vim-slim'
-Bundle 'airblade/vim-gitgutter'
-" vim-scripts repos
 Bundle 'rainbow_parentheses.vim'
-" non github repos
+Bundle 'nelstrom/vim-markdown-folding'
 " }}}
 
 " Editing Behaviour {{{
@@ -80,10 +77,13 @@ set showmatch                   " set show matching parenthesis
 set ignorecase                  " ignore case when searching
 set smartcase                   " ignore case if search pattern is all lowercase,
                                 "   case-sensitive otherwise
+set splitright                  " open vertical splits to the right
+set splitbelow                  " open splits to the bottom
 set cursorline                  " highlight current line
 set smarttab                    " insert tabs on the start of a line according to
                                 "   shiftwidth, not tabstop
-set scrolloff=4                 " keep 4 lines off the edges of the screen when scrolling
+set scrolloff=2                 " keep x lines off the edges of the screen when scrolling vertically
+set sidescrolloff=2             " keep x columns off the edges of the screen when scrolling horizontally
 set hlsearch                    " highlight search terms
 set incsearch                   " show search matches as you type
 set gdefault                    " search/replace "globally" (on a line) by default
@@ -95,6 +95,7 @@ set pastetoggle=<F2>            " when in insert mode, press <F2> to go to
                                 "   that won't be autoindented
 set t_Co=256                    " Explicitly tell that the terminal has 256 colors
 let base16colorspace=256
+
 " suppress all bells
 set novisualbell
 set noerrorbells
@@ -103,8 +104,9 @@ set vb
 set mouse=a                     " enable using the mouse if terminal emulator
                                 "    supports it (xterm does)
 set fileformats="unix,dos,mac"
-set formatoptions+=1            " When wrapping paragraphs, don't end lines
-                                "    with 1-letter words (looks stupid)
+
+set textwidth=80
+set formatoptions=1cjnqro
 
 set hidden                      " hide buffers instead of closing them this
                                 "    means that the current buffer can be put
@@ -138,9 +140,12 @@ set colorcolumn=81              " highlight 81st column
 " Tab completion
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,doc/**,coverage/**
+set complete=.,t                " only use the current file and ctags
 
 set laststatus=2                " Always display the statusline in all windows
 set noshowmode                  " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+
+set iskeyword+=-,@,$
 
 " LaTeX settings
 set cole=2
@@ -151,8 +156,6 @@ au FocusLost,TabLeave * :silent! wa     " TextMate style save on focus lost
 " }}}
 
 " Key Mappings {{{
-let mapleader="," " Change the mapleader from \ to ,
-
 " turn off highlighting
 nnoremap <leader><space> :noh<cr>
 
@@ -164,36 +167,15 @@ vmap <tab> %
 nnoremap / /\v
 vnoremap / /\v
 
-" Speed up scrolling of the viewport slightly
-nnoremap <C-e> 2<C-e>
-nnoremap <C-y> 2<C-y>
-
-" Disable arrow keys and make j and k always move to next line.
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
+" make j and k always move to next visual line (usefull for wrapped lines).
 nnoremap j gj
 nnoremap k gk
-
-noremap ; :
 
 " clean whitespace in file
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 " fold tag in HTML
 nnoremap <leader>ft Vatzf
-
-" get back to normal mode by typing jj
-inoremap jj <ESC>
-
-" faster save and close
-nnoremap <leader>w <ESC>:w<CR>
-inoremap <leader>w <ESC>:w<CR>
-nnoremap <leader>q <ESC>:q<CR>
-inoremap <leader>q <ESC>:q<CR>
-nnoremap <leader>wq <ESC>:wq<CR>
-inoremap <leader>wq <ESC>:wq<CR>
 
 " navigate around split windows
 nnoremap <C-h> <C-w>h
@@ -211,11 +193,13 @@ nnoremap N Nzz
 nnoremap D d$
 
 " Ack
-nnoremap <leader>A :Ack 
+nnoremap <leader>f :Ack 
 
 " toggle fold
-nnoremap <leader>f za
-vnoremap <leader>f za
+nnoremap <Space> za
+vnoremap <Space> za
+" "Refocus" folds
+nnoremap <leader>z zMzvzczOzz
 
 " Yank/paste to the OS clipboard with ,y and ,p
 nmap <leader>y "*y
@@ -225,15 +209,14 @@ nmap <leader>P "*P
 vmap <leader>y "*y
 vmap <leader>p "*p
 
-" space / shift-space scroll in normal mode
-noremap <S-space> <C-b>
-noremap <space> <C-f>
-
 " Make Arrow Keys Useful Again
-map <down> <ESC>:bn<RETURN>
-map <up> <ESC>:bp<RETURN>
-map <left> <ESC>:NERDTreeTabsToggle<RETURN>
-map <right> <ESC>:TagbarToggle<RETURN>
+map <down> <ESC>:cn<CR>zz
+map <S-down> <ESC>:cnewer<CR>
+map <up> <ESC>:cp<CR>zz
+map <S-up> <ESC>:colder<CR>
+map <left> <ESC>:NERDTreeToggle<CR>
+map <S-left> <ESC>:GundoToggle<CR>
+map <right> <ESC>:TagbarToggle<CR>
 
 " Unimpaired configuration
 " Bubble single lines
@@ -242,23 +225,6 @@ nmap <C-Down> ]e
 " Bubble multiple lines
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
-
-" Quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :tabe $MYVIMRC<CR>
-nmap <silent> <leader>sv :silent! so $MYVIMRC<CR>:silent! so $MYGVIMRC<CR>
-
-nnoremap <F5> :GundoToggle<CR>
-
-" fast splitting
-map <leader>sh <ESC>:vs<CR>
-map <leader>sl <ESC>:vs<CR><C-w>l
-map <leader>sk <ESC>:sp<CR>
-map <leader>sj <ESC>:sp<CR><C-w>j
-" fast splitting to counterpart
-map <leader>ah <ESC>:vs<CR>:A<CR>
-map <leader>al <ESC>:vs<CR><C-w>l:A<CR>
-map <leader>ak <ESC>:sp<CR>:A<CR>
-map <leader>aj <ESC>:sp<CR><C-w>j:A<CR>
 
 " return in the middle of a line
 imap <C-CR> <ESC>o
@@ -273,16 +239,6 @@ imap <Leader>= <Esc> <C-w>=
 " edit snippets
 nnoremap <leader>es :SnipMateOpenSnippetFiles<CR>
 
-" create new stuff
-nnoremap <leader>nt :tabnew<CR>
-
-" close stuff
-nnoremap <leader>ct :tabclose<CR>
-
-" run stuff
-map <Leader>r :w<CR>:make<CR>
-imap <Leader>r <Esc> :w<CR>:make<CR>
-
 " open ControlP in tag mode
 map <C-t> :CtrlPTag<CR>
 " open ControlP in pwd mode by default
@@ -290,28 +246,52 @@ let g:ctrlp_cmd = 'CtrlPCurWD'
 " }}}
 
 " Folding Rules {{{
-set foldenable                  " enable folding
-set foldcolumn=2                " add a fold column
-set foldmethod=marker           " detect triple-{ style fold markers
+set nofoldenable
+set foldcolumn=0
+set foldmethod=syntax
 set foldlevelstart=0            " start out with everything folded
 set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
                                 " which commands trigger auto-unfold
 function! MyFoldText()
-    let line = getline(v:foldstart)
-
-    let nucolwidth = &fdc + &number * &numberwidth
-    let windowwidth = winwidth(0) - nucolwidth - 3
-    let foldedlinecount = v:foldend - v:foldstart
-
     " expand tabs into spaces
     let onetab = strpart('          ', 0, &tabstop)
-    let line = substitute(line, '\t', onetab, 'g')
 
-    let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
-    let fillcharcount = windowwidth - len(line) - len(foldedlinecount) - 4
-    return line . ' …' . repeat(" ",fillcharcount) . foldedlinecount . ' '
+    let start_line = substitute(getline(v:foldstart), '\t', onetab, 'g')
+    let delta = 0 " unicode char correction
+    if len(start_line) > 72
+      let start_line = substitute(start_line, '^\(.\{72\}\).*$', '\1…', 'g')
+      let delta = 2
+    endif
+
+    let end_line = substitute(getline(v:foldend), '\s', '', 'g')
+
+    let nucolwidth = &foldcolumn + &number * &numberwidth
+    let windowwidth = winwidth(0) - nucolwidth - 3
+    let foldedlinecount = v:foldend - v:foldstart + 1
+
+    let line = start_line.'  '
+    let dash_fill_count = windowwidth - 80
+    let space_fill_count = 80 - len(line) - len(foldedlinecount) - 1 + delta
+
+    return line.repeat(' ', space_fill_count).foldedlinecount.' '.repeat('—', dash_fill_count)
 endfunction
 set foldtext=MyFoldText()
+
+function! NextClosedFold(dir)
+    let cmd = 'norm!z' . a:dir
+    let view = winsaveview()
+    let [l0, l, open] = [0, view.lnum, 1]
+    while l != l0 && open
+        exe cmd
+        let [l0, l] = [l, line('.')]
+        let open = foldclosed(l) < 0
+    endwhile
+    if open
+        call winrestview(view)
+    endif
+endfunction
+nmap <silent> zj :call NextClosedFold('j')<cr><leader>z
+nmap <silent> zk :call NextClosedFold('k')<cr><leader>z
 " }}}
 
 " Plugins Configuration {{{
@@ -323,14 +303,11 @@ let NERDTreeQuitOnOpen=1
 let g:tagbar_autoclose = 1
 let g:tagbar_autofocus = 1
 
-" Command-T configuration
-let g:CommandTMaxHeight=20
-
 " Syntastic
 let g:syntastic_java_javac_args="-classpath /usr/local/Cellar/hadoop/1.1.1/libexec/hadoop-core-1.1.1.jar"
 
 " CTags
-map <Leader>rt :!/usr/local/bin/ctags --extra=+f -R *<CR><CR>
+map <leader>ct :!/usr/local/bin/ctags --extra=+f -R *<CR><CR>
 map <C-\> :tnext<CR>
 
 func! RainbowLoad()
@@ -385,6 +362,12 @@ set rtp+=~/.virtualenv/default_env/lib/python2.7/site-packages/powerline/binding
 
 " ControlP
 let g:ctrlp_extensions = ['tag']
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.(git|hg|svn|sass-cache|bundle)|build|tmp|bin)$',
+  \ 'file': '\v\.(exe|so|dll|DS_Store)$',
+  \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+  \ }
 " }}}
 
 " Editor Behaviour {{{
@@ -396,65 +379,13 @@ if has("autocmd")
     \| exe "normal g'\"" | endif
 endif
 
-function s:setupWrapping()
-  set wrap
-  set nolist
-  set wrapmargin=0
-  set textwidth=80
-endfunction
-
-function s:setupMarkup()
-  call s:setupWrapping()
-  map <buffer> <Leader>p :Hammer<CR>
-endfunction
-
 " make uses real tabs
 au FileType make set noexpandtab
 
-function! SoftTab2()
-  set expandtab
-  set tabstop=2
-  set softtabstop=2
-  set shiftwidth=2
-endfunction
-map <leader>st2 <ESC>:call SoftTab2()<CR>
-
-function! HardTab2()
-  set noexpandtab
-  set tabstop=2
-  set shiftwidth=2
-endfunction
-map <leader>ht2 <ESC>:call HardTab2()<CR>
-
-function! SoftTab4()
-  set expandtab
-  set tabstop=4
-  set softtabstop=4
-  set shiftwidth=4
-endfunction
-map <leader>st4 <ESC>:call SoftTab4()<CR>
-
-function! HardTab4()
-  set noexpandtab
-  set tabstop=4
-  set shiftwidth=4
-endfunction
-map <leader>ht4 <ESC>:call HardTab4()<CR>
-
-" easy switching of themes
-fun! BrightTheme()
-  colorscheme Tomorrow
-  set background=light
-endfunction
-
-fun! DarkTheme()
-  colorscheme Tomorrow-Night
-  set background=dark
-endfunction
-
-call DarkTheme()
-map <leader>bt :call BrightTheme()<CR>
-map <leader>dt :call DarkTheme()<CR>
+let g:solarized_contrast='high'
+let g:solarized_visibility='high'
+colorscheme solarized
+set background=light
 
 autocmd FileType ruby
       \ if expand('%') =~# '_test\.rb$' |
