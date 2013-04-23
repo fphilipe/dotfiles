@@ -1,13 +1,8 @@
-""""""""""""""""""""""""""""""""""""""""""""""""
-"                                              "
-"   Philipe Fatio <philipe.fatio@gmail.com>    "
-"                                              "
-"   Custom vim config thrown together from     "
-"   various sources found mainly on GitHub.    "
-"                                              "
-""""""""""""""""""""""""""""""""""""""""""""""""
+" .vimrc
+" Author: Philipe Fatio <me@phili.pe>
 
-" Basic Config {{{
+" Preamble                                                                   {{{
+
 " Use vim settings, rather then vi settings (much better!)
 " This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -16,47 +11,49 @@ set encoding=utf-8
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-" }}}
 
-" Bundles {{{
-Bundle 'croaky/vim-colors-github'
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-fugitive'
+" }}}
+" Bundles                                                                    {{{
+
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-bundler'
-Bundle 'majutsushi/tagbar'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'scrooloose/nerdtree'
 Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'garbas/vim-snipmate'
-Bundle 'sjl/gundo.vim'
-Bundle 'scrooloose/syntastic'
-Bundle 'tpope/vim-endwise'
-Bundle 'tsaleh/vim-align'
-Bundle 'nelstrom/vim-textobj-rubyblock'
-Bundle 'kana/vim-textobj-user'
-Bundle 'tpope/vim-surround'
-Bundle 'mileszs/ack.vim'
-Bundle 'scroolose/nerdcommenter'
-Bundle 'nel/vim-css-color'
 Bundle 'Townk/AutoClose'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-git'
-Bundle 'matchit.zip'
-Bundle 'ruby-matchit'
-Bundle 'chriskempson/vim-tomorrow-theme'
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'chriskempson/base16-vim'
+Bundle 'chriskempson/vim-tomorrow-theme'
+Bundle 'croaky/vim-colors-github'
+Bundle 'garbas/vim-snipmate'
+Bundle 'gmarik/vundle'
+Bundle 'kana/vim-textobj-user'
 Bundle 'kien/ctrlp.vim'
-Bundle 'vim-coffee-script'
-Bundle 'slim-template/vim-slim'
-Bundle 'rainbow_parentheses.vim'
+Bundle 'majutsushi/tagbar'
+Bundle 'matchit.zip'
+Bundle 'mileszs/ack.vim'
+Bundle 'nel/vim-css-color'
 Bundle 'nelstrom/vim-markdown-folding'
-" }}}
+Bundle 'nelstrom/vim-textobj-rubyblock'
+Bundle 'rainbow_parentheses.vim'
+Bundle 'ruby-matchit'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'sjl/gundo.vim'
+Bundle 'slim-template/vim-slim'
+Bundle 'tomtom/tlib_vim'
+Bundle 'tpope/vim-bundler'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-git'
+Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'tsaleh/vim-align'
+Bundle 'vim-coffee-script'
 
-" Editing Behaviour {{{
+" }}}
+" Editing Behavior                                                           {{{
+
 syntax on                       " enable syntax highlighting
 filetype plugin indent on
 set showmode                    " always show what mode we're currently editing in
@@ -147,15 +144,19 @@ set noshowmode                  " Hide the default mode text (e.g. -- INSERT -- 
 
 set iskeyword+=-,@,$
 
+set spell
+set spelllang=en_us
+
 " LaTeX settings
 set cole=2
 let g:tex_conceal='adgm'
 hi Conceal guibg=bg guifg=#66d9ef
 
 au FocusLost,TabLeave * :silent! wa     " TextMate style save on focus lost
-" }}}
 
-" Key Mappings {{{
+" }}}
+" Key Mappings                                                               {{{
+
 " turn off highlighting
 nnoremap <leader><space> :noh<cr>
 
@@ -167,7 +168,7 @@ vmap <tab> %
 nnoremap / /\v
 vnoremap / /\v
 
-" make j and k always move to next visual line (usefull for wrapped lines).
+" make j and k always move to next visual line (useful for wrapped lines).
 nnoremap j gj
 nnoremap k gk
 
@@ -186,14 +187,14 @@ nnoremap <C-l> <C-w>l
 " Keep search matches in the middle of the window.
 nnoremap * *zz
 nnoremap ? ?zz
-nnoremap n nzz
-nnoremap N Nzz
+nnoremap n nlhzz
+nnoremap N Nlhzz
 
 " delete till eol
 nnoremap D d$
 
 " Ack
-nnoremap <leader>f :Ack 
+nnoremap <leader>f :Ack<space>
 
 " toggle fold
 nnoremap <Space> za
@@ -215,8 +216,8 @@ map <S-down> <ESC>:cnewer<CR>
 map <up> <ESC>:cp<CR>zz
 map <S-up> <ESC>:colder<CR>
 map <left> <ESC>:NERDTreeToggle<CR>
-map <S-left> <ESC>:GundoToggle<CR>
 map <right> <ESC>:TagbarToggle<CR>
+map <S-right> <ESC>:GundoToggle<CR>
 
 " Unimpaired configuration
 " Bubble single lines
@@ -234,7 +235,6 @@ nnoremap <leader>ll /\%>80v.\+<CR>
 
 " Adjust viewports to the same size
 map <Leader>= <C-w>=
-imap <Leader>= <Esc> <C-w>=
 
 " edit snippets
 nnoremap <leader>es :SnipMateOpenSnippetFiles<CR>
@@ -243,15 +243,19 @@ nnoremap <leader>es :SnipMateOpenSnippetFiles<CR>
 map <C-t> :CtrlPTag<CR>
 " open ControlP in pwd mode by default
 let g:ctrlp_cmd = 'CtrlPCurWD'
-" }}}
 
-" Folding Rules {{{
+let g:gundo_right = 1
+
+" }}}
+" Folding Rules                                                              {{{
+
 set nofoldenable
 set foldcolumn=0
 set foldmethod=syntax
-set foldlevelstart=0            " start out with everything folded
+set foldlevelstart=99
 set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
                                 " which commands trigger auto-unfold
+
 function! MyFoldText()
     " expand tabs into spaces
     let onetab = strpart('          ', 0, &tabstop)
@@ -292,9 +296,10 @@ function! NextClosedFold(dir)
 endfunction
 nmap <silent> zj :call NextClosedFold('j')<cr><leader>z
 nmap <silent> zk :call NextClosedFold('k')<cr><leader>z
-" }}}
 
-" Plugins Configuration {{{
+" }}}
+" Plugins Configuration                                                      {{{
+
 " NERDTree
 let NERDTreeIgnore=['\.rbc$', '\~$', 'doc[[dir]]', 'tmp[[dir]]', 'build[[dir]]', 'doc[[dir]]', 'bin[[dir]]']
 let NERDTreeQuitOnOpen=1
@@ -309,15 +314,6 @@ let g:syntastic_java_javac_args="-classpath /usr/local/Cellar/hadoop/1.1.1/libex
 " CTags
 map <leader>ct :!/usr/local/bin/ctags --extra=+f -R *<CR><CR>
 map <C-\> :tnext<CR>
-
-func! RainbowLoad()
-  RainbowParenthesesLoadRound
-  RainbowParenthesesLoadSquare
-  RainbowParenthesesLoadBraces
-endfunc
-au VimEnter * :RainbowParenthesesToggle
-au Syntax * cal RainbowLoad()
-au FileType * cal RainbowLoad()
 
 au BufNewFile,BufRead *.{rabl,podspec} set filetype=ruby
 
@@ -368,40 +364,38 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll|DS_Store)$',
   \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
   \ }
-" }}}
 
-" Editor Behaviour {{{
+" }}}
+" Editor Behavior                                                            {{{
+
 set autoread                  " Remember last location in file
 set timeoutlen=600            " timeout for leader maps
 
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal g'\"" | endif
-endif
-
-" make uses real tabs
-au FileType make set noexpandtab
+au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+  \| exe "normal g'\"" | endif
 
 let g:solarized_contrast='high'
 let g:solarized_visibility='high'
 colorscheme solarized
 set background=light
 
-autocmd FileType ruby
-      \ if expand('%') =~# '_test\.rb$' |
-      \   compiler rubyunit | setl makeprg=testrb\ \"%:p\" |
-      \ elseif expand('%') =~# '_spec\.rb$' |
-      \   compiler rspec | setl makeprg=rspec\ \"%:p\" |
-      \ else |
-      \   compiler ruby | setl makeprg=ruby\ -wc\ \"%:p\" |
-      \ endif
-
 if ! has('gui_running')
     set ttimeoutlen=10
     augroup FastEscape
+
         autocmd!
         au InsertEnter * set timeoutlen=0
         au InsertLeave * set timeoutlen=1000
     augroup END
 endif
+
 " }}}
+" File Type Configurations                                                   {{{
+
+au FileType javascript,css,less,scss,vim setlocal foldmethod=marker
+au FileType javascript,css,less,scss setlocal foldmarker={,}
+
+au FileType make set noexpandtab
+
+" }}}
+
