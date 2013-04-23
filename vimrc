@@ -152,7 +152,7 @@ set cole=2
 let g:tex_conceal='adgm'
 hi Conceal guibg=bg guifg=#66d9ef
 
-au FocusLost,TabLeave * :silent! wa     " TextMate style save on focus lost
+au! FocusLost,TabLeave * :silent! wa     " TextMate style save on focus lost
 
 " }}}
 " Key Mappings                                                               {{{
@@ -319,7 +319,7 @@ let g:syntastic_java_javac_args="-classpath /usr/local/Cellar/hadoop/1.1.1/libex
 map <leader>ct :!/usr/local/bin/ctags --extra=+f -R *<CR><CR>
 map <C-\> :tnext<CR>
 
-au BufNewFile,BufRead *.{rabl,podspec} set filetype=ruby
+au! BufNewFile,BufRead *.{rabl,podspec} set filetype=ruby
 
 " add a definition for Objective-C to tagbar
 let tlist_objc_settings = 'ObjectiveC;P:protocols;i:interfaces;types(...)'
@@ -378,7 +378,7 @@ let g:gundo_right = 1
 set autoread                  " Remember last location in file
 set timeoutlen=600            " timeout for leader maps
 
-au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+au! BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
   \| exe "normal g'\"" | endif
 
 let g:solarized_contrast='high'
@@ -391,20 +391,20 @@ if ! has('gui_running')
     augroup FastEscape
 
         autocmd!
-        au InsertEnter * set timeoutlen=0
-        au InsertLeave * set timeoutlen=1000
+        au! InsertEnter * set timeoutlen=0
+        au! InsertLeave * set timeoutlen=1000
     augroup END
 endif
 
 " }}}
 " File Type Configurations                                                   {{{
 
-au FileType javascript,css,less,scss,vim setlocal foldmethod=marker
-au FileType javascript,css,less,scss setlocal foldmarker={,}
+au! FileType javascript,css,less,scss,vim setlocal foldmethod=marker
+au! FileType javascript,css,less,scss setlocal foldmarker={,}
 
-au FileType make set noexpandtab
+au! FileType make set noexpandtab
 
-au BufReadPost fugitive://* set bufhidden=delete
+au! BufReadPost fugitive://* set bufhidden=delete
 
 " }}}
 
