@@ -248,6 +248,7 @@ map <C-t> :CtrlPTag<CR>
 " Quickly open certain files for editing
 map <leader>ev :tabe ~/.vim/vimrc<CR>:lcd %:p:h<CR>
 map <leader>em :tabe ~/.vimmnemonics<CR>
+map <leader>es :tabe<CR>:UltiSnipsEdit<CR>:lcd %:p:h<CR>
 
 " }}}
 " Folding Rules                                                              {{{
@@ -402,6 +403,8 @@ au FileType javascript,css,less,scss,vim setlocal foldmethod=marker
 au FileType javascript,css,less,scss setlocal foldmarker={,}
 
 au FileType make set noexpandtab
+
+au BufReadPost fugitive://* set bufhidden=delete
 
 " }}}
 
