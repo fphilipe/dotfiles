@@ -254,6 +254,9 @@ map <leader>ev :tabe ~/.vim/vimrc<CR>:lcd %:p:h<CR>
 map <leader>em :tabe ~/.vimmnemonics<CR>
 map <leader>es :tabe<CR>:UltiSnipsEdit<CR>:lcd %:p:h<CR>
 
+" Quickly call fugitive stuff
+map <leader>gs :Gstatus<CR>
+
 " }}}
 " Folding Rules                                                              {{{
 
