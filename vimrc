@@ -21,7 +21,6 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'chriskempson/base16-vim'
 Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'croaky/vim-colors-github'
-Bundle 'garbas/vim-snipmate'
 Bundle 'gmarik/vundle'
 Bundle 'kana/vim-textobj-user'
 Bundle 'kana/vim-smartinput'
@@ -37,6 +36,7 @@ Bundle 'ruby-matchit'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'SirVer/ultisnips'
 Bundle 'sjl/gundo.vim'
 Bundle 'slim-template/vim-slim'
 Bundle 'tomtom/tlib_vim'
@@ -86,7 +86,7 @@ set incsearch                   " show search matches as you type
 set gdefault                    " search/replace "globally" (on a line) by default
 set listchars=tab:▸\ ,trail:·,extends:…,nbsp:·
 set list                        " show above special chars
-set showbreak=↪ 
+set showbreak=↪ 
 set pastetoggle=<F2>            " when in insert mode, press <F2> to go to
                                 "   paste mode, where you can paste mass data
                                 "   that won't be autoindented
@@ -184,14 +184,15 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" Keep search matches in the middle of the window.
-nnoremap * *zz
-nnoremap ? ?zz
-nnoremap n nlhzz
-nnoremap N Nlhzz
+" Keep search matches in the middle of the window and open the fold.
+nnoremap * *zvzz
+nnoremap ? ?zvzz
+nnoremap n nzvzz
+nnoremap N Nzvzz
 
-" delete till eol
+" Same behavior as C
 nnoremap D d$
+nnoremap Y y$
 
 " Ack
 nnoremap <leader>f :Ack<space>
@@ -229,6 +230,8 @@ vmap <C-Down> ]egv
 
 " return in the middle of a line
 imap <C-CR> <ESC>o
+" go to insert with an empty line above and below
+nmap <C-CR> ]<space>o
 
 " highlight lines longer than 80 chars
 nnoremap <leader>ll /\%>80v.\+<CR>
@@ -236,15 +239,12 @@ nnoremap <leader>ll /\%>80v.\+<CR>
 " Adjust viewports to the same size
 map <Leader>= <C-w>=
 
-" edit snippets
-nnoremap <leader>es :SnipMateOpenSnippetFiles<CR>
-
 " open ControlP in tag mode
 map <C-t> :CtrlPTag<CR>
-" open ControlP in pwd mode by default
-let g:ctrlp_cmd = 'CtrlPCurWD'
 
-let g:gundo_right = 1
+" Quickly open certain files for editing
+map <leader>ev :tabe ~/.vim/vimrc<CR>:lcd %:p:h<CR>
+map <leader>em :tabe ~/.vimmnemonics<CR>
 
 " }}}
 " Folding Rules                                                              {{{
@@ -364,6 +364,9 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll|DS_Store)$',
   \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
   \ }
+let g:ctrlp_cmd = 'CtrlPCurWD'
+
+let g:gundo_right = 1
 
 " }}}
 " Editor Behavior                                                            {{{
