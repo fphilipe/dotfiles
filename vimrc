@@ -157,6 +157,9 @@ au FocusLost,TabLeave * :silent! wa     " TextMate style save on focus lost
 " }}}
 " Key Mappings                                                               {{{
 
+map <leader>wq <ESC>:wq<CR>
+imap <leader>wq <ESC>:wq<CR>
+
 " turn off highlighting
 nnoremap <leader><space> :noh<cr>
 
