@@ -141,8 +141,6 @@ set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,doc/**,coverage/
 set laststatus=2                " Always display the statusline in all windows
 set noshowmode                  " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 
-set iskeyword+=-,@,$
-
 set spell
 set spelllang=en_us
 
@@ -407,6 +405,9 @@ endif
 
 au! FileType javascript,css,less,scss,vim setlocal foldmethod=marker
 au! FileType javascript,css,less,scss setlocal foldmarker={,}
+
+au FileType scss setlocal iskeyword+=@-@,$,-,%,#,.
+au FileType css setlocal iskeyword+=-,#,.
 
 au! FileType make set noexpandtab
 
