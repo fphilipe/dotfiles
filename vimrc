@@ -403,11 +403,13 @@ endif
 " }}}
 " File Type Configurations                                                   {{{
 
-au! FileType javascript,css,less,scss,vim setlocal foldmethod=marker
-au! FileType javascript,css,less,scss setlocal foldmarker={,}
+au FileType javascript,css,less,scss,vim setlocal foldmethod=marker
+au FileType javascript,css,less,scss setlocal foldmarker={,}
+au FileType coffee setlocal foldmethod=indent
 
 au FileType scss setlocal iskeyword+=@-@,$,-,%,#,.
 au FileType css setlocal iskeyword+=-,#,.
+au FileType coffee setlocal iskeyword+=$
 
 au! FileType make set noexpandtab
 
