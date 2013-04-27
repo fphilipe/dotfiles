@@ -149,7 +149,7 @@ set cole=2
 let g:tex_conceal='adgm'
 hi Conceal guibg=bg guifg=#66d9ef
 
-au! FocusLost,TabLeave * :silent! wa     " TextMate style save on focus lost
+au FocusLost,TabLeave * :silent! wa     " TextMate style save on focus lost
 
 " }}}
 " Key Mappings                                                               {{{
@@ -323,7 +323,7 @@ let g:syntastic_java_javac_args="-classpath /usr/local/Cellar/hadoop/1.1.1/libex
 map <leader>ct :!/usr/local/bin/ctags --extra=+f -R *<CR><CR>
 map <C-\> :tnext<CR>
 
-au! BufNewFile,BufRead *.{rabl,podspec} set filetype=ruby
+au BufNewFile,BufRead *.{rabl,podspec} set filetype=ruby
 
 " add a definition for Objective-C to tagbar
 let tlist_objc_settings = 'ObjectiveC;P:protocols;i:interfaces;types(...)'
@@ -382,7 +382,7 @@ let g:gundo_right = 1
 set autoread                  " Remember last location in file
 set timeoutlen=600            " timeout for leader maps
 
-au! BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
   \| exe "normal g'\"" | endif
 
 let g:solarized_contrast='high'
@@ -411,7 +411,7 @@ au FileType scss setlocal iskeyword+=@-@,$,-,%,#,.
 au FileType css setlocal iskeyword+=-,#,.
 au FileType coffee setlocal iskeyword+=$
 
-au! FileType make set noexpandtab
+au FileType gitcommit setlocal formatoptions+=a
 
 au FileType make,snippets setlocal noexpandtab
 
