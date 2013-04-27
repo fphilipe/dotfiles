@@ -413,7 +413,9 @@ au FileType coffee setlocal iskeyword+=$
 
 au! FileType make set noexpandtab
 
-au! BufReadPost fugitive://* set bufhidden=delete
+au FileType make,snippets setlocal noexpandtab
+
+au BufReadPost fugitive://* set bufhidden=delete
 
 " }}}
 
