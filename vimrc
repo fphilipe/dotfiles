@@ -414,6 +414,7 @@ au FileType coffee setlocal iskeyword+=$
 au FileType gitcommit setlocal formatoptions+=a
 
 au FileType make,snippets setlocal noexpandtab
+au FileType objc setlocal shiftwidth=4
 
 au BufReadPost fugitive://* set bufhidden=delete
 
