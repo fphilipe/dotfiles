@@ -254,6 +254,7 @@ map <leader>es :tabe<CR>:UltiSnipsEdit<CR>:lcd %:p:h<CR>
 
 " Quickly call fugitive stuff
 map <leader>gs :Gstatus<CR>
+map <leader>gS :Gtabedit :<CR>
 
 " }}}
 " Folding Rules                                                              {{{
