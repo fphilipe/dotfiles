@@ -313,7 +313,7 @@ nmap <silent> zk :call NextClosedFold('k')<cr><leader>z
 " Plugins Configuration                                                      {{{
 
 " Netrw
-let g:netrw_liststyle=2
+let g:netrw_liststyle=3
 let g:netrw_browsex_viewer="open"
 
 " Tagbar
