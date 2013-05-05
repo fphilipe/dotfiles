@@ -155,6 +155,9 @@ au FocusLost,TabLeave * :silent! wa     " TextMate style save on focus lost
 " }}}
 " Key Mappings                                                               {{{
 
+" The current directory for the active file
+cnoremap %% <C-R>=expand('%:h').'/'<CR>
+
 map <leader>q <ESC>:q<CR>
 imap <leader>q <ESC>:q<CR>
 map <leader>w <ESC>:w<CR>
