@@ -33,7 +33,7 @@ Bundle 'nelstrom/vim-markdown-folding'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'rainbow_parentheses.vim'
 Bundle 'ruby-matchit'
-Bundle 'scrooloose/nerdtree'
+Bundle 'ryan-cf/netrw'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'SirVer/ultisnips'
@@ -221,7 +221,6 @@ map <down> <ESC>:cn<CR>zz
 map <S-down> <ESC>:cnewer<CR>
 map <up> <ESC>:cp<CR>zz
 map <S-up> <ESC>:colder<CR>
-map <left> <ESC>:NERDTreeToggle<CR>
 map <right> <ESC>:TagbarToggle<CR>
 map <S-right> <ESC>:GundoToggle<CR>
 
@@ -310,9 +309,9 @@ nmap <silent> zk :call NextClosedFold('k')<cr><leader>z
 " }}}
 " Plugins Configuration                                                      {{{
 
-" NERDTree
-let NERDTreeIgnore=['\.rbc$', '\~$', 'doc[[dir]]', 'tmp[[dir]]', 'build[[dir]]', 'doc[[dir]]', 'bin[[dir]]']
-let NERDTreeQuitOnOpen=1
+" Netrw
+let g:netrw_liststyle=2
+let g:netrw_browsex_viewer="open"
 
 " Tagbar
 let g:tagbar_autoclose = 1
