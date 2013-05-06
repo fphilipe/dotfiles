@@ -315,6 +315,7 @@ nmap <silent> zk :call NextClosedFold('k')<cr><leader>z
 " Netrw
 let g:netrw_liststyle=3
 let g:netrw_browsex_viewer="open"
+let g:netrw_list_hide='^\(\.DS_Store\|\.git\/\|Build\/\|.*\.xcodeproj\/\|.*xcworkspace\/\)$'
 
 " Tagbar
 let g:tagbar_autoclose = 1
