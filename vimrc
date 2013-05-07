@@ -408,8 +408,8 @@ endif
 " }}}
 " File Type Configurations                                                   {{{
 
-au FileType javascript,css,less,scss,vim setlocal foldmethod=marker
-au FileType javascript,css,less,scss setlocal foldmarker={,}
+au FileType javascript,css,less,scss,objc,c,vim setlocal foldmethod=marker
+au FileType javascript,css,less,scss,objc,c setlocal foldmarker={,}
 au FileType coffee setlocal foldmethod=indent
 
 au FileType scss setlocal iskeyword+=@-@,$,-,%,#,.
