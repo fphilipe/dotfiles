@@ -329,8 +329,6 @@ let g:syntastic_java_javac_args="-classpath /usr/local/Cellar/hadoop/1.1.1/libex
 map <leader>ct :!/usr/local/bin/ctags --extra=+f -R *<CR><CR>
 map <C-\> :tnext<CR>
 
-au BufNewFile,BufRead *.{rabl,podspec} set filetype=ruby
-
 " add a definition for Objective-C to tagbar
 let tlist_objc_settings = 'ObjectiveC;P:protocols;i:interfaces;types(...)'
 let g:tagbar_type_objc = {
@@ -426,6 +424,8 @@ au FileType make,snippets setlocal noexpandtab
 au FileType objc setlocal shiftwidth=4
 
 au BufReadPost fugitive://* set bufhidden=delete
+
+au BufNewFile,BufRead {Gem,Pod,Rake}file,*.{rabl,podspec} set filetype=ruby
 
 " }}}
 
