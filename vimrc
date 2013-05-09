@@ -393,17 +393,18 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 
 let g:solarized_contrast='high'
 let g:solarized_visibility='high'
-colorscheme solarized
-set background=light
 
 if ! has('gui_running')
-    set ttimeoutlen=10
-    augroup FastEscape
+  colorscheme Tomorrow-Night
+else
+  colorscheme Tomorrow-Night
+  set ttimeoutlen=10
+  augroup FastEscape
 
-        autocmd!
-        au! InsertEnter * set timeoutlen=0
-        au! InsertLeave * set timeoutlen=1000
-    augroup END
+    autocmd!
+    au! InsertEnter * set timeoutlen=0
+    au! InsertLeave * set timeoutlen=1000
+  augroup END
 endif
 
 " }}}
