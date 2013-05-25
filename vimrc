@@ -394,9 +394,9 @@ let g:solarized_contrast='high'
 let g:solarized_visibility='high'
 
 if ! has('gui_running')
-  colorscheme Tomorrow-Night
+  colorscheme base16-eighties
 else
-  colorscheme Tomorrow-Night
+  colorscheme base16-eighties
   set ttimeoutlen=10
   augroup FastEscape
 
