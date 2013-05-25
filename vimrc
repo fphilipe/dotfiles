@@ -394,8 +394,10 @@ let g:solarized_contrast='high'
 let g:solarized_visibility='high'
 
 if ! has('gui_running')
+  set bg=dark
   colorscheme base16-eighties
 else
+  set bg=dark
   colorscheme base16-eighties
   set ttimeoutlen=10
   augroup FastEscape
