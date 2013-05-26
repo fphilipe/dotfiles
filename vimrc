@@ -91,7 +91,6 @@ set pastetoggle=<F2>            " when in insert mode, press <F2> to go to
                                 "   paste mode, where you can paste mass data
                                 "   that won't be autoindented
 set t_Co=256                    " Explicitly tell that the terminal has 256 colors
-let base16colorspace=256
 
 " suppress all bells
 set novisualbell
