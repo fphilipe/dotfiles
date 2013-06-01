@@ -50,6 +50,11 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tsaleh/vim-align'
 Bundle 'vim-coffee-script'
+Bundle 'tpope/vim-dispatch'
+Bundle 'jgdavey/vim-turbux'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'sjl/vitality.vim'
+Bundle 'LnL7/vim-tslime'
 
 " }}}
 " Editing Behavior                                                           {{{
@@ -379,6 +384,15 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_cmd = 'CtrlPCurWD'
 
 let g:gundo_right = 1
+
+let g:turbux_command_rspec = 'rspec -fp --drb'
+let g:no_turbux_mappings = 1
+" Rspec file
+map <leader>rf <Plug>SendTestToTmux
+" Rspec line
+map <leader>rl <Plug>SendFocusedTestToTmux
+" Rspec format doc
+map <leader>rd :<C-U>w \| call SendToTmux("rspec --drb -fd ".expand("%")."\n")<CR>
 
 " }}}
 " Editor Behavior                                                            {{{
