@@ -425,7 +425,9 @@ au FileType gitcommit setlocal colorcolumn=51
 au FileType make,snippets setlocal noexpandtab
 au FileType objc setlocal shiftwidth=4
 
+" Delete certain buffers in order to not cluttering up the buffer list:
 au BufReadPost fugitive://* set bufhidden=delete
+au BufReadPost ~/.rbenv/* set bufhidden=delete
 
 au BufNewFile,BufRead {Gem,Pod,Rake}file,*.{rabl,podspec} set filetype=ruby
 
