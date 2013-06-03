@@ -394,6 +394,11 @@ map <leader>rl <Plug>SendFocusedTestToTmux
 " Rspec format doc
 map <leader>rd :<C-U>w \| call SendToTmux("rspec --drb -fd ".expand("%")."\n")<CR>
 
+" UltiSnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
 " }}}
 " Editor Behavior                                                            {{{
 
