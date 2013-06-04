@@ -393,6 +393,10 @@ map <leader>rf <Plug>SendTestToTmux
 map <leader>rl <Plug>SendFocusedTestToTmux
 " Rspec format doc
 map <leader>rd :<C-U>w \| call SendToTmux("rspec --drb -fd ".expand("%")."\n")<CR>
+" Dispatch
+map <leader>d :Dispatch<space>
+" Tx
+map <leader>tx :Tx<space>
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<tab>"
