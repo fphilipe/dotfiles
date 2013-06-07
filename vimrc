@@ -262,7 +262,9 @@ map <leader>es :tabe<CR>:UltiSnipsEdit<CR>:lcd %:p:h<CR>
 map <leader>gs :Gstatus<CR>
 map <leader>gS :Gtabedit :<CR>
 map <leader>gd :Gdiff<CR>
-map <leader>gn <C-w>h:wq<CR><C-w>j
+" When diffing two files, save the one on the left, close it, go to the git
+" status split below and jump to the next file:
+map <leader>gn <C-w>h:wq<CR><C-w>j<C-n>
 
 " }}}
 " Folding Rules                                                              {{{
@@ -393,6 +395,10 @@ map <leader>rf <Plug>SendTestToTmux
 map <leader>rl <Plug>SendFocusedTestToTmux
 " Rspec format doc
 map <leader>rd :<C-U>w \| call SendToTmux("rspec --drb -fd ".expand("%")."\n")<CR>
+" Rspec line
+map <leader>ra :<C-U>w \| Dispatch rspec --drb<CR>
+" Rspec all format doc
+map <leader>rad :<C-U>w \| call SendToTmux("rspec --drb -fd\n")<CR>
 " Dispatch
 map <leader>d :Dispatch<space>
 " Tx
