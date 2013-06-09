@@ -55,6 +55,7 @@ Bundle 'jgdavey/vim-turbux'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'sjl/vitality.vim'
 Bundle 'LnL7/vim-tslime'
+Bundle 'christoomey/vim-tmux-navigator'
 
 " }}}
 " Editing Behavior                                                           {{{
