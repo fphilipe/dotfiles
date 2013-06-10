@@ -253,7 +253,7 @@ map <Leader>= <C-w>=
 map <C-t> :CtrlPTag<CR>
 
 " Quickly open certain files for editing
-map <leader>ev :tabe ~/.vim/vimrc<CR>:lcd %:p:h<CR>
+map <leader>ev :tabe ~/dotfiles/vimrc<CR>:lcd %:p:h<CR>
 map <leader>em :tabe ~/.vimmnemonics<CR>
 map <leader>es :tabe<CR>:UltiSnipsEdit<CR>:lcd %:p:h<CR>
 
