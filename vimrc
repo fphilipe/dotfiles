@@ -173,9 +173,6 @@ imap <leader>wq <ESC>:wq<CR>
 " turn off highlighting
 nnoremap <leader><space> :noh<cr>
 
-nmap <tab> %
-vmap <tab> %
-
 " Thanks to Steve Losh for this liberating tip
 " See http://stevelosh.com/blog/2010/09/coming-home-to-vim
 nnoremap / /\v
