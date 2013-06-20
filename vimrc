@@ -395,7 +395,7 @@ map <leader>rl <Plug>SendFocusedTestToTmux
 " Rspec format doc
 map <leader>rd :<C-U>w \| call SendToTmux("rspec --drb -fd ".expand("%")."\n")<CR>
 " Rspec line
-map <leader>ra :<C-U>w \| Dispatch rspec --drb<CR>
+map <leader>ra :<C-U>w \| Dispatch rspec --drb -fp<CR>
 " Rspec all format doc
 map <leader>rad :<C-U>w \| call SendToTmux("rspec --drb -fd\n")<CR>
 " Dispatch
