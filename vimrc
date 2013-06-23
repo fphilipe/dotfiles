@@ -99,6 +99,13 @@ set pastetoggle=<F2>            " when in insert mode, press <F2> to go to
                                 "   that won't be autoindented
 set t_Co=256                    " Explicitly tell that the terminal has 256 colors
 
+" http://snk.tuxfamily.org/log/vim-256color-bce.html
+" Disable Background Color Erase (BCE) so that color schemes
+" work properly when Vim is used inside tmux and GNU screen.
+if &term =~ '256color'
+  set t_ut=
+endif
+
 " suppress all bells
 set novisualbell
 set noerrorbells
