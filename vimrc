@@ -417,11 +417,11 @@ map <leader>rf <Plug>SendTestToTmux
 " Rspec line
 map <leader>rl <Plug>SendFocusedTestToTmux
 " Rspec format doc
-map <leader>rd :<C-U>w \| call SendToTmux("rspec --drb -fd ".expand("%")."\n")<CR>
+map <leader>rd :<C-U>update \| call SendToTmux("rspec --drb -fd ".expand("%")."\n")<CR>
 " Rspec line
-map <leader>ra :<C-U>w \| Dispatch rspec --drb -fp<CR>
+map <leader>ra :<C-U>update \| Dispatch rspec --drb -fp<CR>
 " Rspec all format doc
-map <leader>rad :<C-U>w \| call SendToTmux("rspec --drb -fd\n")<CR>
+map <leader>rad :<C-U>update \| call SendToTmux("rspec --drb -fd\n")<CR>
 " Dispatch
 map <leader>d :Dispatch<space>
 " Tx
