@@ -427,6 +427,8 @@ map <leader>rad :<C-U>update \| call SendToTmux("rspec --drb -fd\n")<CR>
 map <leader>d :Dispatch<space>
 " Tx
 map <leader>tx :Tx<space>
+" Karma unit
+map <leader>ku :<C-U>update \| Dispatch grunt karma:unit_once<CR>
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<tab>"
