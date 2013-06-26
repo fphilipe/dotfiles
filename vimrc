@@ -72,6 +72,7 @@ set expandtab                   " use spaces
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode
 set autoindent                  " always set autoindenting on
 set copyindent                  " copy the previous indentation on autoindenting
+set digraph                     " Type digraphs by using backspace instead of C-K
 if v:version >= 703
   set relativenumber            " use relative line numbers
 else
