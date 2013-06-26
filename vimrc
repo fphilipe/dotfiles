@@ -380,6 +380,19 @@ let g:tagbar_type_objc = {
         \ 'enumeration'    : 'e'
     \ }
 \ }
+let g:tagbar_type_coffee = {
+  \ 'ctagsbin' : 'coffeetags',
+  \ 'ctagsargs' : '',
+  \ 'kinds' : [
+    \ 'f:functions',
+    \ 'o:object',
+  \ ],
+  \ 'sro' : ".",
+  \ 'kind2scope' : {
+    \ 'f' : 'object',
+    \ 'o' : 'object',
+  \ }
+\ }
 
 " Powerline
 set rtp+=~/.virtualenv/default_env/lib/python2.7/site-packages/powerline/bindings/vim/
