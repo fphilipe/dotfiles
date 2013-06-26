@@ -402,7 +402,7 @@ set rtp+=~/.virtualenv/default_env/lib/python2.7/site-packages/powerline/binding
 let g:ctrlp_extensions = ['tag']
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.(git|hg|svn|sass-cache|bundle)|build|tmp|bin)$',
+  \ 'dir':  '\v[\/](\.(git|hg|svn|sass-cache|bundle|tmp)|build|tmp|bin|node_modules|docs)$',
   \ 'file': '\v\.(exe|so|dll|DS_Store)$',
   \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
   \ }
