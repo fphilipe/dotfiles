@@ -102,6 +102,9 @@ plugins=(git ssh-agent gem heroku brew)
 
 source $ZSH/oh-my-zsh.sh
 
+# Disable reflow so that CTRL-Q works in vim.
+stty -ixon
+
 # Don't use autocorrection.
 unsetopt correct_all
 # Prevent setting paths multiple times:
