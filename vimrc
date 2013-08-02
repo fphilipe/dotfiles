@@ -334,7 +334,7 @@ nmap <silent> zk :call NextClosedFold('k')<cr><leader>z
 " Netrw
 let g:netrw_liststyle=3
 let g:netrw_browsex_viewer="open"
-let g:netrw_list_hide='^\(\.bundle\/\|\.sass-cache\/\|\.DS_Store\|\.git\/\|Build\/\|.*\.xcodeproj\/\|.*xcworkspace\/\)$'
+let g:netrw_list_hide='^\(\.bundle\/\|\.sass-cache\/\|\.DS_Store\|\.git\/\|Build\/\|.*\.xcodeproj\/\|.*xcworkspace\/\|\.yardoc\)$'
 
 " Tagbar
 let g:tagbar_autoclose = 1
@@ -403,7 +403,7 @@ set rtp+=~/.virtualenv/default_env/lib/python2.7/site-packages/powerline/binding
 let g:ctrlp_extensions = ['tag']
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.(git|hg|svn|sass-cache|bundle|tmp)|build|tmp|bin|node_modules|docs)$',
+  \ 'dir':  '\v[\/](\.(git|hg|svn|sass-cache|bundle|tmp|yardoc)|build|tmp|bin|node_modules|docs?)$',
   \ 'file': '\v(\.(exe|so|dll|DS_Store)|tags)$',
   \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
   \ }
