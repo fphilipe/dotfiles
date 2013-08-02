@@ -418,17 +418,17 @@ map <leader>rf <Plug>SendTestToTmux
 " Rspec line
 map <leader>rl <Plug>SendFocusedTestToTmux
 " Rspec format doc
-map <leader>rd :<C-U>update \| call SendToTmux("rspec --drb -fd ".expand("%")."\n")<CR>
+map <leader>rd :silent! wa \| call SendToTmux("rspec --drb -fd ".expand("%")."\n")<CR>
 " Rspec line
-map <leader>ra :<C-U>update \| Dispatch rspec --drb -fp<CR>
+map <leader>ra :silent! wa \| Dispatch rspec --drb -fp<CR>
 " Rspec all format doc
-map <leader>rad :<C-U>update \| call SendToTmux("rspec --drb -fd\n")<CR>
+map <leader>rad :silent! wa \| call SendToTmux("rspec --drb -fd\n")<CR>
 " Dispatch
 map <leader>d :Dispatch<space>
 " Tx
 map <leader>tx :Tx<space>
 " Karma unit
-map <leader>ku :<C-U>update \| Dispatch grunt karma:unit_once<CR>
+map <leader>ku :silent! wa \| Dispatch grunt karma:unit_once<CR>
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<tab>"
