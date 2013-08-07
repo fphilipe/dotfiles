@@ -115,7 +115,6 @@ export PATH="$HOME/.scripts:$PATH"
 # Node Packace Manager
 export PATH="/usr/local/share/npm/bin:$PATH"
 # Python virtualenv
-export PATH="/usr/local/share/python:$PATH"
 export PATH="$HOME/.virtualenv/default_env/bin:$PATH"
 # Load rbenv
 export PATH="$HOME/.rbenv/shims:$PATH"
