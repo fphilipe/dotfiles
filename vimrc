@@ -328,6 +328,48 @@ endfunction
 nmap <silent> zj :call NextClosedFold('j')<cr><leader>z
 nmap <silent> zk :call NextClosedFold('k')<cr><leader>z
 
+" Fold for languages that use indentation. The indent fold method uses the first
+" line of an indentation level as the fold. This will use the previous line as
+" the fold.
+" http://learnvimscriptthehardway.stevelosh.com/chapters/49.html
+function! GetIndentationFold(lnum)
+    if getline(a:lnum) =~? '\v^\s*$'
+        return '-1'
+    endif
+
+    let this_indent = IndentLevel(a:lnum)
+    let next_indent = IndentLevel(NextNonBlankLine(a:lnum))
+
+    if next_indent == this_indent
+        return this_indent
+    elseif next_indent < this_indent
+        return this_indent
+    elseif next_indent > this_indent
+        return '>' . next_indent
+    endif
+endfunction
+
+function! IndentLevel(lnum)
+    return indent(a:lnum) / &shiftwidth
+endfunction
+
+function! NextNonBlankLine(lnum)
+    let numlines = line('$')
+    let current = a:lnum + 1
+
+    while current <= numlines
+        if getline(current) =~? '\v\S'
+            return current
+        endif
+
+        let current += 1
+    endwhile
+
+    return -2
+endfunction
+
+set foldexpr=GetIndentationFold(v:lnum)
+
 " }}}
 " Plugins Configuration                                                      {{{
 
@@ -470,7 +512,7 @@ endif
 
 au FileType javascript,css,less,scss,objc,c,vim setlocal foldmethod=marker
 au FileType javascript,css,less,scss,objc,c setlocal foldmarker={,}
-au FileType coffee setlocal foldmethod=indent
+au FileType coffee setlocal foldmethod=expr
 
 au FileType scss setlocal iskeyword+=@-@,$,-,%,#,.
 au FileType css setlocal iskeyword+=-,#,.
