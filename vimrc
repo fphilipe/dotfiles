@@ -368,6 +368,8 @@ function! NextNonBlankLine(lnum)
     return -2
 endfunction
 
+set foldexpr=GetIndentationFold(v:lnum)
+
 " }}}
 " Plugins Configuration                                                      {{{
 
@@ -510,8 +512,6 @@ endif
 
 au FileType javascript,css,less,scss,objc,c,vim setlocal foldmethod=marker
 au FileType javascript,css,less,scss,objc,c setlocal foldmarker={,}
-
-au FileType coffee setlocal foldexpr=GetIndentationFold(v:lnum)
 au FileType coffee setlocal foldmethod=expr
 
 au FileType scss setlocal iskeyword+=@-@,$,-,%,#,.
