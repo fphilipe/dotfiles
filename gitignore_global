@@ -45,3 +45,5 @@ bin
 .rbx/
 .sass-cache/
 .yardoc/
+doc/
+todo.txt
