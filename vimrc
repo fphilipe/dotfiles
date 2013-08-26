@@ -27,7 +27,7 @@ Bundle 'kana/vim-smartinput'
 Bundle 'kien/ctrlp.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'matchit.zip'
-Bundle 'mileszs/ack.vim'
+Bundle 'rking/ag.vim'
 Bundle 'ap/vim-css-color'
 Bundle 'nelstrom/vim-markdown-folding'
 Bundle 'nelstrom/vim-textobj-rubyblock'
@@ -205,9 +205,6 @@ nnoremap N Nzvzz
 " Same behavior as C
 nnoremap D d$
 nnoremap Y y$
-
-" Ack
-nnoremap <leader>f :Ack<space>
 
 " toggle fold
 nnoremap <Space> za
