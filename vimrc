@@ -172,13 +172,6 @@ au FocusLost,TabLeave * :silent! wa     " TextMate style save on focus lost
 " The current directory for the active file
 cnoremap %% <C-R>=expand('%:h').'/'<CR>
 
-map <leader>q <ESC>:q<CR>
-imap <leader>q <ESC>:q<CR>
-map <leader>w <ESC>:w<CR>
-imap <leader>w <ESC>:w<CR>
-map <leader>wq <ESC>:wq<CR>
-imap <leader>wq <ESC>:wq<CR>
-
 " turn off highlighting
 nnoremap <leader><space> :noh<cr>
 
