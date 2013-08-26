@@ -275,7 +275,7 @@ map <leader>gr :Gread<CR>
 map <leader>gb :Gblame<CR>
 " When diffing two files, save the one on the left, close it, go to the git
 " status split below and jump to the next file:
-map <leader>gn <C-w>h:wq<CR><C-w>j<C-n>
+map <leader>gn <C-w>h:x<CR><C-w>j<C-n>
 
 " }}}
 " Folding Rules                                                              {{{
