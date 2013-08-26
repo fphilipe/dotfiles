@@ -512,7 +512,7 @@ endif
 
 au FileType javascript,css,less,scss,objc,c,vim setlocal foldmethod=marker
 au FileType javascript,css,less,scss,objc,c setlocal foldmarker={,}
-au FileType coffee setlocal foldmethod=expr
+au FileType coffee,slim setlocal foldmethod=expr
 
 au FileType scss setlocal iskeyword+=@-@,$,-,%,#,.
 au FileType css setlocal iskeyword+=-,#,.
