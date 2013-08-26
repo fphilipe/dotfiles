@@ -1,0 +1,36 @@
+[user]
+  name = Philipe Fatio
+  email = me@phili.pe
+[core]
+  editor = vim -f
+  quotepath = false
+  excludesfile = ~/.gitignore_global
+[color]
+  ui = true
+[alias]
+  authors = log --format='%aN <%aE>'
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  last = log -n1 --decorate=short --abbrev-commit --format=fuller
+  s = status -sb
+  d = diff
+  wd = diff --word-diff
+  co = checkout
+  ri = rebase --interactive --autosquash
+[gui]
+  fontdiff = -family Menlo -size 11 -weight normal -slant roman -underline 0 -overstrike 0
+[push]
+  default = tracking
+[help]
+  autocorrect = 1
+[branch]
+  autosetuprebase = always
+[web]
+  browser = open
+[difftool]
+  prompt = false
+[mergetool]
+  prompt = false
+[merge]
+  tool = vimdiff
+[mergetool "vimdiff"]
+  keepBackup = false
