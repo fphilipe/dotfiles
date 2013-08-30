@@ -34,3 +34,5 @@
   tool = vimdiff
 [mergetool "vimdiff"]
   keepBackup = false
+[github]
+  user = fphilipe
