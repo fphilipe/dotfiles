@@ -47,3 +47,4 @@ bin
 .yardoc/
 doc/
 todo.txt
+node_modules/
