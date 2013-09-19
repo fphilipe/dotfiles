@@ -114,6 +114,7 @@ export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="$HOME/.scripts:$PATH"
 # Node Packace Manager
 export PATH="/usr/local/share/npm/bin:$PATH"
+export PATH="./node_modules/.bin:$PATH"
 # Python virtualenv
 export PATH="$HOME/.virtualenv/default_env/bin:$PATH"
 # Load rbenv
