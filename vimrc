@@ -441,18 +441,18 @@ let g:ctrlp_cmd = 'CtrlPCurWD'
 
 let g:gundo_right = 1
 
-let g:turbux_command_rspec = 'rspec -fp --drb'
+let g:turbux_command_rspec = 'zeus rspec -fp'
 let g:no_turbux_mappings = 1
 " Rspec file
 map <leader>rf <Plug>SendTestToTmux
 " Rspec line
 map <leader>rl <Plug>SendFocusedTestToTmux
 " Rspec format doc
-map <leader>rd :silent! wa \| call SendToTmux("rspec --drb -fd ".expand("%")."\n")<CR>
+map <leader>rd :silent! wa \| call SendToTmux("zeus rspec -fd ".expand("%")."\n")<CR>
 " Rspec line
-map <leader>ra :silent! wa \| Dispatch rspec --drb -fp<CR>
+map <leader>ra :silent! wa \| Dispatch zeus rspec -fp<CR>
 " Rspec all format doc
-map <leader>rad :silent! wa \| call SendToTmux("rspec --drb -fd\n")<CR>
+map <leader>rad :silent! wa \| call SendToTmux("zeus rspec -fd\n")<CR>
 " Dispatch
 map <leader>d :Dispatch<space>
 " Tx
