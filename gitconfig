@@ -31,9 +31,10 @@
   prompt = false
 [mergetool]
   prompt = false
+  keepBackup = false
 [merge]
   tool = vimdiff
-[mergetool "vimdiff"]
-  keepBackup = false
+[init]
+  templatedir = ~/.git_template
 [github]
   user = fphilipe
