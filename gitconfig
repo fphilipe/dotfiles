@@ -1,6 +1,7 @@
 [user]
   name = Philipe Fatio
   email = me@phili.pe
+  signkey = F74418A0
 [core]
   editor = vim -f
   quotepath = false
