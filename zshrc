@@ -20,6 +20,8 @@ bindkey -v
 # Aliases
 alias ls="ls -l"
 alias -s md="open -a Marked"
+# QuickLook
+alias ql='qlmanage -p "$@" > /dev/null'
 function git(){hub "$@"}
 
 # Functions
