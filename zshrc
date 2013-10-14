@@ -39,17 +39,13 @@ function git_fetch_remotes() {
 
 # Delete local branches that were already merged.
 function git_prune_local_branches() {
-  flag=$1
-  branches=`git branch --merged | sed '/*/d' | sed '/master/d'`;
-  for branch in `echo $branches`
-  do
-    if [[ $flag = "-f" ]]
-    then
-      git branch -d $branch;
-    else
-      echo "Would delete $branch"
-    fi
-  done
+  branches=$(git branch --merged master | sed '/*/d' | sed '/master/d')
+  if [[ $1 = "-f" ]]; then
+    echo $branches | xargs git branch -d
+  else
+    echo 'Would delete (call with -f to delete):'
+    echo $branches
+  fi
 }
 
 # Delete remote merged branches that were already merged.
