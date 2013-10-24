@@ -14,6 +14,9 @@ ZSH_THEME="philipe"
 
 export EDITOR=vim
 
+# Link homebrew cask apps in /Applications.
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
 # Enable vi mode
 bindkey -v
 
