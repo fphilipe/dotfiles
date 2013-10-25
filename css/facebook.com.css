@@ -1,0 +1,5 @@
+/* Hide ads: */
+#pagelet_ego_pane,
+#pagelet_friends_online {
+  display: none;
+}
