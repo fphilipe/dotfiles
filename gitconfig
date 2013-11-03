@@ -20,7 +20,7 @@
 [gui]
   fontdiff = -family Menlo -size 11 -weight normal -slant roman -underline 0 -overstrike 0
 [push]
-  default = tracking
+  default = upstream
 [help]
   autocorrect = 1
 [branch]
