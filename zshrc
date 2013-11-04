@@ -103,7 +103,6 @@ plugins=(
   brew
   gem
   git
-  github
   heroku
   osx
   powder
