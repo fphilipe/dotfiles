@@ -33,6 +33,7 @@
   prompt = false
   keepBackup = false
 [merge]
+  ff = no
   tool = vimdiff
 [init]
   templatedir = ~/.git_template
