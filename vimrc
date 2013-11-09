@@ -521,4 +521,9 @@ au BufReadPost ~/.rbenv/* set bufhidden=delete
 au BufNewFile,BufRead {Gem,Pod,Rake}file,*.{rabl,podspec} set filetype=ruby
 au BufNewFile,BufRead *_spec.rb set filetype=rspec.ruby
 
+" Don't autowrap lines when writing a pull request as line breaks are preserved:
+au VimEnter PULLREQ_EDITMSG setlocal formatoptions-=t
+" Since we no longer autowrap at least soft wrap:
+au VimEnter PULLREQ_EDITMSG setlocal wrap
+
 " }}}
