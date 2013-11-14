@@ -40,6 +40,7 @@ Bundle 'rking/ag.vim'
 Bundle 'ruby-matchit'
 Bundle 'ryan-cf/netrw'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'SirVer/ultisnips'
 Bundle 'sjl/gundo.vim'
@@ -224,6 +225,7 @@ map <down> <ESC>:cn<CR>zz
 map <S-down> <ESC>:cnewer<CR>
 map <up> <ESC>:cp<CR>zz
 map <S-up> <ESC>:colder<CR>
+map <left> <ESC>:NERDTreeToggle<CR>
 map <right> <ESC>:TagbarToggle<CR>
 map <S-right> <ESC>:GundoToggle<CR>
 
@@ -366,6 +368,20 @@ set foldexpr=GetIndentationFold(v:lnum)
 let g:netrw_liststyle=3
 let g:netrw_browsex_viewer="open"
 let g:netrw_list_hide='^\(\.bundle\/\|\.sass-cache\/\|\.DS_Store\|\.git\/\|Build\/\|.*\.xcodeproj\/\|.*xcworkspace\/\|\.yardoc\)$'
+
+" NERDTree
+let NERDTreeIgnore=[
+\ '\.rbc$',
+\ '\~$',
+\ 'tags[[file]]',
+\ 'doc[[dir]]',
+\ 'tmp[[dir]]',
+\ 'build[[dir]]',
+\ 'doc[[dir]]',
+\ 'bin[[dir]]',
+\ 'coverage[[dir]]'
+\]
+let NERDTreeQuitOnOpen=1
 
 " Tagbar
 let g:tagbar_autoclose = 1
