@@ -3,3 +3,4 @@ tags
 logs/*
 tmp/*
 .tmp/*
+bin/*
