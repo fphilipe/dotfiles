@@ -226,6 +226,7 @@ map <S-down> <ESC>:cnewer<CR>
 map <up> <ESC>:cp<CR>zz
 map <S-up> <ESC>:colder<CR>
 map <left> <ESC>:NERDTreeToggle<CR>
+map <S-left> <ESC>:NERDTreeFind<CR>
 map <right> <ESC>:TagbarToggle<CR>
 map <S-right> <ESC>:GundoToggle<CR>
 
