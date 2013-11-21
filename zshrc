@@ -27,6 +27,21 @@ alias -s md="open -a Marked"
 alias ql='qlmanage -p "$@" > /dev/null'
 function git(){hub "$@"}
 
+# Returns the current branch name and its status using colored dots as indicator.
+function git_prompt_info() {
+  if [ -d .git ] || git rev-parse --git-dir > /dev/null 2>&1; then
+   git_status=$(/usr/local/bin/git status -sb)
+       branch=$(echo "$git_status" | sed -e '/^## /!d' -e 's/## //' -e 's/\.\.\..*//')
+        ahead=$(echo "$git_status" | sed -e '/^## .*\[ahead/!d' -e 's/.*ahead \([0-9]*\).*/+\1/')
+       behind=$(echo "$git_status" | sed -e '/^## .*[, \[]behind/!d' -e 's/.*behind \([0-9]*\).*/-\1/')
+       staged=$(echo "$git_status" | sed -e '/^[MDA]. /!d' | tail -1 | sed -e 's/.*/•/')
+     modified=$(echo "$git_status" | sed -e '/^.[MD] /!d' | tail -1 | sed -e 's/.*/•/')
+    untracked=$(echo "$git_status" | sed -e '/^?? /!d' | tail -1 | sed -e 's/.*/•/')
+     conflict=$(echo "$git_status" | sed -e '/^UU /!d' | tail -1 | sed -e 's/.*/•/')
+    echo "| $branch ($(git_prompt_short_sha)) %{$fg[green]%}$ahead%{$fg[red]%}$behind\n%{$fg[green]%}$staged%{$fg[red]%}$modified%{$fg[yellow]%}$untracked%{$fg[blue]%}$conflict%{$reset_color%}";
+  fi
+}
+
 # Functions
 function h-pro() {
   heroku $@ --app lu-production
