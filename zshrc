@@ -7,6 +7,7 @@ bindkey -v
 # Aliases
 alias ls="ls -l"
 alias -s md="open -a Marked"
+alias tmux="tmux -S /tmp/tmux"
 # QuickLook
 alias ql='qlmanage -p "$@" > /dev/null'
 function git(){hub "$@"}
