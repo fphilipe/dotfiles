@@ -80,6 +80,12 @@ function git_prompt_info() {
 # Disable reflow so that CTRL-Q works in vim.
 stty -ixon
 
+# Load chruby and enable auto switching when entering a directory containing
+# a .ruby-version file:
+source '/usr/local/share/chruby/chruby.sh'
+source '/usr/local/share/chruby/auto.sh'
+chruby ruby
+
 # Link homebrew cask apps in /Applications.
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
@@ -93,9 +99,5 @@ export PATH="/usr/local/share/npm/bin:$PATH"
 export PATH="./node_modules/.bin:$PATH"
 # Python virtualenv
 export PATH="$HOME/.virtualenv/default_env/bin:$PATH"
-# Load rbenv
-export PATH="$HOME/.rbenv/shims:$PATH"
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
 # bundler binstubs
 export PATH="./bin:$PATH"
