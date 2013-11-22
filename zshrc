@@ -56,6 +56,9 @@ done
 autoload -U compinit
 compinit
 
+# Don't use autocorrection:
+unsetopt correct_all
+
 PROMPT='
 %{$fg[magenta]%}%n%{$reset_color%}@%{$fg[yellow]%}$(hostname -s)%{$reset_color%} %{$fg_bold[green]%}%~%{$reset_color%} $(git_prompt_info)$ '
 
