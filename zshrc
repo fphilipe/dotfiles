@@ -3,6 +3,7 @@ export EDITOR=vim
 
 # Shortcut paths:
 eth=~/Documents/ETH/Master/semesters/2
+repos=~/Coding/repositories
 
 # Enable vi mode
 bindkey -v
