@@ -1,6 +1,9 @@
 export LANG="en_US.UTF-8"
 export EDITOR=vim
 
+# Shortcut paths:
+eth=~/Documents/ETH/Master/semesters/2
+
 # Enable vi mode
 bindkey -v
 
