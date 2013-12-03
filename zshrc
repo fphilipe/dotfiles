@@ -1,3 +1,3 @@
-for file ($HOME/.zsh/configs/*.zsh); do
+for file ($HOME/.zsh/*.zsh); do
   source $file
 done
