@@ -232,16 +232,18 @@ map <S-right> <ESC>:GundoToggle<CR>
 
 " Unimpaired configuration
 " Bubble single lines
-nmap <C-Up> [e
-nmap <C-Down> ]e
+nmap <M-Up> [e
+nmap <M-Down> ]e
 " Bubble multiple lines
-vmap <C-Up> [egv
-vmap <C-Down> ]egv
+vmap <M-Up> [egv
+vmap <M-Down> ]egv
 
 " return in the middle of a line
-imap <C-CR> <ESC>o
+imap <leader><CR> <ESC>o
 " go to insert with an empty line above and below
-nmap <C-CR> ]<space>o
+nmap <leader>o o<CR><CR><Up>
+" go to insert with an empty line above and below
+nmap <leader>O O<CR><CR><Up>
 
 " highlight lines longer than 80 chars
 nnoremap <leader>ll /\%>80v.\+<CR>
