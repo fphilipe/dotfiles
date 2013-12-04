@@ -1,7 +1,7 @@
 # Substitute color vars in PROMPT var.
 setopt prompt_subst
 
-PROMPT='%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[yellow]%}$(hostname -s)%{$reset_color%} %{$fg_bold[green]%}%~%{$reset_color%} $(git_prompt_info)> '
+PROMPT='%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[yellow]%}$(hostname -s)%{$reset_color%} %{$fg_bold[green]%}%~%{$reset_color%} $(git_prompt_info)❯ '
 
 # Returns the current branch name and its status using colored dots as indicator.
 function git_prompt_info() {
