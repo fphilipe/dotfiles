@@ -14,7 +14,7 @@ function git_prompt_info() {
   local behind="$(sed -e '/behind/!d' -e 's/.*behind \([0-9]*\).*/-\1/' <<< $first_line)"
   local staged="$(awk '/^[MDA]. / { print "•"; exit }' <<< $s)"
   local modified="$(awk '/^.[MD] / { print "•"; exit }' <<< $s)"
-  local untracked="$(awk '/^?? / { print "•"; exit }' <<< $s)"
+  local untracked="$(awk '/^\?\? / { print "•"; exit }' <<< $s)"
   local conflict="$(awk '/^UU / { print "•"; exit }' <<< $s)"
   echo "%{$fg_bold[blue]%}%{$branch%}%{$reset_color%}@%{$fg[yellow]%}$sha%{$fg[green]%} $ahead%{$fg[red]%}$behind\n%{$fg[green]%}$staged%{$fg[red]%}$modified%{$fg[yellow]%}$untracked%{$fg[blue]%}$conflict%{$reset_color%}";
 }
