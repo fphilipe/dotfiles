@@ -1,4 +1,3 @@
-# The
 paths=(
   # Homebrew
   '/usr/local/bin'

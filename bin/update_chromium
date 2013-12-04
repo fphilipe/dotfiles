@@ -1,0 +1,85 @@
+#!/bin/sh
+
+#### CONFIG ################################
+USE_OLD_ICON=false                         # replace the new simplified icon with the old one
+APP_DESTINATION=/Applications/Chromium.app # where to put the app
+SUPPORT_DIR="`dirname "$0"`/.support"      # where the icon and version number will be stored
+############################################
+
+VERSION_FILE="$SUPPORT_DIR/chromium_version"
+NEWEST_VERSION=`curl -s http://commondatastorage.googleapis.com/chromium-browser-snapshots/Mac/LAST_CHANGE`
+TMP_DIR="/tmp/chromium-$NEWEST_VERSION"
+ZIP_FILE="$TMP_DIR.zip"
+ZIP_URL="http://commondatastorage.googleapis.com/chromium-browser-snapshots/Mac/$NEWEST_VERSION/chrome-mac.zip"
+TMP_APP="$TMP_DIR/chrome-mac/Chromium.app"
+ICON_URL="http://src.chromium.org/viewvc/chrome/trunk/src/chrome/app/theme/chromium/app.icns?revision=21431"
+ICON_FILE="$SUPPORT_DIR/chromium.icns"
+
+[[ -e "$VERSION_FILE" ]] && CURRENT_VERSION=`cat "$VERSION_FILE"`
+
+[[ -z "$NEWEST_VERSION" ]] &&
+	echo "Could not check for the newest version." &&
+	exit 1
+
+if [[ "$NEWEST_VERSION" -gt "$CURRENT_VERSION" ]]
+then
+	[[ ! -z "$CURRENT_VERSION" ]] &&
+		echo "Current version is $CURRENT_VERSION."
+	echo "Downloading newest version $NEWEST_VERSION..."
+	echo
+else
+	echo "Newest version $CURRENT_VERSION already installed."
+	exit
+fi
+
+curl -# -o "$ZIP_FILE" "$ZIP_URL";
+echo
+
+[[ ! -e $ZIP_FILE ]] &&
+	echo "Could not download zip file." &&
+	exit 1
+
+echo "Unzipping..."
+mkdir "$TMP_DIR"
+unzip -q -o "$ZIP_FILE" -d "$TMP_DIR"
+
+[[ ! -e "$TMP_APP" ]] &&
+	echo "Could not find the app inside the zip." &&
+	exit 1
+
+if [[ $USE_OLD_ICON = true ]]
+then
+	echo "Applying old icon..."
+	[[ ! -e "$ICON_FILE" ]] &&
+		curl -s -o "$ICON_FILE" "$ICON_URL"
+	if [[ -e "$ICON_FILE" ]]
+	then
+		cp "$ICON_FILE" "$TMP_APP/Contents/Resources/app.icns"
+	else
+		echo "Could not apply icon."
+	fi
+fi
+
+APP_RUNNING=`ps ux | grep "$APP_DESTINATION/Contents/MacOS/Chromium" | sed '/grep/d'`
+if [[ ! -z "$APP_RUNNING" ]]
+then
+	while true; do
+		read -p "Chromium is currently running. Do you wish to continue?" yn
+		case $yn in
+			* ) break;;
+		esac
+	done
+fi
+
+echo "Copying to destination..."
+killall Chromium 2> /dev/null
+rm -rf "$APP_DESTINATION"
+mv "$TMP_APP" "$APP_DESTINATION"
+
+echo "Cleaning up..."
+rm -rf "$TMP_DIR" "$ZIP_FILE"
+
+echo "$NEWEST_VERSION" > "$VERSION_FILE"
+
+echo "Successfully updated to $NEWEST_VERSION."
+open "$APP_DESTINATION"

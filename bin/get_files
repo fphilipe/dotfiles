@@ -1,0 +1,52 @@
+#!/bin/sh
+
+if [ "$1" ]; then
+  if [ -d "$1" ] || [ -f "$1" ]; then
+    if [ -d "$1" ]; then
+      output_dir="$1"
+      config_file="$1/.config"
+    else
+      output_dir=$(dirname "$1")
+      config_file="$1"
+    fi
+  else
+    url="$1"
+    output_dir="."
+  fi
+else
+  config_file=".config"
+  output_dir="."
+fi
+
+if [ ! "$url" ]; then
+  if [ -f "$config_file" ]; then
+    url=$(head -n1 "$config_file")
+  elif [ "$1" ]; then
+    echo 'No .config file found in directory'
+    exit
+  else
+    find . -iname "files" -type d -exec "$0" "{}" \;
+    exit 0
+  fi
+fi
+
+if [ "$2" ]; then
+  accept="$2"
+elif [ "$config_file" ] && [ "$(cat "$config_file" | wc -l)" -eq "2" ]; then
+  accept="$(tail -n1 "$config_file")"
+else
+  accept="pdf"
+fi
+
+wget --recursive \
+     --level=1 \
+     --span-hosts \
+     --tries=1 \
+     --no-directories \
+     --timestamping \
+     --no-parent \
+     --non-verbose \
+     --accept="$accept" \
+     --execute=robots=off \
+     --directory-prefix="$output_dir" \
+     "$url"
