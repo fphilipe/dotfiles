@@ -175,6 +175,9 @@ au FocusGained,BufEnter * :silent! !
 " rid of it. See https://gist.github.com/mislav/5189704#comment-951447
 au FocusLost * :redraw!
 
+" Clear CtrlP cache when coming back to vim and after writing a file.
+au FocusGained,BufWritePost * :CtrlPClearCache
+
 " }}}
 " Key Mappings                                                               {{{
 
