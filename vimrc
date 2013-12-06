@@ -164,7 +164,12 @@ set cole=2
 let g:tex_conceal='adgm'
 hi Conceal guibg=bg guifg=#66d9ef
 
-au FocusLost,TabLeave * :silent! wa     " TextMate style save on focus lost
+" Save whenever switching windows or leaving vim. This is useful when running
+" the tests inside vim without having to save all files first.
+au FocusLost,WinLeave * :silent! w
+
+" Trigger autoread when changing buffers or coming back to vim.
+au FocusGained,BufEnter * :silent! !
 
 " }}}
 " Key Mappings                                                               {{{
@@ -468,17 +473,17 @@ map <leader>rf <Plug>SendTestToTmux
 " Rspec line
 map <leader>rl <Plug>SendFocusedTestToTmux
 " Rspec format doc
-map <leader>rd :silent! wa \| call SendToTmux("rspec -fd ".expand("%")."\n")<CR>
+map <leader>rd :silent! w \| call SendToTmux("rspec -fd ".expand("%")."\n")<CR>
 " Rspec line
-map <leader>ra :silent! wa \| Dispatch rspec -fp<CR>
+map <leader>ra :silent! w \| Dispatch rspec -fp<CR>
 " Rspec all format doc
-map <leader>rad :silent! wa \| call SendToTmux("rspec -fd\n")<CR>
+map <leader>rad :silent! w \| call SendToTmux("rspec -fd\n")<CR>
 " Dispatch
 map <leader>d :Dispatch<space>
 " Tx
 map <leader>tx :Tx<space>
 " Karma unit
-map <leader>ku :silent! wa \| Dispatch grunt karma:unit_once<CR>
+map <leader>ku :silent! w \| Dispatch grunt karma:unit_once<CR>
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<tab>"
