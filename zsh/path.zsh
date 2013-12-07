@@ -3,7 +3,7 @@ paths=(
   '/usr/local/bin'
   '/usr/local/sbin'
   # personal scripts
-  "$HOME/.scripts"
+  "$HOME/.bin"
   # Node Packace Manager
   '/usr/local/share/npm/bin'
   './node_modules/.bin'
