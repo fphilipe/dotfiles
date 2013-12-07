@@ -96,7 +96,7 @@ set incsearch                   " show search matches as you type
 set gdefault                    " search/replace "globally" (on a line) by default
 set listchars=tab:▸\ ,trail:·,extends:…,nbsp:·
 set list                        " show above special chars
-set showbreak=↪ 
+let &showbreak='↪ '
 set pastetoggle=<F2>            " when in insert mode, press <F2> to go to
                                 "   paste mode, where you can paste mass data
                                 "   that won't be autoindented
