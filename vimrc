@@ -17,6 +17,7 @@ call vundle#rc()
 
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'ap/vim-css-color'
+Bundle 'bling/vim-airline'
 Bundle 'chriskempson/base16-vim'
 Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'christoomey/vim-tmux-navigator'
@@ -459,8 +460,8 @@ let g:tagbar_type_coffee = {
   \ }
 \ }
 
-" Powerline
-set rtp+=~/.virtualenv/default_env/lib/python2.7/site-packages/powerline/bindings/vim/
+" airline
+let g:airline_powerline_fonts=1
 
 " ControlP
 let g:ctrlp_extensions = ['tag']
