@@ -1,0 +1,57 @@
+config defaultToCurrentScreen true
+config resizePercentOf screenSize
+
+alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY
+alias center move screenOriginX+screenSizeX/6;screenOriginY screenSizeX*2/3;screenSizeY
+alias quarter move screenOriginX+screenSizeX/4;screenOriginY+screenSizeY/4 screenSizeX/2;screenSizeY/2
+
+alias leftHalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
+alias rightHalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
+alias topHalf move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX;screenSizeY/2
+alias bottomHalf move screenOriginX;screenOriginY screenSizeX;screenSizeY/2
+
+alias ca   ctrl;alt
+alias cas  ctrl;alt;shift
+alias cam  ctrl;alt;cmd
+alias cams ctrl;alt;cmd;shift
+alias ams  alt;cmd;shift
+
+bind r:${cam} relaunch
+bind u:${cam} undo
+bind g:${cam} grid
+
+bind m:${cam} ${full}
+bind =:${cam} ${center}
+bind /:${cam} ${quarter}
+
+bind h:${cam} ${leftHalf}
+bind l:${cam} ${rightHalf}
+bind j:${cam} ${topHalf}
+bind k:${cam} ${bottomHalf}
+
+bind h:${cams} push left
+bind l:${cams} push right
+bind j:${cams} push down
+bind k:${cams} push up
+
+bind h:${ca} nudge -10% +0
+bind l:${ca} nudge +10% +0
+bind j:${ca} nudge +0   +10%
+bind k:${ca} nudge +0   -10%
+
+bind h:${cas} resize -10% +0
+bind l:${cas} resize +10% +0
+bind j:${cas} resize +0   +10%
+bind k:${cas} resize +0   -10%
+
+bind h:${ams} focus left
+bind l:${ams} focus right
+bind j:${ams} focus down
+bind k:${ams} focus up
+bind p:${ams} focus behind
+
+bind t:${ams} focus 'iTerm'
+bind c:${ams} focus 'Google Chrome'
+bind f:${ams} focus 'Firefox'
+bind s:${ams} focus 'Safari'
+bind m:${ams} focus 'Mail'
