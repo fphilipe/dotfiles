@@ -14,3 +14,7 @@ autoload compinit && compinit
 
 # Disable reflow so that ^Q works in vim.
 stty -ixon
+
+# Quote pasted URLs.
+autoload -U url-quote-magic
+zle -N self-insert url-quote-magic
