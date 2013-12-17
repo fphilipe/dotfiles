@@ -17,6 +17,8 @@
   wd = diff --word-diff
   co = checkout
   ri = rebase --interactive --autosquash
+  stapulpo = !git stash -u && git pull && git stash pop
+  pullsh = !git pull && git push
 [gui]
   fontdiff = -family Menlo -size 11 -weight normal -slant roman -underline 0 -overstrike 0
 [push]
