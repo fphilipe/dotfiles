@@ -1,4 +1,7 @@
-for file ($HOME/.zsh/*.zsh); do
+fpath=($HOME/.zsh/func $fpath)
+typeset -U fpath
+
+for file ($HOME/.zsh/config/*.zsh); do
   source $file
 done
 
