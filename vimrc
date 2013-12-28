@@ -33,7 +33,6 @@ Bundle 'kana/vim-textobj-user'
 Bundle 'kien/ctrlp.vim'
 Bundle 'LnL7/vim-tslime'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'lukerandall/haskellmode-vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'matchit.zip'
@@ -62,8 +61,10 @@ Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
+Bundle 'Twinside/vim-haskellConceal'
 Bundle 'vim-coffee-script'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'wlangstroth/vim-haskell'
 
 " }}}
 " Editing Behavior                                                           {{{
