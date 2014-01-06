@@ -1,0 +1,71 @@
+global !p
+
+def to_camel_case(snake_str):
+    components = snake_str.split('_')
+    return "".join(x.title() for x in components)
+
+endglobal
+
+
+snippet ho
+has_one :${1:name}
+endsnippet
+
+
+snippet hm
+has_many :${1:name}
+endsnippet
+
+
+snippet bt
+belongs_to :${1:name}
+endsnippet
+
+
+snippet habtm
+has_and_belongs_to_many :${1:name}
+endsnippet
+
+
+snippet val
+validates :${1:name}
+endsnippet
+
+
+snippet red
+redirect_to $0
+endsnippet
+
+
+snippet ren
+render :${1:action}
+endsnippet
+
+
+snippet bef
+before_action :${1:name}
+endsnippet
+
+
+snippet t
+t('${1:key}'$2)
+endsnippet
+
+
+snippet t.
+t('.${1:key}'$2)
+endsnippet
+
+
+snippet model
+class ${1:`!p snip.rv = to_camel_case(snip.basename)`} < ActiveRecord::Base
+	${0}
+end
+endsnippet
+
+
+snippet contr
+class ${1:`!p snip.rv = to_camel_case(snip.basename)`} < ApplicationController
+	${0}
+end
+endsnippet

@@ -1,0 +1,137 @@
+global !p
+
+def to_camel_case(snake_str):
+    components = snake_str.split('_')
+    return "".join(x.title() for x in components)
+
+endglobal
+
+
+snippet class
+class ${1:`!p snip.rv = to_camel_case(snip.basename)`}
+	${0}
+end
+endsnippet
+
+
+snippet sclass
+class ${1:`!p snip.rv = to_camel_case(snip.basename)`} < ${2:ParentClass}
+	${0}
+end
+endsnippet
+
+
+snippet module
+module ${1:`!p snip.rv = to_camel_case(snip.basename)`}
+	${0}
+end
+endsnippet
+
+
+snippet init
+def initialize(${1:args})
+	$0
+end
+endsnippet
+
+
+snippet initi
+def initialize(${1:args})${1/([a-z_][a-zA-Z_0-9]*)(?:\s*=\s*[^,]*|)(?:\s*,\s*|)/\n    @$1 = $1/g}$0
+end
+endsnippet
+
+
+snippet classm
+def self.${1:perform}(*args)
+	new(*args).$1
+end
+endsnippet
+
+
+snippet argf
+@${1:name} = args.fetch(:${2:$1})
+endsnippet
+
+
+snippet argfd
+@${1:name} = args.fetch(:${2:$1}, ${4:default})
+endsnippet
+
+
+snippet ar
+attr_reader :${1:name}
+endsnippet
+
+
+snippet aa
+attr_accessor :${1:name}
+endsnippet
+
+
+snippet getter
+def ${1:name}
+	@$1 ||= $0
+end
+endsnippet
+
+
+snippet .fe "" i
+.fetch(:${1:name})
+endsnippet
+
+
+snippet .map "" i
+.map(&:${1:name})
+endsnippet
+
+
+snippet .mapb "" i
+.map { |${1:i}| $2 }
+endsnippet
+
+
+snippet .sel "" i
+.select(&:${1:name})
+endsnippet
+
+
+snippet .selb "" i
+.select { |${1:i}| $2 }
+endsnippet
+
+
+snippet .rej "" i
+.reject(&:${1:name})
+endsnippet
+
+
+snippet .rejb "" i
+.reject { |${1:i}| $2 }
+endsnippet
+
+
+snippet .any "" i
+.any?(&:${1:name})
+endsnippet
+
+
+snippet .anyb "" i
+.any? { |${1:i}| $2 }
+endsnippet
+
+
+snippet .del "" i
+.delete(:${1:name})
+endsnippet
+
+
+snippet do
+do |${1:i}|
+	$0
+end
+endsnippet
+
+
+snippet req
+require '$1'
+endsnippet
