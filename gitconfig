@@ -31,6 +31,8 @@
   browser = open
 [difftool]
   prompt = false
+[diff]
+  tool = vimdiff
 [mergetool]
   prompt = false
   keepBackup = false
