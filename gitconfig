@@ -1,22 +1,22 @@
 [alias]
   authors = log --format='%aN <%aE>'
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-  last = log -n1 --decorate=short --abbrev-commit --format=fuller
-  s = status -sb
-  d = diff
-  wd = diff --word-diff
   co = checkout
-  ri = rebase --interactive
-  stapulpo = !git stash -u && git pull && git stash pop
+  d = diff
+  last = log -n1 --decorate=short --abbrev-commit --format=fuller
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   pullsh = !git pull && git push
+  ri = rebase --interactive
+  s = status -sb
+  stapulpo = !git stash -u && git pull && git stash pop
+  wd = diff --word-diff
 [branch]
   autosetuprebase = always
 [color]
   ui = true
 [core]
   editor = vim -f
-  quotepath = false
   excludesfile = ~/.gitignore_global
+  quotepath = false
 [diff]
   tool = vimdiff
 [difftool]
@@ -33,8 +33,8 @@
   ff = no
   tool = vimdiff
 [mergetool]
-  prompt = false
   keepBackup = false
+  prompt = false
 [pull]
   rebase = preserve
 [push]
@@ -42,8 +42,8 @@
 [rebase]
   autosquash = true
 [user]
-  name = Philipe Fatio
   email = me@phili.pe
+  name = Philipe Fatio
   signkey = F74418A0
 [web]
   browser = open
