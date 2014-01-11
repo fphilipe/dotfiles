@@ -16,7 +16,7 @@
   d = diff
   wd = diff --word-diff
   co = checkout
-  ri = rebase --interactive --autosquash
+  ri = rebase --interactive
   stapulpo = !git stash -u && git pull && git stash pop
   pullsh = !git pull && git push
 [gui]
@@ -45,3 +45,5 @@
   templatedir = ~/.git_template
 [github]
   user = fphilipe
+[rebase]
+  autosquash = true
