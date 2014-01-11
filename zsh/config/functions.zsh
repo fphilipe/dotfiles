@@ -25,3 +25,7 @@ function git_prune_remote_branches() {
     done
   fi
 }
+
+function mkcd() {
+  mkdir -p "$@" && cd "$_";
+}
