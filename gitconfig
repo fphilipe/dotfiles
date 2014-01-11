@@ -1,13 +1,3 @@
-[user]
-  name = Philipe Fatio
-  email = me@phili.pe
-  signkey = F74418A0
-[core]
-  editor = vim -f
-  quotepath = false
-  excludesfile = ~/.gitignore_global
-[color]
-  ui = true
 [alias]
   authors = log --format='%aN <%aE>'
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
@@ -19,31 +9,41 @@
   ri = rebase --interactive
   stapulpo = !git stash -u && git pull && git stash pop
   pullsh = !git pull && git push
-[gui]
-  fontdiff = -family Menlo -size 11 -weight normal -slant roman -underline 0 -overstrike 0
-[pull]
-  rebase = preserve
-[push]
-  default = upstream
-[help]
-  autocorrect = 1
 [branch]
   autosetuprebase = always
-[web]
-  browser = open
+[color]
+  ui = true
+[core]
+  editor = vim -f
+  quotepath = false
+  excludesfile = ~/.gitignore_global
+[diff]
+  tool = vimdiff
 [difftool]
   prompt = false
-[diff]
+[github]
+  user = fphilipe
+[gui]
+  fontdiff = -family Menlo -size 11 -weight normal -slant roman -underline 0 -overstrike 0
+[help]
+  autocorrect = 1
+[init]
+  templatedir = ~/.git_template
+[merge]
+  ff = no
   tool = vimdiff
 [mergetool]
   prompt = false
   keepBackup = false
-[merge]
-  ff = no
-  tool = vimdiff
-[init]
-  templatedir = ~/.git_template
-[github]
-  user = fphilipe
+[pull]
+  rebase = preserve
+[push]
+  default = upstream
 [rebase]
   autosquash = true
+[user]
+  name = Philipe Fatio
+  email = me@phili.pe
+  signkey = F74418A0
+[web]
+  browser = open
