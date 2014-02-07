@@ -1,4 +1,10 @@
-require 'spring/commands/rspec'
-require 'listen'
+begin
+  require 'spring/commands/rspec'
+rescue LoadError
+end
 
-Spring.watch_method = :listen
+begin
+  require 'listen'
+  Spring.watch_method = :listen
+rescue LoadError
+end
