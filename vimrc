@@ -121,7 +121,7 @@ set mouse=a                     " enable using the mouse if terminal emulator
 set fileformats="unix,dos,mac"
 
 set textwidth=80
-set formatoptions=1cjnqro
+set formatoptions=1cnqro
 
 set hidden                      " hide buffers instead of closing them this
                                 "    means that the current buffer can be put
