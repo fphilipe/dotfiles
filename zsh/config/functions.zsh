@@ -29,3 +29,9 @@ function git_prune_remote_branches() {
 function mkcd() {
   mkdir -p "$@" && cd "$_";
 }
+
+# Function to quickly restore the path. This is useful after changing ruby
+# versions.
+function p() {
+  . ~/.zsh/config/path.zsh
+}
