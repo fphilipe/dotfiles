@@ -469,7 +469,7 @@ let g:airline_powerline_fonts=1
 let g:ctrlp_extensions = ['tag']
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.(git|hg|svn|sass-cache|bundle|tmp|yardoc)|build|tmp|bin|node_modules|docs?)$',
+  \ 'dir':  '\v[\/](\.(git|hg|svn|sass-cache|bundle|tmp|yardoc)|build|tmp|bin|node_modules|docs?|vendor\/bundle)$',
   \ 'file': '\v(\.(exe|so|dll|DS_Store)|tags)$',
   \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
   \ }
