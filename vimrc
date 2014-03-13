@@ -479,16 +479,16 @@ let g:gundo_right = 1
 
 let g:turbux_command_rspec = 'rspec -fp'
 let g:no_turbux_mappings = 1
-" Rspec file
-map <leader>rf <Plug>SendTestToTmux
 " Rspec line
 map <leader>rl <Plug>SendFocusedTestToTmux
-" Rspec format doc
-map <leader>rd :silent! w \| call SendToTmux("rspec -fd ".expand("%")."\n")<CR>
-" Rspec line
-map <leader>ra :silent! w \| Dispatch rspec -fp<CR>
+" Rspec file
+map <leader>rf <Plug>SendTestToTmux
+" Rspec file format doc
+map <leader>rd :silent! w \| call SendToTmux("rspec -fd --order default -- ".expand("%")."\n")<CR>
+" Rspec all
+map <leader>ra :silent! w \| Dispatch rspec -fp -- spec<CR>
 " Rspec all format doc
-map <leader>rad :silent! w \| call SendToTmux("rspec -fd\n")<CR>
+map <leader>rad :silent! w \| call SendToTmux("rspec -fd --\n")<CR>
 " Dispatch
 map <leader>d :Dispatch<space>
 " Tx
