@@ -488,7 +488,7 @@ map <leader>rd :silent! w \| call SendToTmux("rspec -fd --order default -- ".exp
 " Rspec all
 map <leader>ra :silent! w \| Dispatch rspec -fp -- spec<CR>
 " Rspec all format doc
-map <leader>rad :silent! w \| call SendToTmux("rspec -fd --\n")<CR>
+map <leader>rad :silent! w \| call SendToTmux("rspec -fd -- spec\n")<CR>
 " Dispatch
 map <leader>d :Dispatch<space>
 " Tx
