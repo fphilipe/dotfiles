@@ -19,3 +19,5 @@ chruby ruby
 
 # Link homebrew cask apps in /Applications.
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+export MATLABPATH=$HOME/.matlab
