@@ -9,11 +9,7 @@ bindkey -v
 bindkey '^R' history-incremental-search-backward
 bindkey '^S' history-incremental-search-forward
 
-# Disable up/down to force myself into using ^P/^N instead for shorter travel
-# distances.
-bindkey '^[[A' beep # up
 bindkey '^P' up-line-or-search
-bindkey '^[[B' beep # down
 bindkey '^N' down-line-or-search
 
 # Make space automatically expand stuff such as "sudo !!".
