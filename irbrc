@@ -1,5 +1,10 @@
 require 'rubygems'
-require 'brice/init' rescue nil
+require 'irb'
+require 'irb/completion'
+require 'irb/ext/save-history'
+
+IRB.conf[:SAVE_HISTORY] = 1000
+IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-save-history"
 
 # Quick benchmarking:
 def quick(repetitions=100, &block)
