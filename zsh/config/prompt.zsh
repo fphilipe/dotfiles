@@ -9,7 +9,7 @@ function git_prompt_info() {
   [ "$s" = '' ] && return
   local sha="$(git rev-parse --short HEAD)"
   local first_line="$(head -n1 <<< $s)"
-  local branch="$(awk -F'\\s+|\\.+' '{ print $2 }' <<< "$first_line")"
+  local branch="$(awk -F'\\s+|\\.\\.\\.' '{ print $2 }' <<< "$first_line")"
   local ahead="$(sed -e '/ahead/!d' -e 's/.*ahead \([0-9]*\).*/+\1/' <<< $first_line)"
   local behind="$(sed -e '/behind/!d' -e 's/.*behind \([0-9]*\).*/-\1/' <<< $first_line)"
   local staged="$(awk '/^[MDA]. / { print "•"; exit }' <<< $s)"
