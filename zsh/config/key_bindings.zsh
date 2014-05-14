@@ -20,3 +20,9 @@ bindkey '^[[Z' reverse-menu-complete
 
 # Make the delete key work instead of outputting a ~.
 bindkey "^[[3~" delete-char
+
+# Make common keys work also in vim mode.
+bindkey '^A' beginning-of-line
+bindkey '^E' end-of-line
+bindkey '^[b' backward-word
+bindkey '^[f' forward-word
