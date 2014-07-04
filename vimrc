@@ -216,6 +216,10 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" open alternate file in split
+nnoremap <leader>av :vsp\|A<CR>
+nnoremap <leader>as :sp\|A<CR>
+
 " Keep search matches in the middle of the window and open the fold.
 nnoremap * *zvzz
 nnoremap ? ?zvzz
