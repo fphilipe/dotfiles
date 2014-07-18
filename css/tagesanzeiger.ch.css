@@ -1,0 +1,4 @@
+/* Hide the paywall */
+#overlay_wrap {
+  display: none;
+}

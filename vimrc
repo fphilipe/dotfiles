@@ -61,6 +61,7 @@ Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-projectionist'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-surround'
@@ -517,6 +518,8 @@ nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:\zs/l0r1<CR>
 vmap <Leader>a: :Tabularize /:\zs/l0r1<CR>
+nmap <Leader>a, :Tabularize /,\zs/l0r1<CR>
+vmap <Leader>a, :Tabularize /,\zs/l0r1<CR>
 nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 
