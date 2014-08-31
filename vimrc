@@ -15,8 +15,9 @@ call vundle#rc()
 " }}}
 " Bundles                                                                    {{{
 
-Bundle 'altercation/vim-colors-solarized'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'AndrewRadev/splitjoin.vim'
 Bundle 'ap/vim-css-color'
 Bundle 'bling/vim-airline'
 Bundle 'chriskempson/base16-vim'
