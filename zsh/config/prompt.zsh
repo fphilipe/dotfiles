@@ -7,7 +7,7 @@ PROMPT='%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[yellow]%}$(hostname -s)%{$reset
 function git_prompt_info() {
   local s="$(git status --short --branch --porcelain 2> /dev/null)"
   [ "$s" = '' ] && return
-  local sha="$(git rev-parse --short HEAD)"
+  local sha="$(git rev-parse --short HEAD 2> /dev/null)"
   local first_line="$(head -n1 <<< $s)"
   local branch="$(awk -F'\\s+|\\.\\.\\.' '{ print $2 }' <<< "$first_line")"
   local ahead="$(sed -e '/ahead/!d' -e 's/.*ahead \([0-9]*\).*/+\1/' <<< $first_line)"
