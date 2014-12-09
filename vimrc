@@ -584,7 +584,8 @@ au FileType objc setlocal shiftwidth=4
 
 " Delete certain buffers in order to not cluttering up the buffer list:
 au BufReadPost fugitive://* set bufhidden=delete
-au BufReadPost ~/.rbenv/* set bufhidden=delete
+au BufReadPost ~/.gem/* set bufhidden=delete
+au BufReadPost ~/dotfiles/* set bufhidden=delete
 
 au BufNewFile,BufRead {Gem,Pod,Rake}file,*.{rabl,podspec} set filetype=ruby
 au BufNewFile,BufRead *_spec.rb set filetype=rspec.ruby
