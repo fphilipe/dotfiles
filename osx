@@ -1,0 +1,8 @@
+# Configure even faster key repeat rate.
+defaults write NSGlobalDomain KeyRepeat -int 0
+
+# Disable press and hold key feature for accessing special chars.
+defaults write -g ApplePressAndHoldEnabled -bool false
+
+# Speed up expose animations.
+defaults write com.apple.dock expose-animation-duration -float 0.1
