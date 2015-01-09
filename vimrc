@@ -18,7 +18,6 @@ call vundle#rc()
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'AndrewRadev/splitjoin.vim'
-Plugin 'ap/vim-css-color'
 Plugin 'bling/vim-airline'
 Plugin 'bruno-/vim-vertical-move'
 Plugin 'chriskempson/base16-vim'
