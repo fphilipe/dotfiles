@@ -9,6 +9,8 @@ paths=(
   './node_modules/.bin'
   # Python virtualenv
   "$HOME/.virtualenv/default_env/bin"
+  # Heroku toolbelt
+  '/usr/local/heroku/bin'
   # Bundler binstubs
   './bin'
 )
