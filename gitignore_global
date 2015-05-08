@@ -47,3 +47,7 @@ doc/
 todo.txt
 node_modules/
 .powrc
+
+# Private Stuff #
+#################
+_stuff/
