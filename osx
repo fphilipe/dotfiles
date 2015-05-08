@@ -6,3 +6,6 @@ defaults write -g ApplePressAndHoldEnabled -bool false
 
 # Speed up expose animations.
 defaults write com.apple.dock expose-animation-duration -float 0.1
+
+# Enable text selection in quicklook.
+defaults write com.apple.finder QLEnableTextSelection -bool true
