@@ -601,7 +601,7 @@ au FileType gitcommit setlocal textwidth=72
 au FileType gitcommit setlocal colorcolumn=51
 
 au FileType make,snippets setlocal noexpandtab
-au FileType objc setlocal shiftwidth=4
+au FileType objc,sql setlocal shiftwidth=4
 
 " Delete certain buffers in order to not cluttering up the buffer list:
 au BufReadPost fugitive://* set bufhidden=delete
