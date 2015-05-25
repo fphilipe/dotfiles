@@ -555,6 +555,9 @@ function! s:align()
   endif
 endfunction
 
+" Fugitive
+set diffopt=vertical
+
 " }}}
 " Editor Behavior                                                            {{{
 
