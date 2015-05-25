@@ -6,3 +6,5 @@ alias tmux='tmux -S /tmp/tmux'
 alias ql='qlmanage -p "$@" > /dev/null'
 # Reload zshrc.
 alias reload!='. ~/.zshrc'
+# Homebrew package which corrects your previous console command.
+alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
