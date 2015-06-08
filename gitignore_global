@@ -47,6 +47,7 @@ doc/
 todo.txt
 node_modules/
 .powrc
+.powder
 
 # Private Stuff #
 #################
