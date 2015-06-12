@@ -38,16 +38,16 @@ described_class
 endsnippet
 
 
-snippet isbt
-it { should be_true }
+snippet is
+it { is_expected.to $0 }
 endsnippet
 
 
-snippet isbf
-it { should be_false }
+snippet isn
+it { is_expected.not_to $0 }
 endsnippet
 
 
-snippet isbn
-it { should be_nil }
+snippet sub
+subject $0
 endsnippet
