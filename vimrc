@@ -562,6 +562,9 @@ endfunction
 " Fugitive
 set diffopt=vertical
 
+" NERDCommented
+let g:NERDSpaceDelims=1
+
 " }}}
 " Editor Behavior                                                            {{{
 
