@@ -21,3 +21,8 @@ chruby ruby
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 export MATLABPATH=$HOME/.matlab
+
+# Don't hijack my prompt, please!
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+export WORKON_HOME=~/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh

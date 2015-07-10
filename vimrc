@@ -407,6 +407,7 @@ let NERDTreeIgnore=[
 \ '\.rbc$',
 \ '\~$',
 \ 'tags[[file]]',
+\ '.\.pyc[[file]]',
 \ 'doc[[dir]]',
 \ 'tmp[[dir]]',
 \ 'build[[dir]]',
