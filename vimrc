@@ -42,6 +42,7 @@ Plugin 'matchit.zip'
 Plugin 'mkitt/tabline.vim'
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'ngmy/vim-rubocop'
 Plugin 'rainbow_parentheses.vim'
 Plugin 'rking/ag.vim'
 Plugin 'ruby-matchit'
@@ -522,6 +523,8 @@ map <leader>rd :silent! w \| call SendToTmux("rspec -fd --order default -- ".exp
 map <leader>ra :silent! w \| Dispatch rspec -fp -- spec<CR>
 " Rspec all format doc
 map <leader>rad :silent! w \| call SendToTmux("rspec -fd -- spec\n")<CR>
+" Rspec all format doc
+map <leader>rc :silent! w \| :RuboCop<CR>
 " Dispatch
 map <leader>d :Dispatch<space>
 " Tx
