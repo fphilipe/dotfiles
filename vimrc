@@ -560,7 +560,7 @@ function! s:align()
 endfunction
 
 " Fugitive
-set diffopt=vertical
+set diffopt=vertical,filler
 
 " NERDCommented
 let g:NERDSpaceDelims=1
