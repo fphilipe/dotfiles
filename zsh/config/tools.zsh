@@ -26,3 +26,8 @@ export MATLABPATH=$HOME/.matlab
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 export WORKON_HOME=~/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
+
+# Java:
+export DRIP_SHUTDOWN=30
+export DRIP_INIT_CLASS=org.jruby.main.DripMain
+export JAVACMD=$(which drip)
