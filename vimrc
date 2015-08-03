@@ -76,6 +76,7 @@ Plugin 'Twinside/vim-haskellConceal'
 Plugin 'vim-coffee-script'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'wlangstroth/vim-haskell'
+Plugin 'https://bitbucket.org/larsyencken/vim-drake-syntax.git'
 
 " }}}
 " Editing Behavior                                                           {{{
