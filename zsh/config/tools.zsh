@@ -17,15 +17,17 @@ chruby() {
 
 chruby ruby
 
+# Load pyenv and enable auto switching:
+export PYENV_ROOT=/usr/local/var/pyenv
+if which pyenv > /dev/null; then
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
+
 # Link homebrew cask apps in /Applications.
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 export MATLABPATH=$HOME/.matlab
-
-# Don't hijack my prompt, please!
-export VIRTUAL_ENV_DISABLE_PROMPT=1
-export WORKON_HOME=~/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
 
 # Java:
 export DRIP_SHUTDOWN=30
