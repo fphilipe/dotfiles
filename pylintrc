@@ -101,7 +101,7 @@ confidence=
 # --enable=similarities". If you want to run only the classes checker, but have
 # no Warning level messages displayed, use"--disable=all --enable=classes
 # --disable=W"
-disable=C0111,W1640,W1624,W1626,W1635,W1606,W1620,E1603,W1622,W1610,W1617,W1630,W1607,W1605,W1633,I0021,W1616,E1604,W1601,W1629,W1632,W1634,W1604,W1615,W1638,W1625,W0704,W1612,W1636,E1608,W1618,E1607,W1608,W1611,E1606,W1602,W1628,W1623,W1619,I0020,W1614,W1627,W1639,W1603,E1605,W1613,W1609,E1602,W1637,W1621,E1601
+disable=R0201,C0111,W1640,W1624,W1626,W1635,W1606,W1620,E1603,W1622,W1610,W1617,W1630,W1607,W1605,W1633,I0021,W1616,E1604,W1601,W1629,W1632,W1634,W1604,W1615,W1638,W1625,W0704,W1612,W1636,E1608,W1618,E1607,W1608,W1611,E1606,W1602,W1628,W1623,W1619,I0020,W1614,W1627,W1639,W1603,E1605,W1613,W1609,E1602,W1637,W1621,E1601
 
 
 [BASIC]
@@ -113,7 +113,7 @@ required-attributes=
 bad-functions=map,filter
 
 # Good variable names which should always be accepted, separated by a comma
-good-names=i,j,k,ex,Run,_
+good-names=i,j,k,ex,Run,_,setUp,tearDown
 
 # Bad variable names which should always be refused, separated by a comma
 bad-names=foo,bar,baz,toto,tutu,tata
