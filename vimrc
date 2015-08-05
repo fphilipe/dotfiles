@@ -414,7 +414,8 @@ let NERDTreeIgnore=[
 \ 'build[[dir]]',
 \ 'doc[[dir]]',
 \ 'bin[[dir]]',
-\ 'coverage[[dir]]'
+\ 'coverage[[dir]]',
+\ '__pycache__[[dir]]'
 \]
 let NERDTreeQuitOnOpen=1
 
