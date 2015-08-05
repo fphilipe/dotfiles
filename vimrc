@@ -43,7 +43,6 @@ Plugin 'mkitt/tabline.vim'
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'ngmy/vim-rubocop'
-Plugin 'pylint.vim'
 Plugin 'rainbow_parentheses.vim'
 Plugin 'rking/ag.vim'
 Plugin 'ruby-matchit'
@@ -425,6 +424,7 @@ let g:tagbar_autofocus = 1
 
 " Syntastic
 let g:syntastic_java_javac_args="-classpath /usr/local/Cellar/hadoop/1.1.1/libexec/hadoop-core-1.1.1.jar"
+let g:syntastic_python_checkers = ['pep8', 'pylint']
 
 " CTags
 map <leader>ct :!/usr/local/bin/ctags --extra=+f -R *<CR><CR>
