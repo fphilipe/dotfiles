@@ -27,6 +27,7 @@ Plugin 'croaky/vim-colors-github'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'gmarik/vundle'
 Plugin 'godlygeek/tabular'
+Plugin 'janko-m/vim-test'
 Plugin 'jgdavey/vim-turbux'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'jrestrepo/matlab'
@@ -535,6 +536,9 @@ map <leader>d :Dispatch<space>
 map <leader>tx :Tx<space>
 " Karma unit
 map <leader>ku :silent! w \| Dispatch grunt karma:unit_once<CR>
+
+" vim-test
+let test#strategy = "dispatch"
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<tab>"
