@@ -31,5 +31,4 @@ export MATLABPATH=$HOME/.matlab
 
 # Java:
 export DRIP_SHUTDOWN=30
-export DRIP_INIT_CLASS=org.jruby.main.DripMain
 export JAVACMD=$(which drip)
