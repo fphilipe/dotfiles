@@ -31,8 +31,8 @@ do
   else
     if [ "$remote_sha" = $z40 ]
     then
-      # New branch, examine all commits
-      range="master..$local_sha"
+      # New branch, examine all commits since master
+      range="$(git merge-base $local_sha master)..$local_sha"
     else
       # Update to existing branch, examine new commits
       range="$remote_sha..$local_sha"
