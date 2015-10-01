@@ -17,6 +17,8 @@ chruby() {
 
 chruby ruby
 
+# Don't hijack my prompt, please!
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 # Load pyenv and enable auto switching:
 export PYENV_ROOT=/usr/local/var/pyenv
 if which pyenv > /dev/null; then
