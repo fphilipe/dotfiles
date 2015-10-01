@@ -49,6 +49,7 @@ todo.txt
 node_modules/
 .powrc
 .powder
+.python-version
 
 # Private Stuff #
 #################
