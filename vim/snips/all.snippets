@@ -80,11 +80,6 @@ def make_box(twidth, bwidth=None):
 def foldmarker():
     "Return a tuple of (open fold marker, close fold marker)"
     return vim.eval("&foldmarker").split(",")
-
-def to_camel_case(snake_str):
-    components = snake_str.split('_')
-    return "".join(x.title() for x in components)
-
 endglobal
 
 

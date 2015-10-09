@@ -1,9 +1,5 @@
 global !p
-
-def to_camel_case(snake_str):
-    components = snake_str.split('_')
-    return "".join(x.title() for x in components)
-
+from snippets_helper import *
 endglobal
 
 
@@ -58,14 +54,14 @@ endsnippet
 
 
 snippet model
-class ${1:`!p snip.rv = to_camel_case(snip.basename)`} < ActiveRecord::Base
+class ${1:`!p snip.rv = camel_case(snip.basename)`} < ActiveRecord::Base
 	${0}
 end
 endsnippet
 
 
 snippet contr
-class ${1:`!p snip.rv = to_camel_case(snip.basename)`} < ApplicationController
+class ${1:`!p snip.rv = camel_case(snip.basename)`} < ApplicationController
 	${0}
 end
 endsnippet

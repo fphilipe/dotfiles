@@ -1,21 +1,17 @@
 global !p
-
-def to_camel_case(snake_str):
-    components = snake_str.split('_')
-    return "".join(x.title() for x in components)
-
+from snippets_helper import *
 endglobal
 
 
 snippet class
-class ${1:`!p snip.rv = to_camel_case(snip.basename)`}
+class ${1:`!p snip.rv = camel_case(snip.basename)`}
 	${0}
 end
 endsnippet
 
 
 snippet sclass
-class ${1:`!p snip.rv = to_camel_case(snip.basename)`} < ${2:ParentClass}
+class ${1:`!p snip.rv = camel_case(snip.basename)`} < ${2:ParentClass}
 	${0}
 end
 endsnippet
@@ -29,7 +25,7 @@ endsnippet
 
 
 snippet module
-module ${1:`!p snip.rv = to_camel_case(snip.basename)`}
+module ${1:`!p snip.rv = camel_case(snip.basename)`}
 	${0}
 end
 endsnippet
