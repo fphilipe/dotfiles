@@ -128,8 +128,9 @@ snippet .del "" i
 endsnippet
 
 
+post_jump "replace_tabstop(snip, 1, 'args', start_offset=-2, end_offset=1)"
 snippet do
-do |${1:i}|
+do |${1:args}|
 	$0
 end
 endsnippet
