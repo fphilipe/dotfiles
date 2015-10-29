@@ -4,3 +4,4 @@ logs/*
 tmp/*
 .tmp/*
 bin/*
+*.ipynb
