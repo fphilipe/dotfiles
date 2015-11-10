@@ -103,12 +103,13 @@ set cursorline                  " highlight current line
 set smarttab                    " insert tabs on the start of a line according to
                                 "   shiftwidth, not tabstop
 set scrolloff=2                 " keep x lines off the edges of the screen when scrolling vertically
-set sidescrolloff=2             " keep x columns off the edges of the screen when scrolling horizontally
+set sidescrolloff=5             " keep x columns off the edges of the screen when scrolling horizontally
 set incsearch                   " show search matches as you type
 set gdefault                    " search/replace "globally" (on a line) by default
-set listchars=tab:▸\ ,trail:·,extends:…,nbsp:·
+set listchars=tab:▸\ ,trail:·,extends:…,precedes:…,nbsp:·
 set list                        " show above special chars
 let &showbreak='↪ '
+set display+=lastline
 set pastetoggle=<F2>            " when in insert mode, press <F2> to go to
                                 "   paste mode, where you can paste mass data
                                 "   that won't be autoindented
@@ -133,7 +134,7 @@ set ttymouse=xterm2             " make split resizing work inside tmux
 set fileformats="unix,dos,mac"
 
 set textwidth=80
-set formatoptions=1cnqro
+set formatoptions=1cnqroj
 
 set hidden                      " hide buffers instead of closing them this
                                 "    means that the current buffer can be put
@@ -200,23 +201,12 @@ au FocusGained,BufWritePost * :CtrlPClearCache
 " The current directory for the active file
 cnoremap %% <C-R>=expand('%:h').'/'<CR>
 
-" turn off highlighting
-nnoremap <leader><space> :noh<cr>
-
-" Thanks to Steve Losh for this liberating tip
-" See http://stevelosh.com/blog/2010/09/coming-home-to-vim
-nnoremap / /\v
-vnoremap / /\v
-
 " make j and k always move to next visual line (useful for wrapped lines).
 nnoremap j gj
 nnoremap k gk
 
 " clean whitespace in file
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
-
-" fold tag in HTML
-nnoremap <leader>ft Vatzf
 
 " navigate around split windows
 nnoremap <C-h> <C-w>h
@@ -230,7 +220,7 @@ nnoremap <leader>as :sp\|A<CR>
 
 " Keep search matches in the middle of the window and open the fold.
 nnoremap * *zvzz
-nnoremap ? ?zvzz
+nnoremap # #zvzz
 nnoremap n nzvzz
 nnoremap N Nzvzz
 
@@ -253,10 +243,8 @@ vmap <leader>y "*y
 vmap <leader>p "*p
 
 " Make Arrow Keys Useful Again
-map <down> <ESC>:cn<CR>zz
-map <S-down> <ESC>:cnewer<CR>
-map <up> <ESC>:cp<CR>zz
-map <S-up> <ESC>:colder<CR>
+map <down> <ESC>:ccl<CR>
+map <up> <ESC>:cope<CR>
 map <left> <ESC>:NERDTreeToggle<CR>
 map <S-left> <ESC>:NERDTreeFind<CR>
 map <right> <ESC>:TagbarToggle<CR>
@@ -270,8 +258,6 @@ nmap <M-Down> ]e
 vmap <M-Up> [egv
 vmap <M-Down> ]egv
 
-" return in the middle of a line
-imap <leader><CR> <ESC>o
 " go to insert with an empty line above and below
 nmap <leader>o o<CR><CR><Up>
 " go to insert with an empty line above and below
@@ -430,7 +416,6 @@ let g:syntastic_python_checkers = ['flake8']
 
 " CTags
 map <leader>ct :!/usr/local/bin/ctags --extra=+f -R *<CR><CR>
-map <C-\> :tnext<CR>
 
 " add a definition for Objective-C to tagbar
 let tlist_objc_settings = 'ObjectiveC;P:protocols;i:interfaces;types(...)'
