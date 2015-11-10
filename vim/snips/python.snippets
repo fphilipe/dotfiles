@@ -1,0 +1,70 @@
+global !p
+from snippets_helper import *
+module_aliases = {
+    'numpy': 'np',
+    'pandas': 'pd'
+}
+endglobal
+
+
+snippet class
+class ${1:`!p snip.rv = camel_case(snip.basename)`}:${0}
+endsnippet
+
+
+post_jump "replace_tabstop(snip, 1, 'args', start_offset=-2)"
+snippet init
+def __init__(self, ${1:args}):
+	${0}
+endsnippet
+
+
+post_jump "replace_tabstop(snip, 2, 'args')"
+snippet def
+def ${1:name}(${2:args}):
+	${0}
+endsnippet
+
+
+post_jump "replace_tabstop(snip, 2, 'args', start_offset=-2)"
+snippet defs
+def ${1:name}(self, ${2:args}):
+	${0:${VISUAL:pass}}
+endsnippet
+
+
+snippet for
+for ${1:i} in ${2:collection}:
+	$0
+endsnippet
+
+
+snippet im "import statement" b
+import ${1:module}
+endsnippet
+
+
+snippet "import ([.\w]+)" "import as" br
+`!p snip.rv = match.group(0)` as `!p snip.rv = module_aliases.get(match.group(1), '')`$0
+endsnippet
+
+
+snippet "be(gin)?( (\S+))?" "begin{} / end{}" br
+\begin{${1:`!p
+snip.rv = match.group(3) if match.group(2) is not None else "something"`}}
+    ${2:${VISUAL}}
+\end{$1}$0
+endsnippet
+
+
+snippet debugger "debugger statement" b
+import ipdb; ipdb.set_trace()
+endsnippet
+
+
+post_jump "replace_tabstop(snip, 2, 'args', start_offset=-2)"
+snippet cdef "classmethod" b
+@classmethod
+def ${1:name}(cls, ${2:args}):
+	${0:${VISUAL:pass}}
+endsnippet
