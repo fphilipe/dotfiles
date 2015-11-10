@@ -493,11 +493,12 @@ let g:airline_mode_map = {
 let g:ctrlp_extensions = ['tag']
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.(git|hg|svn|sass-cache|bundle|tmp|yardoc)|build|tmp|bin|node_modules|docs?|vendor\/bundle)$',
-  \ 'file': '\v(\.(exe|so|dll|DS_Store)|tags)$',
+  \ 'dir':  '\v[\/](\.(git|hg|svn|sass-cache|bundle|tmp|yardoc)|build|tmp|bin|node_modules|docs?|vendor\/bundle|__pycache__)$',
+  \ 'file': '\v(\.(exe|so|dll|DS_Store)|tags|pyc)$',
   \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
   \ }
 let g:ctrlp_cmd = 'CtrlPCurWD'
+let g:ctrlp_switch_mode = 'et'
 
 let g:gundo_right = 1
 
