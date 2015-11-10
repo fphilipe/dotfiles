@@ -104,7 +104,6 @@ set smarttab                    " insert tabs on the start of a line according t
                                 "   shiftwidth, not tabstop
 set scrolloff=2                 " keep x lines off the edges of the screen when scrolling vertically
 set sidescrolloff=2             " keep x columns off the edges of the screen when scrolling horizontally
-set hlsearch                    " highlight search terms
 set incsearch                   " show search matches as you type
 set gdefault                    " search/replace "globally" (on a line) by default
 set listchars=tab:▸\ ,trail:·,extends:…,nbsp:·
