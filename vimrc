@@ -130,6 +130,8 @@ set vb
 
 set mouse=a                     " enable using the mouse if terminal emulator
                                 "    supports it (xterm does)
+set ttymouse=xterm2             " make split resizing work inside tmux
+
 set fileformats="unix,dos,mac"
 
 set textwidth=80
