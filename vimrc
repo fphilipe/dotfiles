@@ -620,6 +620,9 @@ au FileType gitcommit setlocal formatoptions+=a
 au FileType gitcommit setlocal textwidth=72
 au FileType gitcommit setlocal colorcolumn=51
 
+au FileType python setlocal textwidth=72
+au FileType python setlocal colorcolumn=80
+
 au FileType make,snippets setlocal noexpandtab
 au FileType objc,sql setlocal shiftwidth=4
 
