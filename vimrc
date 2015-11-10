@@ -15,6 +15,7 @@ call vundle#rc()
 " }}}
 " Bundles                                                                    {{{
 
+Plugin 'junegunn/goyo.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'AndrewRadev/splitjoin.vim'
