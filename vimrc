@@ -274,8 +274,7 @@ map <C-t> :CtrlPTag<CR>
 
 " Quickly open certain files for editing
 map <leader>ev :tabe ~/dotfiles/vimrc<CR>:lcd %:p:h<CR>
-map <leader>em :tabe ~/.vimmnemonics<CR>
-map <leader>es :tabe<CR>:UltiSnipsEdit<CR>:lcd %:p:h<CR>
+map <leader>es :UltiSnipsEdit<CR>:lcd %:p:h<CR>
 
 " Quickly call fugitive stuff
 map <leader>gs :Gstatus<CR>
@@ -527,11 +526,14 @@ map <leader>ku :silent! w \| Dispatch grunt karma:unit_once<CR>
 let test#strategy = "dispatch"
 
 " UltiSnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsListSnippets="<S-Tab>"
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsJumpForwardTrigger="<Tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 let g:UltiSnipsSnippetsDir="~/.vim/snips"
 let g:UltiSnipsSnippetDirectories=["snips"]
+let g:UltiSnipsEditSplit='context'
+let g:UltiSnipsEnableSnipMate=0
 set rtp+=~/.vim
 
 " Tabular
