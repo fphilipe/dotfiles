@@ -21,7 +21,7 @@ chruby ruby
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 # Load pyenv and enable auto switching:
 export PYENV_ROOT=/usr/local/var/pyenv
-if which pyenv > /dev/null; then
+if which pyenv > /dev/null 2>&1; then
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
 fi
@@ -32,5 +32,7 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export MATLABPATH=$HOME/.matlab
 
 # Java:
-export DRIP_SHUTDOWN=30
-export JAVACMD=$(which drip)
+if which drip > /dev/null 2>&1; then
+  export DRIP_SHUTDOWN=30
+  export JAVACMD=$(which drip)
+fi
