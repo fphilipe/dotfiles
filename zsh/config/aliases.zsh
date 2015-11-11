@@ -1,5 +1,5 @@
 # Use list style, list everything, show size with units.
-alias ls='ls -lah'
+alias ls='ls -lah --color'
 # Always use the same socket.
 alias tmux='tmux -S /tmp/tmux'
 # Quicklook a file from terminal.
