@@ -50,6 +50,7 @@ node_modules/
 .powrc
 .powder
 .python-version
+.byebug_history
 
 # Private Stuff #
 #################
