@@ -494,7 +494,7 @@ let g:airline_mode_map = {
 let g:ctrlp_extensions = ['tag']
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.(git|hg|svn|sass-cache|bundle|tmp|yardoc)|build|tmp|bin|node_modules|docs?|vendor\/bundle|__pycache__)$',
+  \ 'dir':  '\v[\/](\.(git|hg|svn|sass-cache|bundle|tmp|yardoc)|_?build|tmp|bin|node_modules|docs?|vendor\/bundle|__pycache__|deps)$',
   \ 'file': '\v(\.(exe|so|dll|DS_Store)|tags|pyc)$',
   \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
   \ }
