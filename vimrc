@@ -50,7 +50,6 @@ Plugin 'rking/ag.vim'
 Plugin 'ruby-matchit'
 Plugin 'rust-lang/rust.vim'
 Plugin 'ryan-cf/netrw'
-Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'SirVer/ultisnips'
@@ -61,6 +60,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tomtom/tlib_vim'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-cucumber'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-endwise'
@@ -562,9 +562,6 @@ endfunction
 
 " Fugitive
 set diffopt=vertical,filler
-
-" NERDCommented
-let g:NERDSpaceDelims=1
 
 " Markdown
 let g:vim_markdown_math=1
