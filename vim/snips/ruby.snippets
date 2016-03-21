@@ -3,6 +3,12 @@ from snippets_helper import *
 endglobal
 
 
+snippet #f
+# frozen_string_literal: true
+$0
+endsnippet
+
+
 snippet class
 class ${1:`!p snip.rv = camel_case(snip.basename)`}
 	${0}
