@@ -5,3 +5,5 @@ tmp/*
 .tmp/*
 bin/*
 *.ipynb
+target/*
+build/*
