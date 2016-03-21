@@ -5,6 +5,9 @@
 setopt auto_cd
 # cd into variables without cd or ~.
 setopt cdable_vars
+# Ignore commands starting with a space. Useful when running commands containing
+# sensible information.
+setopt histignorespace
 
 # Don't use auto correction.
 setopt no_correct_all
