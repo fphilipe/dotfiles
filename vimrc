@@ -567,6 +567,14 @@ set diffopt=vertical,filler
 let g:vim_markdown_math=1
 let g:vim_markdown_frontmatter=1
 
+" tmux navigator stuff
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <c-w>h :TmuxNavigateLeft<cr>
+nnoremap <silent> <c-w>j :TmuxNavigateDown<cr>
+nnoremap <silent> <c-w>k :TmuxNavigateUp<cr>
+nnoremap <silent> <c-w>l :TmuxNavigateRight<cr>
+nnoremap <silent> <c-w>; :TmuxNavigatePrevious<cr>
+
 " }}}
 " Editor Behavior                                                            {{{
 
