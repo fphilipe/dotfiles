@@ -268,9 +268,6 @@ nmap <leader>O O<CR><CR><Up>
 " highlight lines longer than 80 chars
 nnoremap <leader>ll /\%>80v.\+<CR>
 
-" Adjust viewports to the same size
-map <Leader>= <C-w>=
-
 " open ControlP in tag mode
 map <C-t> :CtrlPTag<CR>
 
