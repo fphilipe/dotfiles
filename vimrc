@@ -19,6 +19,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'bruno-/vim-vertical-move'
 Plugin 'chriskempson/base16-vim'
 Plugin 'chriskempson/vim-tomorrow-theme'
@@ -574,6 +575,8 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 
 let g:solarized_contrast='high'
 let g:solarized_visibility='high'
+
+let g:airline_theme='base16'
 
 if ! has('gui_running')
   set bg=dark
