@@ -22,7 +22,6 @@ Plugin 'bling/vim-airline'
 Plugin 'bruno-/vim-vertical-move'
 Plugin 'chriskempson/base16-vim'
 Plugin 'chriskempson/vim-tomorrow-theme'
-Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'cohama/lexima.vim'
 Plugin 'croaky/vim-colors-github'
 Plugin 'elixir-lang/vim-elixir'
@@ -563,14 +562,6 @@ set diffopt=vertical,filler
 " Markdown
 let g:vim_markdown_math=1
 let g:vim_markdown_frontmatter=1
-
-" tmux navigator stuff
-let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> <c-w>h :TmuxNavigateLeft<cr>
-nnoremap <silent> <c-w>j :TmuxNavigateDown<cr>
-nnoremap <silent> <c-w>k :TmuxNavigateUp<cr>
-nnoremap <silent> <c-w>l :TmuxNavigateRight<cr>
-nnoremap <silent> <c-w>; :TmuxNavigatePrevious<cr>
 
 " }}}
 " Editor Behavior                                                            {{{
