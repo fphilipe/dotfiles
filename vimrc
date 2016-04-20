@@ -210,12 +210,6 @@ nnoremap k gk
 " clean whitespace in file
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
-" navigate around split windows
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
 " open alternate file in split
 nnoremap <leader>av :vsp\|A<CR>
 nnoremap <leader>as :sp\|A<CR>
