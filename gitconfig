@@ -1,16 +1,14 @@
 [alias]
-  authors = log --format='%aN <%aE>'
   co = checkout
   d = diff
+  dw = diff --word-diff
+  dc = diff --cached
   last = log -n1 --decorate=short --abbrev-commit --format=fuller
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-  pullsh = !git pull && git push
   pushu = push -u origin HEAD
   ri = rebase --interactive
   ru = rebase @{u}
   s = status -sb
-  stapulpo = !git stash -u && git pull && git stash pop
-  wd = diff --word-diff
 [branch]
   autosetuprebase = always
 [color]
