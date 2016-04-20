@@ -598,7 +598,6 @@ au FileType scss setlocal iskeyword+=@-@,$,-,%,#,.
 au FileType css setlocal iskeyword+=-,#,.
 au FileType coffee setlocal iskeyword+=$
 
-au FileType gitcommit setlocal formatoptions+=a
 au FileType gitcommit setlocal textwidth=72
 au FileType gitcommit setlocal colorcolumn=51
 
