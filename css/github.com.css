@@ -1,2 +1,4 @@
-.github-jobs-promotion { display: none }
-.mergeability-details .branch-action-item { display: none }
+.github-jobs-promotion,
+.merge-message button {
+  display: none;
+}
