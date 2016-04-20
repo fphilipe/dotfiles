@@ -41,6 +41,7 @@
   default = upstream
 [rebase]
   autosquash = true
+  autostash = true
 [user]
   email = me@phili.pe
   name = Philipe Fatio
@@ -48,7 +49,7 @@
 [web]
   browser = open
 [filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
+  clean = git-media-clean %f
+  smudge = git-media-smudge %f
 [commit]
   gpgsign = true
