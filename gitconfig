@@ -12,6 +12,7 @@
   s = status -sb
 [branch]
   autosetuprebase = always
+  autosetupmerge = false
 [color]
   ui = true
 [core]
