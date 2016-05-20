@@ -276,9 +276,9 @@ map <leader>gc :Gcommit<CR>
 map <leader>gw :Gwrite<CR>
 map <leader>gr :Gread<CR>
 map <leader>gb :Gblame<CR>
-" When diffing two files, save the one on the left, close it, go to the git
-" status split below and jump to the next file:
-map <leader>gn <C-w>h:x<CR><C-w>j<C-n>
+" When diffing two files, save and close the index file, go to the git status
+" split below and jump to the next file:
+map <leader>gn :x<CR><C-w>j<C-n>D
 
 " }}}
 " Folding Rules                                                              {{{
@@ -406,7 +406,7 @@ let g:syntastic_java_javac_args="-classpath /usr/local/Cellar/hadoop/1.1.1/libex
 let g:syntastic_python_checkers = ['flake8']
 
 " CTags
-map <leader>ct :!/usr/local/bin/ctags --extra=+f -R *<CR><CR>
+map <leader>ct :!ctags --extra=+f -R *<CR><CR>
 
 " add a definition for Objective-C to tagbar
 let tlist_objc_settings = 'ObjectiveC;P:protocols;i:interfaces;types(...)'
