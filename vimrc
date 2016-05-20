@@ -621,5 +621,5 @@ au VimEnter PULLREQ_EDITMSG setlocal wrap
 
 " }}}
 " Searches                                                                   {{{
-let SqlCapitalize = '\<\(select\|update\|set\|from\|where\|and\|or\|on\|join\|not\|null\|is\|using\|case\|when\|else\|if\|elsif\|end\|as\|order\|by\|asc\|desc\|limit\|with\|over\|partition\|group\|like\|left\|right\|outer\|inner\|full\|union\|all\|distinct\|coalesce\)\>\C'
+let SqlCapitalize = '\<\(select\|update\|set\|from\|where\|and\|or\|on\|join\|not\|null\|is\|using\|case\|when\|else\|if\|elsif\|end\|as\|order\|by\|asc\|desc\|limit\|with\|over\|partition\|group\|like\|left\|right\|outer\|inner\|full\|union\|all\|distinct\|coalesce\|natural\)\>\C'
 " }}}
