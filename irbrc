@@ -21,7 +21,3 @@ end
 if defined? Logger and not ENV['NO_LOG']
   ActiveRecord::Base.logger = Logger.new STDOUT if defined? ActiveRecord
 end
-
-if Dir.pwd != Dir.home and File.exists?('.irbrc')
-  load('.irbrc')
-end
