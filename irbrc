@@ -6,14 +6,14 @@ require 'irb/ext/save-history'
 IRB.conf[:SAVE_HISTORY] = 1000
 IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-save-history"
 
-# Quick benchmarking:
-def quick(repetitions=100, &block)
-  require 'benchmark'
-
-  Benchmark.bmbm do |b|
-    b.report { repetitions.times(&block) }
+# Quick IPS benchmarking:
+def ips(&blk)
+  require 'benchmark/ips'
+  Benchmark.ips do |b|
+    b.singleton_class.send(:alias_method, :r, :report)
+    b.instance_eval(&blk)
+    b.compare!
   end
-
   nil
 end
 
