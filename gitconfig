@@ -19,6 +19,7 @@
   editor = vim -f
   excludesfile = ~/.gitignore_global
   quotepath = false
+  hooksPath = ~/.githooks
 [diff]
   tool = vimdiff
 [difftool]
