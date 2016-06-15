@@ -1,4 +1,20 @@
 .github-jobs-promotion,
-.merge-message button {
+.merge-message .js-merge-branch-action {
   display: none;
+}
+
+.previewable-comment-form textarea {
+  min-height: 300px;
+  max-height: none;
+  font-size: 12px;
+}
+
+.blob-code-inner,
+.blob-num,
+.file-info,
+.previewable-comment-form textarea,
+tt,
+code,
+pre {
+  font-family: 'Source Code Pro';
 }
