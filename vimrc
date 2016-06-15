@@ -169,7 +169,7 @@ set colorcolumn=81              " highlight 81st column
 " Tab completion
 set wildmode=list:longest,list:full
 set wildmenu
-set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,doc/**,coverage/**
+set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,doc/**,coverage/**,plumbing
 
 set laststatus=2                " Always display the statusline in all windows
 set noshowmode                  " Hide the default mode text (e.g. -- INSERT -- below the statusline)

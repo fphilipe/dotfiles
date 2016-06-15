@@ -7,3 +7,4 @@ bin/*
 *.ipynb
 target/*
 build/*
+/plumbing
