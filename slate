@@ -1,29 +1,61 @@
+# Configs
 config defaultToCurrentScreen true
+config nudgePercentOf screenSize
 config resizePercentOf screenSize
+config checkDefaultsOnLoad true
+config focusCheckWidthMax 3000
 
+# Monitor aliases
+alias mon-laptop      1280x800
+alias mon-thunderbolt 2560x1440
+alias mon-cinema      1920x1200
+
+# Size and Position aliases
 alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY
 alias center move screenOriginX+screenSizeX/6;screenOriginY screenSizeX*2/3;screenSizeY
-alias quarter move screenOriginX+screenSizeX/4;screenOriginY+screenSizeY/4 screenSizeX/2;screenSizeY/2
 
 alias leftHalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
 alias rightHalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
 alias topHalf move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX;screenSizeY/2
 alias bottomHalf move screenOriginX;screenOriginY screenSizeX;screenSizeY/2
 
+# Key aliases
 alias ca   ctrl;alt
 alias cas  ctrl;alt;shift
 alias cam  ctrl;alt;cmd
 alias cams ctrl;alt;cmd;shift
 alias ams  alt;cmd;shift
 
+# Default layouts
+default laptop-thunderbolt resolutions:${mon-laptop};${mon-thunderbolt}
+default laptop-cinema resolutions:${mon-laptop};${mon-cinema}
+
+# 2 monitor layout thunderbolt
+layout laptop-thunderbolt 'iTerm' ${full} ${mon-thunderbolt}
+layout laptop-thunderbolt 'Safari' throw ${mon-thunderbolt}
+layout laptop-thunderbolt 'Tweetbot' corner top-right none ${mon-laptop}
+layout laptop-thunderbolt 'Slack' ${full} ${mon-laptop}
+layout laptop-thunderbolt 'Mail' ${full} ${mon-laptop}
+layout laptop-thunderbolt 'Spotify' ${full} ${mon-laptop}
+layout laptop-thunderbolt 'Skype' ${leftHalf} ${mon-laptop}
+
+# 2 monitor layout cineam
+layout laptop-cinema 'iTerm' ${full} ${mon-cinema}
+layout laptop-cinema 'Safari' throw ${mon-cinema}
+layout laptop-cinema 'Tweetbot' corner top-right none ${mon-laptop}
+layout laptop-cinema 'Slack' ${full} ${mon-laptop}
+layout laptop-cinema 'Mail' ${full} ${mon-laptop}
+layout laptop-cinema 'Spotify' ${full} ${mon-laptop}
+layout laptop-cinema 'Skype' ${leftHalf} ${mon-laptop}
+
+# Bindings
 bind r:${cam} relaunch
 bind u:${cam} undo
-bind g:${cam} grid
+bind g:${cam} grid ${mon-laptop}:8,8 ${mon-cinema}:12,12 ${mon-thunderbolt}:16,14
 bind n:${cam} throw next
 
 bind m:${cam} ${full}
 bind =:${cam} ${center}
-bind /:${cam} ${quarter}
 
 bind h:${cam} ${leftHalf}
 bind l:${cam} ${rightHalf}
@@ -50,3 +82,5 @@ bind l:${ams} focus right
 bind j:${ams} focus down
 bind k:${ams} focus up
 bind p:${ams} focus behind
+
+bind /:${cam} hint ASDFGHJKL
