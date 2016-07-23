@@ -408,10 +408,6 @@ let NERDTreeQuitOnOpen=1
 let g:tagbar_autoclose = 1
 let g:tagbar_autofocus = 1
 
-" Syntastic
-let g:syntastic_java_javac_args="-classpath /usr/local/Cellar/hadoop/1.1.1/libexec/hadoop-core-1.1.1.jar"
-let g:syntastic_python_checkers = ['flake8']
-
 " CTags
 map <leader>ct :!ctags --extra=+f -R *<CR><CR>
 
@@ -603,9 +599,6 @@ au FileType coffee,slim,yaml,python setlocal foldmethod=expr
 au FileType scss setlocal iskeyword+=@-@,$,-,%,#,.
 au FileType css setlocal iskeyword+=-,#,.
 au FileType coffee setlocal iskeyword+=$
-
-au FileType python setlocal textwidth=72
-au FileType python setlocal colorcolumn=80
 
 au FileType make,snippets setlocal noexpandtab
 au FileType objc,sql setlocal shiftwidth=4
