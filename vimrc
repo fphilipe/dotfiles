@@ -375,6 +375,8 @@ set foldexpr=GetIndentationFold(v:lnum)
 " }}}
 " Plugins Configuration                                                      {{{
 
+let ruby_spellcheck_strings = 1
+
 if executable('ag')
   set grepprg=ag\ --vimgrep
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
