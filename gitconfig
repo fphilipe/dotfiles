@@ -54,6 +54,7 @@
   smudge = git-media-smudge %f
 [commit]
   gpgsign = true
+  verbose = true
 [pager]
   log = diff-highlight | less
   show = diff-highlight | less
