@@ -30,8 +30,6 @@
   fontdiff = -family Menlo -size 11 -weight normal -slant roman -underline 0 -overstrike 0
 [help]
   autocorrect = 1
-[init]
-  templatedir = ~/.git_template
 [merge]
   ff = no
   tool = vimdiff
