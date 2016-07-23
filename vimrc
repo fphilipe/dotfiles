@@ -192,7 +192,6 @@ au FocusLost,WinLeave * :silent! wa
 au FocusGained,BufEnter * :silent! !
 
 " Clear CtrlP cache when coming back to vim and after writing a file.
-au FocusGained,BufWritePost * :CtrlPClearCache
 
 " }}}
 " Key Mappings                                                               {{{
@@ -260,7 +259,6 @@ nmap <leader>O O<CR><CR><Up>
 nnoremap <leader>ll /\%>80v.\+<CR>
 
 " open ControlP in tag mode
-map <C-t> :CtrlPTag<CR>
 
 " Quickly open certain files for editing
 map <leader>ev :tabe ~/dotfiles/vimrc<CR>:lcd %:p:h<CR>
@@ -379,6 +377,8 @@ set foldexpr=GetIndentationFold(v:lnum)
 
 if executable('ag')
   set grepprg=ag\ --vimgrep
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_use_caching = 0
 endif
 
 " Netrw
