@@ -49,7 +49,6 @@ Plugin 'ngmy/vim-rubocop'
 Plugin 'pangloss/vim-javascript'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'rainbow_parentheses.vim'
-Plugin 'rking/ag.vim'
 Plugin 'ruby-matchit'
 Plugin 'rust-lang/rust.vim'
 Plugin 'ryan-cf/netrw'
@@ -283,6 +282,9 @@ map <leader>gb :Gblame<CR>
 " split below and jump to the next file:
 map <leader>gn :x<CR><C-w>j<C-n>D
 
+" Define Ag command
+command -nargs=+ -complete=tag -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+
 " }}}
 " Folding Rules                                                              {{{
 
@@ -378,6 +380,10 @@ set foldexpr=GetIndentationFold(v:lnum)
 
 " }}}
 " Plugins Configuration                                                      {{{
+
+if executable('ag')
+  set grepprg=ag\ --vimgrep
+endif
 
 " Netrw
 let g:netrw_liststyle=3
