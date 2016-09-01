@@ -192,8 +192,6 @@ au FocusLost,WinLeave * :silent! wa
 " Trigger autoread when changing buffers or coming back to vim.
 au FocusGained,BufEnter * :silent! !
 
-" Clear CtrlP cache when coming back to vim and after writing a file.
-
 " }}}
 " Key Mappings                                                               {{{
 
