@@ -1,5 +1,6 @@
 .github-jobs-promotion,
-.merge-message .js-merge-branch-action {
+.merge-message .js-merge-branch-action,
+.toolbar-commenting .toolbar-item:not(.js-saved-reply-container) {
   display: none;
 }
 
