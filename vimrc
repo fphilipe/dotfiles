@@ -41,6 +41,7 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'majutsushi/tagbar'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'matchit.zip'
+Plugin 'mileszs/ack.vim'
 Plugin 'mkitt/tabline.vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'nelstrom/vim-markdown-folding'
@@ -276,7 +277,8 @@ map <leader>gb :Gblame<CR>
 map <leader>gn :x<CR><C-w>j<C-n>D
 
 " Define Ag command
-command -nargs=+ -complete=tag -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+let g:ackprg = 'ag --vimgrep --smart-case'
+let g:ack_use_dispatch = 1
 
 " }}}
 " Folding Rules                                                              {{{
