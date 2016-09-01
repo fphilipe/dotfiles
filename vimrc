@@ -139,6 +139,7 @@ set fileformats="unix,dos,mac"
 set textwidth=80
 set formatoptions=1cnqroj
 
+set synmaxcol=200               " only do syntax highlighting within first 200 columns
 set hidden                      " hide buffers instead of closing them this
                                 "    means that the current buffer can be put
                                 "    to background without being written; and
