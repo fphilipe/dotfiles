@@ -481,17 +481,13 @@ let g:airline_mode_map = {
     \ 'S'  : 'S',
     \ '' : 'S',
     \ }
+ let g:airline#extensions#ctrlp#show_adjacent_modes = 0
 
 " ControlP
-let g:ctrlp_extensions = ['tag']
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.(git|hg|svn|sass-cache|bundle|tmp|yardoc)|_?build|tmp|bin|node_modules|vendor\/bundle|__pycache__|deps|target)$',
-  \ 'file': '\v(\.(exe|so|dll|DS_Store)|tags|pyc)$',
-  \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
-  \ }
-let g:ctrlp_cmd = 'CtrlPCurWD'
-let g:ctrlp_switch_mode = 'et'
+let g:ctrlp_map = ''
+nmap <C-P><C-F> :<C-U>CtrlP<CR>
+nmap <C-P><C-B> :<C-U>CtrlPBuffer<CR>
+nmap <C-P><C-T> :<C-U>CtrlPTag<CR>
 
 let g:gundo_right = 1
 
