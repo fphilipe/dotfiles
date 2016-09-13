@@ -568,19 +568,10 @@ let g:solarized_visibility='high'
 
 let g:airline_theme='base16'
 
-if ! has('gui_running')
-  set bg=dark
-  colorscheme base16-ocean
-else
-  set bg=dark
-  colorscheme base16-ocean
-  set ttimeoutlen=10
-  augroup FastEscape
 
-    autocmd!
-    au! InsertEnter * set timeoutlen=0
-    au! InsertLeave * set timeoutlen=1000
-  augroup END
+if filereadable(expand('~/.vimrc_background'))
+  let base16colorspace=256
+  source ~/.vimrc_background
 endif
 
 " }}}
