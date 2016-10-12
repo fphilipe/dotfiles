@@ -51,6 +51,7 @@ node_modules/
 .powder
 .python-version
 .byebug_history
+Session.vim
 
 # Private Stuff #
 #################
