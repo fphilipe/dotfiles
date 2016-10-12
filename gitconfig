@@ -1,4 +1,5 @@
 [alias]
+  cm = commit
   co = checkout
   d = diff
   dw = diff --word-diff
