@@ -31,10 +31,11 @@ Plugin 'janko-m/vim-test'
 Plugin 'jgdavey/vim-turbux'
 Plugin 'jrestrepo/matlab'
 Plugin 'JuliaLang/julia-vim'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/goyo.vim'
 Plugin 'kana/vim-textobj-user'
 Plugin 'Keithbsmiley/swift.vim'
-Plugin 'kien/ctrlp.vim'
 Plugin 'Konfekt/FastFold'
 Plugin 'LnL7/vim-tslime'
 Plugin 'Lokaltog/vim-easymotion'
@@ -380,8 +381,6 @@ let ruby_spellcheck_strings = 1
 
 if executable('ag')
   set grepprg=ag\ --vimgrep
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  let g:ctrlp_use_caching = 0
 endif
 
 " Netrw
@@ -481,13 +480,17 @@ let g:airline_mode_map = {
     \ 'S'  : 'S',
     \ '' : 'S',
     \ }
- let g:airline#extensions#ctrlp#show_adjacent_modes = 0
 
-" ControlP
-let g:ctrlp_map = ''
-nmap <C-P><C-F> :<C-U>CtrlP<CR>
-nmap <C-P><C-B> :<C-U>CtrlPBuffer<CR>
-nmap <C-P><C-T> :<C-U>CtrlPTag<CR>
+" fzf
+nmap <C-P><C-F> :<C-U>Files<CR>
+nmap <C-P><C-B> :<C-U>Buffers<CR>
+nmap <C-P><C-T> :<C-U>Tags<CR>
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit' }
+let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 let g:gundo_right = 1
 
