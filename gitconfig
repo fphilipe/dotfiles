@@ -4,10 +4,11 @@
   d = diff
   dw = diff --word-diff
   dc = diff --cached
-  last = log -n1 --decorate=short --abbrev-commit --format=fuller
+  last = log -n1 --decorate=short --abbrev-commit --format=fuller --stat
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   lm = log --first-parent --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative  master
-  pushu = push -u origin HEAD
+  lb = log --decorate=short --abbrev-commit --stat master..
+  pu = push -u origin HEAD
   ri = rebase --interactive
   ru = rebase @{u}
   s = status -sb
