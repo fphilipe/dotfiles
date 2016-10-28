@@ -64,3 +64,6 @@
   diff = diff-highlight | less
 [interactive]
   diffFilter = diff-highlight
+[url "github:"]
+  insteadOf = git@github.com:
+  insteadOf = https://github.com/
