@@ -407,7 +407,7 @@ let g:tagbar_autoclose = 1
 let g:tagbar_autofocus = 1
 
 " CTags
-map <leader>ct :!ctags --extra=+f -R --exclude=@$HOME/.ctagsignore<CR><CR>
+map <leader>ct :!ctags --extra=+f -R<CR><CR>
 
 " add a definition for Objective-C to tagbar
 let tlist_objc_settings = 'ObjectiveC;P:protocols;i:interfaces;types(...)'
