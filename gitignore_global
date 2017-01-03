@@ -52,6 +52,8 @@ node_modules/
 .python-version
 .byebug_history
 Session.vim
+__pycache__/
+.cache/
 
 # Private Stuff #
 #################
