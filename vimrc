@@ -125,6 +125,10 @@ set pastetoggle=<F2>            " when in insert mode, press <F2> to go to
                                 "   that won't be autoindented
 set t_Co=256                    " Explicitly tell that the terminal has 256 colors
 
+" Escape sequences for italic.
+set t_ZH=[3m
+set t_ZR=[23m
+
 " http://snk.tuxfamily.org/log/vim-256color-bce.html
 " Disable Background Color Erase (BCE) so that color schemes
 " work properly when Vim is used inside tmux and GNU screen.
@@ -135,7 +139,7 @@ endif
 " Make Vim recognize XTerm escape sequences for Page and Arrow
 " keys combined with modifiers such as Shift, Control, and Alt.
 " See http://www.reddit.com/r/vim/comments/1a29vk/_/c8tze8p
-if &term =~ '^screen'
+if &term =~ '^tmux'
   " Page keys http://sourceforge.net/p/tmux/tmux-code/ci/master/tree/FAQ
   execute "set t_kP=\e[5;*~"
   execute "set t_kN=\e[6;*~"
@@ -604,4 +608,7 @@ au VimEnter PULLREQ_EDITMSG setlocal formatoptions-=t wrap
 " }}}
 " Searches                                                                   {{{
 let SqlCapitalize = '\<\(create\|insert\|select\|update\|alter\|set\|from\|where\|and\|or\|on\|join\|not\|null\|is\|using\|case\|when\|else\|if\|elsif\|end\|as\|order\|by\|asc\|desc\|limit\|with\|over\|partition\|group\|like\|left\|right\|outer\|inner\|full\|union\|all\|distinct\|coalesce\|natural\|window\|unique\|index\|drop\|table\|column\|begin\|commit\|abort\|rollback\|rename\|add\|remove\|to\|exists\|primary key\|extension\)\>\C'
+" }}}
+" Highlighting                                                                   {{{
+highlight Comment cterm=italic
 " }}}
