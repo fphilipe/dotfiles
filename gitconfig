@@ -1,5 +1,6 @@
 [alias]
   cm = commit
+  cma = commit --amend --no-edit
   co = checkout
   d = diff
   dw = diff --word-diff
