@@ -29,7 +29,12 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'gmarik/vundle'
 Plugin 'godlygeek/tabular'
 Plugin 'janko-m/vim-test'
-Plugin 'jgdavey/vim-turbux'
+let test#strategy = "dispatch"
+nmap <silent> <leader>tn :silent! noautocmd wa \| TestNearest<CR>
+nmap <silent> <leader>tf :silent! noautocmd wa \| TestFile<CR>
+nmap <silent> <leader>ta :silent! noautocmd wa \| TestSuite<CR>
+nmap <silent> <leader>tl :silent! noautocmd wa \| TestLast<CR>
+nmap <silent> <leader>tg :silent! noautocmd wa \| TestVisit<CR>
 Plugin 'jrestrepo/matlab'
 Plugin 'JuliaLang/julia-vim'
 Plugin 'junegunn/fzf'
@@ -509,30 +514,6 @@ let g:fzf_action = {
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 let g:gundo_right = 1
-
-let g:turbux_command_rspec = 'rspec -fp'
-let g:no_turbux_mappings = 1
-" Rspec line
-map <leader>rl <Plug>SendFocusedTestToTmux
-" Rspec file
-map <leader>rf <Plug>SendTestToTmux
-" Rspec file format doc
-map <leader>rd :silent! w \| call SendToTmux("rspec -fd --order default -- ".expand("%")."\n")<CR>
-" Rspec all
-map <leader>ra :silent! w \| Dispatch rspec -fp -- spec<CR>
-" Rspec all format doc
-map <leader>rad :silent! w \| call SendToTmux("rspec -fd -- spec\n")<CR>
-" Rspec all format doc
-map <leader>rc :silent! w \| :RuboCop<CR>
-" Dispatch
-map <leader>d :Dispatch<space>
-" Tx
-map <leader>tx :Tx<space>
-" Karma unit
-map <leader>ku :silent! w \| Dispatch grunt karma:unit_once<CR>
-
-" vim-test
-let test#strategy = "dispatch"
 
 " UltiSnips
 let g:UltiSnipsListSnippets="<S-Tab>"
