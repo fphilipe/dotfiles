@@ -255,7 +255,7 @@ nnoremap <leader>z zMzvzczOzz
 
 " Yank/paste to the OS clipboard with ,y and ,p
 nmap <leader>y "*y
-nmap <leader>Y "*yy
+nmap <leader>Y "*y$
 nmap <leader>p "*p
 nmap <leader>P "*P
 vmap <leader>y "*y
