@@ -565,9 +565,6 @@ let g:vim_markdown_frontmatter=1
 set autoread                  " Remember last location in file
 set timeoutlen=600            " timeout for leader maps
 
-au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-  \| exe "normal g'\"" | endif
-
 let g:solarized_contrast='high'
 let g:solarized_visibility='high'
 
