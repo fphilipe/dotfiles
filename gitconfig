@@ -21,6 +21,7 @@
 [core]
   editor = vim -f
   excludesfile = ~/.gitignore_global
+  attributesfile = ~/.gitattributes_global
   quotepath = false
   hooksPath = ~/.githooks
 [diff]
