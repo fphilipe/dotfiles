@@ -74,6 +74,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-cucumber'
 Plugin 'tpope/vim-dispatch'
 let g:dispatch_tmux_height=15
+map <silent> <leader>d :silent! noautocmd wa \| Dispatch<CR>
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-git'
 Plugin 'tpope/vim-obsession.git'
