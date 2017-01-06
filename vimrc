@@ -212,12 +212,10 @@ set cole=2
 let g:tex_conceal='adgm'
 hi Conceal guibg=bg guifg=#66d9ef
 
-" Save whenever switching windows or leaving vim. This is useful when running
-" the tests inside vim without having to save all files first.
-au FocusLost,WinLeave * :silent! wa
-
-" Trigger autoread when changing buffers or coming back to vim.
-au FocusGained,BufEnter * :silent! !
+" Save whenever switching windows or leaving vim.
+au FocusLost * :silent! wa
+" Trigger autoread when coming back to vim.
+au FocusGained * :silent! !
 
 " }}}
 " Key Mappings                                                               {{{
