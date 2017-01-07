@@ -9,6 +9,8 @@ paths=(
   './node_modules/.bin'
   # Haskell
   "$HOME/.cabal/bin"
+  # Rust
+  "$HOME/.cargo/bin"
   # Heroku toolbelt
   '/usr/local/heroku/bin'
   # Bundler binstubs
