@@ -2,6 +2,7 @@
   cm = commit
   cma = commit --amend --no-edit
   co = checkout
+  cod = checkout --detach
   d = diff
   dw = diff --word-diff
   dc = diff --cached
