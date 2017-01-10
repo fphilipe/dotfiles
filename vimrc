@@ -19,6 +19,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'AndrewRadev/splitjoin.vim'
 let g:splitjoin_ruby_hanging_args=0
+let g:splitjoin_ruby_curly_braces=0
 Plugin 'bling/vim-airline'
 Plugin 'bruno-/vim-vertical-move'
 Plugin 'chriskempson/base16-vim'
