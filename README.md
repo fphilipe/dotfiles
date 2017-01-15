@@ -1,6 +1,6 @@
 # dotfiles
 
-My dotfiles for vim, git, zsh, and more. Feel free to steel it all of portions
+My dotfiles for vim, git, zsh, and more. Feel free to steal it all or portions
 of it. Much of it was stolen from others, too.
 
 ## Installation
