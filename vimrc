@@ -13,14 +13,41 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " }}}
-" Bundles                                                                    {{{
+" Plugins                                                                    {{{
 
 Plugin 'airblade/vim-gitgutter'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'AndrewRadev/splitjoin.vim'
-let g:splitjoin_ruby_hanging_args=0
-let g:splitjoin_ruby_curly_braces=0
-Plugin 'bling/vim-airline'
+Plugin 'altercation/vim-colors-solarized' "{{{
+  let g:solarized_contrast='high'
+  let g:solarized_visibility='high'
+"}}}
+Plugin 'AndrewRadev/splitjoin.vim' "{{{
+  let g:splitjoin_ruby_hanging_args=0
+  let g:splitjoin_ruby_curly_braces=0
+"}}}
+Plugin 'bling/vim-airline' "{{{
+  let g:airline_theme='base16'
+  let g:airline_detect_spell=0
+  let g:airline_left_sep=''
+  let g:airline_right_sep=''
+  let g:airline_left_alt_sep='-'
+  let g:airline_right_alt_sep='-'
+  let g:airline#extensions#branch#enabled = 0
+  let g:airline#extensions#tagbar#enabled = 0
+  let g:airline#extensions#hunks#enabled = 0
+  let g:airline_mode_map = {
+    \ '__' : '-',
+    \ 'n'  : 'N',
+    \ 'i'  : 'I',
+    \ 'R'  : 'R',
+    \ 'c'  : 'C',
+    \ 'v'  : 'V',
+    \ 'V'  : 'V',
+    \ '' : 'V',
+    \ 's'  : 'S',
+    \ 'S'  : 'S',
+    \ '' : 'S',
+    \ }
+"}}}
 Plugin 'bruno-/vim-vertical-move'
 Plugin 'chriskempson/base16-vim'
 Plugin 'chriskempson/vim-tomorrow-theme'
@@ -29,43 +56,164 @@ Plugin 'croaky/vim-colors-github'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'fweep/vim-zsh-path-completion'
 Plugin 'gmarik/vundle'
-Plugin 'godlygeek/tabular'
-Plugin 'janko-m/vim-test'
-let test#strategy = "dispatch"
-nmap <silent> <leader>tn :silent! noautocmd wa \| TestNearest<CR>
-nmap <silent> <leader>tf :silent! noautocmd wa \| TestFile<CR>
-nmap <silent> <leader>ta :silent! noautocmd wa \| TestSuite<CR>
-nmap <silent> <leader>tl :silent! noautocmd wa \| TestLast<CR>
-nmap <silent> <leader>tg :silent! noautocmd wa \| TestVisit<CR>
+Plugin 'godlygeek/tabular' "{{{
+  nmap <Leader>a= :Tabularize /=<CR>
+  vmap <Leader>a= :Tabularize /=<CR>
+  nmap <Leader>a: :Tabularize /:\zs/l0r1<CR>
+  vmap <Leader>a: :Tabularize /:\zs/l0r1<CR>
+  nmap <Leader>a, :Tabularize /,\zs/l0r1<CR>
+  vmap <Leader>a, :Tabularize /,\zs/l0r1<CR>
+  nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+  vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+  inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+  function! s:align()
+    let p = '^\s*|\s.*\s|\s*$'
+    if getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+      let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+      let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+      Tabularize/|/l1
+      normal! 0
+      call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+    endif
+  endfunction
+"}}}
+Plugin 'janko-m/vim-test' "{{{
+  let test#strategy = "dispatch"
+  nmap <silent> <leader>tn :silent! noautocmd wa \| TestNearest<CR>
+  nmap <silent> <leader>tf :silent! noautocmd wa \| TestFile<CR>
+  nmap <silent> <leader>ta :silent! noautocmd wa \| TestSuite<CR>
+  nmap <silent> <leader>tl :silent! noautocmd wa \| TestLast<CR>
+  nmap <silent> <leader>tg :silent! noautocmd wa \| TestVisit<CR>
+"}}}
 Plugin 'jrestrepo/matlab'
 Plugin 'JuliaLang/julia-vim'
 Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
+Plugin 'junegunn/fzf.vim' "{{{
+  nmap <C-P><C-F> :<C-U>Files<CR>
+  nmap <C-P><C-B> :<C-U>Buffers<CR>
+  nmap <C-P><C-T> :<C-U>Tags<CR>
+  let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+  let g:fzf_action = {
+    \ 'ctrl-t': 'tab split',
+    \ 'ctrl-s': 'split',
+    \ 'ctrl-v': 'vsplit' }
+  let g:fzf_history_dir = '~/.local/share/fzf-history'
+"}}}
 Plugin 'junegunn/goyo.vim'
 Plugin 'kana/vim-textobj-user'
 Plugin 'Keithbsmiley/swift.vim'
 Plugin 'Konfekt/FastFold'
 Plugin 'LnL7/vim-tslime'
 Plugin 'ludovicchabant/vim-gutentags'
-Plugin 'majutsushi/tagbar'
+Plugin 'majutsushi/tagbar' "{{{
+  let g:tagbar_autoclose = 1
+  let g:tagbar_autofocus = 1
+  let tlist_objc_settings = 'ObjectiveC;P:protocols;i:interfaces;types(...)'
+  let g:tagbar_type_objc = {
+    \ 'ctagstype' : 'ObjectiveC',
+    \ 'kinds' : [
+      \ 'i:interface',
+      \ 'I:implementation',
+      \ 'p:Protocol',
+      \ 'm:Object_method',
+      \ 'c:Class_method',
+      \ 'v:Global_variable',
+      \ 'F:Object field',
+      \ 'f:function',
+      \ 'p:property',
+      \ 't:type_alias',
+      \ 's:type_structure',
+      \ 'e:enumeration',
+      \ 'M:preprocessor_macro',
+    \ ],
+    \ 'sro'        : ' ',
+    \ 'kind2scope' : {
+      \ 'i' : 'interface',
+      \ 'I' : 'implementation',
+      \ 'p' : 'Protocol',
+      \ 's' : 'type_structure',
+      \ 'e' : 'enumeration'
+    \ },
+    \ 'scope2kind' : {
+      \ 'interface'      : 'i',
+      \ 'implementation' : 'I',
+      \ 'Protocol'       : 'p',
+      \ 'type_structure' : 's',
+      \ 'enumeration'    : 'e'
+    \ }
+  \ }
+  let g:tagbar_type_coffee = {
+    \ 'ctagsbin' : 'coffeetags',
+    \ 'ctagsargs' : '',
+    \ 'kinds' : [
+      \ 'f:functions',
+      \ 'o:object',
+    \ ],
+    \ 'sro' : ".",
+    \ 'kind2scope' : {
+      \ 'f' : 'object',
+      \ 'o' : 'object',
+    \ }
+  \ }
+  map <right> <ESC>:TagbarToggle<CR>
+"}}}
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'matchit.zip'
-Plugin 'mileszs/ack.vim'
+Plugin 'mileszs/ack.vim' "{{{
+  let g:ackprg = 'ag --vimgrep --smart-case'
+"}}}
 Plugin 'mkitt/tabline.vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'ngmy/vim-rubocop'
 Plugin 'pangloss/vim-javascript'
-Plugin 'plasticboy/vim-markdown'
+Plugin 'plasticboy/vim-markdown' "{{{
+  let g:vim_markdown_math=1
+  let g:vim_markdown_frontmatter=1
+"}}}
 Plugin 'rainbow_parentheses.vim'
 Plugin 'ruby-matchit'
 Plugin 'rust-lang/rust.vim'
-Plugin 'ryan-cf/netrw'
-Plugin 'scrooloose/nerdtree'
+Plugin 'ryan-cf/netrw' "{{{
+  let g:netrw_liststyle=3
+  let g:netrw_browsex_viewer="open"
+  let g:netrw_list_hide='^\(\.bundle\/\|\.sass-cache\/\|\.DS_Store\|\.git\/\|Build\/\|.*\.xcodeproj\/\|.*xcworkspace\/\|\.yardoc\)$'
+"}}}
+Plugin 'scrooloose/nerdtree' "{{{
+  let NERDTreeIgnore=[
+  \ '\.rbc$',
+  \ '\~$',
+  \ 'tags[[file]]',
+  \ '.\.pyc[[file]]',
+  \ 'tmp[[dir]]',
+  \ 'build[[dir]]',
+  \ 'bin[[dir]]',
+  \ 'coverage[[dir]]',
+  \ '__pycache__[[dir]]'
+  \]
+  let NERDTreeQuitOnOpen=1
+  map <left> <ESC>:NERDTreeToggle<CR>
+  map <S-left> <ESC>:NERDTreeFind<CR>
+"}}}
 Plugin 'scrooloose/syntastic'
-Plugin 'SirVer/ultisnips'
-Plugin 'sjl/gundo.vim'
+Plugin 'SirVer/ultisnips' "{{{
+  let g:UltiSnipsListSnippets="<S-Tab>"
+  let g:UltiSnipsExpandTrigger="<Tab>"
+  let g:UltiSnipsJumpForwardTrigger="<Tab>"
+  let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+  let g:UltiSnipsSnippetsDir="~/.vim/snips"
+  let g:UltiSnipsSnippetDirectories=["snips"]
+  let g:UltiSnipsEditSplit='context'
+  let g:UltiSnipsEnableSnipMate=0
+  set rtp+=~/.vim
+  au BufNewFile,BufRead *_spec.rb UltiSnipsAddFiletypes rspec
+  map <leader>es :UltiSnipsEdit<CR>:lcd %:p:h<CR>
+"}}}
+Plugin 'sjl/gundo.vim' "{{{
+  let g:gundo_right = 1
+  map <S-right> <ESC>:GundoToggle<CR>
+"}}}
 Plugin 'sjl/vitality.vim'
 Plugin 'slim-template/vim-slim'
 Plugin 'tomtom/tlib_vim'
@@ -73,10 +221,22 @@ Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-cucumber'
-Plugin 'tpope/vim-dispatch'
-let g:dispatch_tmux_height=15
-map <silent> <leader>d :silent! noautocmd wa \| Dispatch<CR>
-Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-dispatch' "{{{
+  let g:dispatch_tmux_height=15
+  map <silent> <leader>d :silent! noautocmd wa \| Dispatch<CR>
+"}}}
+Plugin 'tpope/vim-fugitive' "{{{
+  map <leader>gs :Gstatus<CR>
+  map <leader>gS :Gtabedit :<CR>
+  map <leader>gd :Gdiff<CR>
+  map <leader>gc :Gcommit<CR>
+  map <leader>gw :Gwrite<CR>
+  map <leader>gr :Gread<CR>
+  map <leader>gb :Gblame<CR>
+  " When diffing two files, save and close the index file, go to the git status
+  " split below and jump to the next file:
+  map <leader>gn :x<CR><C-w>j<C-n>D
+"}}}
 Plugin 'tpope/vim-git'
 Plugin 'tpope/vim-obsession.git'
 Plugin 'tpope/vim-projectionist'
@@ -88,7 +248,9 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-coffee-script'
-Plugin 'vim-ruby/vim-ruby'
+Plugin 'vim-ruby/vim-ruby' "{{{
+let ruby_spellcheck_strings = 1
+"}}}
 Plugin 'vim-utils/vim-husk'
 Plugin 'wlangstroth/vim-haskell'
 
@@ -266,10 +428,6 @@ vmap <leader>p "*p
 " Make Arrow Keys Useful Again
 map <down> <ESC>:ccl<CR>
 map <up> <ESC>:cope<CR>
-map <left> <ESC>:NERDTreeToggle<CR>
-map <S-left> <ESC>:NERDTreeFind<CR>
-map <right> <ESC>:TagbarToggle<CR>
-map <S-right> <ESC>:GundoToggle<CR>
 
 " Unimpaired configuration
 " Bubble single lines
@@ -287,26 +445,11 @@ nmap <leader>O O<CR><CR><Up>
 " highlight lines longer than 80 chars
 nnoremap <leader>ll /\%>80v.\+<CR>
 
-" open ControlP in tag mode
-
 " Quickly open certain files for editing
 map <leader>ev :tabe ~/dotfiles/vimrc<CR>:lcd %:p:h<CR>
-map <leader>es :UltiSnipsEdit<CR>:lcd %:p:h<CR>
 
-" Quickly call fugitive stuff
-map <leader>gs :Gstatus<CR>
-map <leader>gS :Gtabedit :<CR>
-map <leader>gd :Gdiff<CR>
-map <leader>gc :Gcommit<CR>
-map <leader>gw :Gwrite<CR>
-map <leader>gr :Gread<CR>
-map <leader>gb :Gblame<CR>
-" When diffing two files, save and close the index file, go to the git status
-" split below and jump to the next file:
-map <leader>gn :x<CR><C-w>j<C-n>D
-
-" Define Ag command
-let g:ackprg = 'ag --vimgrep --smart-case'
+" CTags
+map <leader>ct :!ctags --extra=+f -R<CR><CR>
 
 " }}}
 " Folding Rules                                                              {{{
@@ -402,175 +545,16 @@ endfunction
 set foldexpr=GetIndentationFold(v:lnum)
 
 " }}}
-" Plugins Configuration                                                      {{{
-
-let ruby_spellcheck_strings = 1
-
-if executable('ag')
-  set grepprg=ag\ --vimgrep
-endif
-
-" Netrw
-let g:netrw_liststyle=3
-let g:netrw_browsex_viewer="open"
-let g:netrw_list_hide='^\(\.bundle\/\|\.sass-cache\/\|\.DS_Store\|\.git\/\|Build\/\|.*\.xcodeproj\/\|.*xcworkspace\/\|\.yardoc\)$'
-
-" NERDTree
-let NERDTreeIgnore=[
-\ '\.rbc$',
-\ '\~$',
-\ 'tags[[file]]',
-\ '.\.pyc[[file]]',
-\ 'tmp[[dir]]',
-\ 'build[[dir]]',
-\ 'bin[[dir]]',
-\ 'coverage[[dir]]',
-\ '__pycache__[[dir]]'
-\]
-let NERDTreeQuitOnOpen=1
-
-" Tagbar
-let g:tagbar_autoclose = 1
-let g:tagbar_autofocus = 1
-
-" CTags
-map <leader>ct :!ctags --extra=+f -R<CR><CR>
-
-" add a definition for Objective-C to tagbar
-let tlist_objc_settings = 'ObjectiveC;P:protocols;i:interfaces;types(...)'
-let g:tagbar_type_objc = {
-    \ 'ctagstype' : 'ObjectiveC',
-    \ 'kinds'     : [
-        \ 'i:interface',
-        \ 'I:implementation',
-        \ 'p:Protocol',
-        \ 'm:Object_method',
-        \ 'c:Class_method',
-        \ 'v:Global_variable',
-        \ 'F:Object field',
-        \ 'f:function',
-        \ 'p:property',
-        \ 't:type_alias',
-        \ 's:type_structure',
-        \ 'e:enumeration',
-        \ 'M:preprocessor_macro',
-    \ ],
-    \ 'sro'        : ' ',
-    \ 'kind2scope' : {
-        \ 'i' : 'interface',
-        \ 'I' : 'implementation',
-        \ 'p' : 'Protocol',
-        \ 's' : 'type_structure',
-        \ 'e' : 'enumeration'
-    \ },
-    \ 'scope2kind' : {
-        \ 'interface'      : 'i',
-        \ 'implementation' : 'I',
-        \ 'Protocol'       : 'p',
-        \ 'type_structure' : 's',
-        \ 'enumeration'    : 'e'
-    \ }
-\ }
-let g:tagbar_type_coffee = {
-  \ 'ctagsbin' : 'coffeetags',
-  \ 'ctagsargs' : '',
-  \ 'kinds' : [
-    \ 'f:functions',
-    \ 'o:object',
-  \ ],
-  \ 'sro' : ".",
-  \ 'kind2scope' : {
-    \ 'f' : 'object',
-    \ 'o' : 'object',
-  \ }
-\ }
-
-" airline
-let g:airline_detect_spell=0
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-let g:airline_left_alt_sep='-'
-let g:airline_right_alt_sep='-'
-let g:airline#extensions#branch#enabled = 0
-let g:airline#extensions#tagbar#enabled = 0
-let g:airline#extensions#hunks#enabled = 0
-let g:airline_mode_map = {
-    \ '__' : '-',
-    \ 'n'  : 'N',
-    \ 'i'  : 'I',
-    \ 'R'  : 'R',
-    \ 'c'  : 'C',
-    \ 'v'  : 'V',
-    \ 'V'  : 'V',
-    \ '' : 'V',
-    \ 's'  : 'S',
-    \ 'S'  : 'S',
-    \ '' : 'S',
-    \ }
-
-" fzf
-nmap <C-P><C-F> :<C-U>Files<CR>
-nmap <C-P><C-B> :<C-U>Buffers<CR>
-nmap <C-P><C-T> :<C-U>Tags<CR>
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-s': 'split',
-  \ 'ctrl-v': 'vsplit' }
-let g:fzf_history_dir = '~/.local/share/fzf-history'
-
-let g:gundo_right = 1
-
-" UltiSnips
-let g:UltiSnipsListSnippets="<S-Tab>"
-let g:UltiSnipsExpandTrigger="<Tab>"
-let g:UltiSnipsJumpForwardTrigger="<Tab>"
-let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
-let g:UltiSnipsSnippetsDir="~/.vim/snips"
-let g:UltiSnipsSnippetDirectories=["snips"]
-let g:UltiSnipsEditSplit='context'
-let g:UltiSnipsEnableSnipMate=0
-set rtp+=~/.vim
-
-" Tabular
-nmap <Leader>a= :Tabularize /=<CR>
-vmap <Leader>a= :Tabularize /=<CR>
-nmap <Leader>a: :Tabularize /:\zs/l0r1<CR>
-vmap <Leader>a: :Tabularize /:\zs/l0r1<CR>
-nmap <Leader>a, :Tabularize /,\zs/l0r1<CR>
-vmap <Leader>a, :Tabularize /,\zs/l0r1<CR>
-nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
-vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
-
-inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
-function! s:align()
-  let p = '^\s*|\s.*\s|\s*$'
-  if getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-    Tabularize/|/l1
-    normal! 0
-    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-  endif
-endfunction
-
-" Fugitive
-set diffopt=vertical,filler
-
-" Markdown
-let g:vim_markdown_math=1
-let g:vim_markdown_frontmatter=1
-
-" }}}
 " Editor Behavior                                                            {{{
 
 set autoread                  " Remember last location in file
 set timeoutlen=600            " timeout for leader maps
 
-let g:solarized_contrast='high'
-let g:solarized_visibility='high'
+set diffopt=vertical,filler
 
-let g:airline_theme='base16'
+if executable('ag')
+  set grepprg=ag\ --vimgrep
+endif
 
 if filereadable(expand('~/.vimrc_background'))
   let base16colorspace=256
@@ -597,7 +581,6 @@ au BufReadPost ~/.gem/* set bufhidden=delete
 au BufReadPost ~/dotfiles/* set bufhidden=delete
 
 au BufNewFile,BufRead {Gem,Pod,Rake}file,*.{rabl,podspec} set filetype=ruby
-au BufNewFile,BufRead *_spec.rb UltiSnipsAddFiletypes rspec
 
 " Don't autowrap lines when writing a pull request as line breaks are preserved
 " on GitHub; softwrap instead:
