@@ -397,10 +397,6 @@ nnoremap k gk
 " clean whitespace in file
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
-" open alternate file in split
-nnoremap <leader>av :vsp\|A<CR>
-nnoremap <leader>as :sp\|A<CR>
-
 " Keep search matches in the middle of the window and open the fold.
 nnoremap * *zvzz
 nnoremap # #zvzz
@@ -436,11 +432,6 @@ nmap <M-Down> ]e
 " Bubble multiple lines
 vmap <M-Up> [egv
 vmap <M-Down> ]egv
-
-" go to insert with an empty line above and below
-nmap <leader>o o<CR><CR><Up>
-" go to insert with an empty line above and below
-nmap <leader>O O<CR><CR><Up>
 
 " highlight lines longer than 80 chars
 nnoremap <leader>ll /\%>80v.\+<CR>
