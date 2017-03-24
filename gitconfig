@@ -14,7 +14,9 @@
   lb = log --decorate=short --abbrev-commit --stat --reverse master..
   lg = log --pretty=oneline-extra --date=relative --graph
   lm = log --pretty=oneline-extra --date=relative --first-parent master
-  pu = push -u origin HEAD
+  pl = pull
+  ps = push
+  psu = push -u origin HEAD
   ri = rebase --interactive
   ru = rebase @{u}
   s = status -sb
