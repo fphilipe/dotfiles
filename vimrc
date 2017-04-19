@@ -224,6 +224,9 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-cucumber'
 Plugin 'tpope/vim-dispatch' "{{{
   let g:dispatch_tmux_height=15
+  " Tmux 2.3 related problem that prevents the output from being parsed
+  " properly. https://github.com/tpope/vim-dispatch/issues/192
+  set shellpipe+=\ 
   map <silent> <leader>d :silent! noautocmd wa \| Dispatch<CR>
 "}}}
 Plugin 'tpope/vim-fugitive' "{{{
