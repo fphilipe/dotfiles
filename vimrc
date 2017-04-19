@@ -15,6 +15,7 @@ call vundle#rc()
 " }}}
 " Plugins                                                                    {{{
 
+Plugin '5long/pytest-vim-compiler'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized' "{{{
   let g:solarized_contrast='high'
