@@ -104,7 +104,6 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'kana/vim-textobj-user'
 Plugin 'Keithbsmiley/swift.vim'
 Plugin 'Konfekt/FastFold'
-Plugin 'LnL7/vim-tslime'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'majutsushi/tagbar' "{{{
   let g:tagbar_autoclose = 1
