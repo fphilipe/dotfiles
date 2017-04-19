@@ -392,6 +392,9 @@ au FocusGained * :silent! !
 
 " The current directory for the active file
 cnoremap %% <C-R>=expand('%:h').'/'<CR>
+" Remap partial history search
+cnoremap <C-P> <Up>
+cnoremap <C-N> <Down>
 
 " make j and k always move to next visual line (useful for wrapped lines).
 nnoremap j gj
