@@ -201,8 +201,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'SirVer/ultisnips' "{{{
   let g:UltiSnipsListSnippets="<S-Tab>"
   let g:UltiSnipsExpandTrigger="<Tab>"
-  let g:UltiSnipsJumpForwardTrigger="<Tab>"
-  let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+  let g:UltiSnipsJumpForwardTrigger="<C-J>"
+  let g:UltiSnipsJumpBackwardTrigger="<C-K>"
   let g:UltiSnipsSnippetsDir="~/.vim/snips"
   let g:UltiSnipsSnippetDirectories=["snips"]
   let g:UltiSnipsEditSplit='context'
