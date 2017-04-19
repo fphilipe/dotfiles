@@ -23,7 +23,7 @@
   s = status -sb
 [branch]
   autosetuprebase = always
-  autosetupmerge = false
+  autosetupmerge = always
 [color]
   ui = true
 [core]
