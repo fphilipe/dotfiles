@@ -10,10 +10,13 @@
   d = diff
   dw = diff --word-diff
   dc = diff --cached
+  f = fetch
+  h = help
   last = log -n1 --decorate=short --abbrev-commit --format=fuller --stat
   lb = log --decorate=short --abbrev-commit --stat --reverse master..
   lg = log --pretty=oneline-extra --date=relative --graph
   lm = log --pretty=oneline-extra --date=relative --first-parent master
+  mt = mergetool
   pl = pull
   ps = push
   psu = push -u origin HEAD
