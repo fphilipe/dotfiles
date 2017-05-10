@@ -278,7 +278,6 @@ set smartcase                   " ignore case if search pattern is all lowercase
                                 "   case-sensitive otherwise
 set splitright                  " open vertical splits to the right
 set splitbelow                  " open splits to the bottom
-set cursorline                  " highlight current line
 set smarttab                    " insert tabs on the start of a line according to
                                 "   shiftwidth, not tabstop
 set scrolloff=2                 " keep x lines off the edges of the screen when scrolling vertically
