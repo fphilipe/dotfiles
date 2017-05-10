@@ -83,3 +83,5 @@
   insteadOf = git@github.com:
 [fetch]
   prune = true
+[includeIf "gitdir:**/ElectricFeel/"]
+  path = .gitconfig-work
