@@ -65,6 +65,7 @@
   email = me@phili.pe
   name = Philipe Fatio
   signkey = F74418A0
+  useconfigonly = true
 [web]
   browser = open
 [filter "media"]
