@@ -17,6 +17,8 @@ chruby() {
 
 chruby ruby
 
+# Don't create bytecode files:
+export PYTHONDONTWRITEBYTECODE=1
 # Don't hijack my prompt, please!
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 # Load pyenv and enable auto switching:
