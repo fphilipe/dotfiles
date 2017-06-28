@@ -23,6 +23,7 @@
   psu = push -u origin HEAD
   r = rebase
   ri = rebase --interactive
+  rim = rebase --interactive master
   ru = rebase @{u}
   s = status -sb
 [branch]
