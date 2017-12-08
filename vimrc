@@ -226,6 +226,9 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-rsi'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'transpose-words' "{{{
+  exec "set <M-t>=\<Esc>t"
+"}}}
 Plugin 'vim-coffee-script'
 Plugin 'vim-ruby/vim-ruby' "{{{
 let ruby_spellcheck_strings = 1
