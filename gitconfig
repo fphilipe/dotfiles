@@ -1,5 +1,5 @@
 [alias]
-  ai = add --intent-to-add
+  ai = add -i
   ap = add -p
   b = branch -vv
   cm = commit
