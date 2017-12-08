@@ -10,7 +10,7 @@ filetype off
 set encoding=utf-8
 
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call vundle#begin()
 
 " }}}
 " Plugins                                                                    {{{
@@ -231,6 +231,8 @@ let ruby_spellcheck_strings = 1
 "}}}
 Plugin 'vim-utils/vim-husk'
 Plugin 'wlangstroth/vim-haskell'
+
+call vundle#end()
 
 " }}}
 " Editing Behavior                                                           {{{
