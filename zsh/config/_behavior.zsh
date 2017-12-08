@@ -21,3 +21,8 @@ stty -ixon
 # Quote pasted URLs.
 autoload -U url-quote-magic
 zle -N self-insert url-quote-magic
+
+# Edit the command line with $EDITOR.
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey '^X^E' edit-command-line
