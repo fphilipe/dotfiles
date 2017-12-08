@@ -229,6 +229,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'transpose-words' "{{{
   exec "set <M-t>=\<Esc>t"
 "}}}
+Plugin 'udalov/kotlin-vim'
 Plugin 'vim-coffee-script'
 Plugin 'vim-ruby/vim-ruby' "{{{
 let ruby_spellcheck_strings = 1
