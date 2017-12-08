@@ -39,6 +39,8 @@ Thumbs.db
 # Tools #
 #########
 tags
+tags.lock
+tags.temp
 bin
 .bundle
 .rbx/
