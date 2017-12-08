@@ -25,30 +25,6 @@ Plugin 'AndrewRadev/splitjoin.vim' "{{{
   let g:splitjoin_ruby_hanging_args=0
   let g:splitjoin_ruby_curly_braces=0
 "}}}
-Plugin 'bling/vim-airline' "{{{
-  let g:airline_theme='base16'
-  let g:airline_detect_spell=0
-  let g:airline_left_sep=''
-  let g:airline_right_sep=''
-  let g:airline_left_alt_sep='-'
-  let g:airline_right_alt_sep='-'
-  let g:airline#extensions#branch#enabled = 0
-  let g:airline#extensions#tagbar#enabled = 0
-  let g:airline#extensions#hunks#enabled = 0
-  let g:airline_mode_map = {
-    \ '__' : '-',
-    \ 'n'  : 'N',
-    \ 'i'  : 'I',
-    \ 'R'  : 'R',
-    \ 'c'  : 'C',
-    \ 'v'  : 'V',
-    \ 'V'  : 'V',
-    \ '' : 'V',
-    \ 's'  : 'S',
-    \ 'S'  : 'S',
-    \ '' : 'S',
-    \ }
-"}}}
 Plugin 'bruno-/vim-vertical-move'
 Plugin 'chriskempson/base16-vim'
 Plugin 'chriskempson/vim-tomorrow-theme'
@@ -249,7 +225,6 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-rsi'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
-Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-coffee-script'
 Plugin 'vim-ruby/vim-ruby' "{{{
 let ruby_spellcheck_strings = 1
