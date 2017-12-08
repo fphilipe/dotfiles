@@ -1,0 +1,8 @@
+body {
+  overflow-y: initial !important;
+  height: auto !important;
+}
+
+body > div:last-child {
+  display: none !important;
+}

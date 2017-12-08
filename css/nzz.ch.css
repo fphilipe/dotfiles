@@ -1,10 +1,28 @@
 body {
-  min-width: 0;
+  min-width: initial;
 }
 
-.l--inner {
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 0;
-  padding-right: 0;
+.l--holder {
+  width: auto;
+  max-width: 980px;
+  padding-right: 30px;
+  margin: 0 auto;
+}
+
+.content__main>.headline.headline {
+  width: calc(100vw - 2 * 30px);
+  max-width: 980px;
+}
+
+.page--article .headline__inner, .page--briefing .headline__inner, .page--fullwidth .headline__inner, .page--gallery .headline__inner, .page--weather .headline__inner {
+  width: initial;
+  padding: 0 40px;
+}
+
+.container.recommendations {
+  display: none;
+}
+
+.articlebar {
+  display: none;
 }

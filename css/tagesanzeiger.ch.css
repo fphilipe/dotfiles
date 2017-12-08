@@ -2,3 +2,8 @@
 #overlay_wrap {
   display: none;
 }
+
+body {
+  overflow: initial !important;
+  -webkit-user-select: initial !important;
+}
