@@ -66,10 +66,11 @@ Plugin 'jrestrepo/matlab'
 Plugin 'JuliaLang/julia-vim'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim' "{{{
-  nmap <C-P><C-F> :<C-U>Files<CR>
-  nmap <C-P><C-B> :<C-U>Buffers<CR>
-  nmap <C-P><C-T> :<C-U>Tags<CR>
-  let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+  let g:fzf_command_prefix = 'Fzf'
+  nmap <C-P><C-F> :<C-U>FzfFiles<CR>
+  nmap <C-P><C-B> :<C-U>FzfBuffers<CR>
+  nmap <C-P><C-T> :<C-U>FzfTags<CR>
+  let $FZF_DEFAULT_COMMAND = 'fd --type f'
   let g:fzf_action = {
     \ 'ctrl-t': 'tab split',
     \ 'ctrl-s': 'split',
