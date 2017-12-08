@@ -566,7 +566,7 @@ au VimEnter PULLREQ_EDITMSG setlocal formatoptions-=t wrap
 
 " }}}
 " Searches                                                                   {{{
-let SqlCapitalize = '\<\(create\|insert\|select\|update\|alter\|set\|from\|where\|and\|or\|on\|join\|not\|null\|is\|using\|case\|when\|else\|if\|elsif\|end\|as\|order\|by\|asc\|desc\|limit\|with\|over\|partition\|group\|like\|left\|right\|outer\|inner\|full\|union\|all\|distinct\|coalesce\|natural\|window\|unique\|index\|drop\|table\|column\|begin\|commit\|abort\|rollback\|rename\|add\|remove\|to\|exists\|primary key\|extension\|explain\|analyze\)\>\C'
+let SqlCapitalize = '\<\(delete\|create\|insert\|select\|update\|alter\|having\|into\|returning\|set\|from\|where\|and\|or\|on\|join\|not\|null\|in\|is\|using\|case\|when\|else\|if\|elsif\|end\|as\|order\|by\|asc\|desc\|limit\|with\|over\|partition\|group\|like\|left\|right\|outer\|inner\|full\|union\|all\|distinct\|coalesce\|natural\|window\|unique\|index\|drop\|table\|column\|begin\|commit\|abort\|rollback\|rename\|add\|remove\|to\|exists\|primary key\|extension\|explain\|analyze\)\>\C'
 " }}}
 " Highlighting                                                                   {{{
 highlight Comment cterm=italic
