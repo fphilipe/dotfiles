@@ -26,3 +26,7 @@ body {
 .articlebar {
   display: none;
 }
+
+.teaser--sponsored {
+  display: none;
+}
