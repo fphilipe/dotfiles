@@ -308,7 +308,7 @@ set vb
 set mouse=a                     " enable using the mouse if terminal emulator
                                 "    supports it (xterm does)
 if !has('nvim')
-  set ttymouse=xterm2           " make split resizing work inside tmux
+  set ttymouse=sgr              " make mouse work past the 220th column
 endif
 
 set fileformats="unix,dos,mac"
