@@ -59,6 +59,7 @@ __pycache__/
 *.egg-info/
 .coverage
 htmlcov/
+.projections.json
 
 # Private Stuff #
 #################
