@@ -82,5 +82,3 @@ bind l:${ams} focus right
 bind j:${ams} focus down
 bind k:${ams} focus up
 bind p:${ams} focus behind
-
-bind /:${cam} hint ASDFGHJKL
