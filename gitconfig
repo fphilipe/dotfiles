@@ -84,6 +84,10 @@
   diffFilter = diff-highlight
 [url "github:"]
   insteadOf = git@github.com:
+[url "gitlab:"]
+  insteadOf = git@gitlab.com:
+[url "bitbucket:"]
+  insteadOf = git@bitbucket.org:
 [fetch]
   prune = true
 [includeIf "gitdir:**/ElectricFeel/"]
