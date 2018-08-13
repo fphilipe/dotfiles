@@ -136,9 +136,6 @@ Plugin 'majutsushi/tagbar' "{{{
 "}}}
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'matchit.zip'
-Plugin 'mileszs/ack.vim' "{{{
-  let g:ackprg = 'ag --vimgrep --smart-case'
-"}}}
 Plugin 'mkitt/tabline.vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'nelstrom/vim-markdown-folding'
