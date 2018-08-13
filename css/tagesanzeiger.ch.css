@@ -3,7 +3,7 @@
   display: none;
 }
 
-body {
+html > body.modal-open {
   overflow: initial !important;
   -webkit-user-select: initial !important;
 }
