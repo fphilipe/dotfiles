@@ -8,6 +8,9 @@
 --exclude=db/migrate
 --exclude=node_modules
 --exclude=vendors
+--exclude=Carthage
+--exclude=Pods
+--exclude=build
 
 --langdef=css
 --langmap=css:.css
