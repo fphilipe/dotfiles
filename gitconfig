@@ -14,7 +14,7 @@
   h = help
   last = log -n1 --decorate=short --abbrev-commit --format=fuller --stat
   l = log
-  lb = log --decorate=short --abbrev-commit --stat --reverse master...
+  lb = log --decorate=short --abbrev-commit master..
   lg = log --pretty=oneline-extra --date=relative --graph
   lm = log --pretty=oneline-extra --date=relative --first-parent master
   mt = mergetool
