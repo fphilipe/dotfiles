@@ -266,6 +266,7 @@ set incsearch                   " show search matches as you type
 set gdefault                    " search/replace "globally" (on a line) by default
 set listchars=tab:▸\ ,trail:·,extends:…,precedes:…,nbsp:·
 set list                        " show above special chars
+set linebreak                   " don't wrap lines in the middle of words
 let &showbreak='↪ '
 set display+=lastline
 set pastetoggle=<F2>            " when in insert mode, press <F2> to go to
