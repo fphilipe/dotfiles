@@ -5,3 +5,6 @@ alias tmux='tmux -S /tmp/tmux'
 # Quicklook a file from terminal.
 alias ql='qlmanage -p "$@" &> /dev/null'
 alias g="git"
+# Use Android Studio's keytool instead of global keytool that would require
+# installing a Java runtime.
+alias keytool="/Applications/Android\ Studio.app/Contents/jre/jdk/Contents/Home/bin/keytool"
