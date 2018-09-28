@@ -38,6 +38,10 @@
   attributesfile = ~/.gitattributes_global
   quotepath = false
   hooksPath = ~/.githooks
+[credential]
+  helper = osxkeychain
+[credential "https://github.com"]
+  username = fphilipe
 [diff]
   tool = vimdiff
   algorithm = patience
