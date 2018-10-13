@@ -106,9 +106,6 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-cucumber'
 Plugin 'tpope/vim-dispatch' "{{{
   let g:dispatch_tmux_height=15
-  " Tmux 2.3 related problem that prevents the output from being parsed
-  " properly. https://github.com/tpope/vim-dispatch/issues/192
-  set shellpipe+=\ 
   map <silent> <leader>d :silent! noautocmd wa \| Dispatch<CR>
 "}}}
 Plugin 'tpope/vim-fugitive' "{{{
@@ -180,18 +177,7 @@ set display+=lastline
 set pastetoggle=<F2>            " when in insert mode, press <F2> to go to
                                 "   paste mode, where you can paste mass data
                                 "   that won't be autoindented
-set t_Co=256                    " Explicitly tell that the terminal has 256 colors
 
-" Escape sequences for italic.
-set t_ZH=[3m
-set t_ZR=[23m
-
-" http://snk.tuxfamily.org/log/vim-256color-bce.html
-" Disable Background Color Erase (BCE) so that color schemes
-" work properly when Vim is used inside tmux and GNU screen.
-if &term =~ '256color'
-  set t_ut=
-endif
 
 " Make Vim recognize XTerm escape sequences for Page and Arrow
 " keys combined with modifiers such as Shift, Control, and Alt.
