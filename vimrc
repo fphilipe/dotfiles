@@ -421,7 +421,7 @@ set foldexpr=GetIndentationFold(v:lnum)
 set autoread                  " Remember last location in file
 set timeoutlen=600            " timeout for leader maps
 
-set diffopt=vertical,filler
+set diffopt=vertical,filler,hiddenoff
 
 if executable('ag')
   set grepprg=ag\ --vimgrep
