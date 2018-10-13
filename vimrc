@@ -15,23 +15,14 @@ call vundle#begin()
 " }}}
 " Plugins                                                                    {{{
 
-Plugin '5long/pytest-vim-compiler'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'altercation/vim-colors-solarized' "{{{
-  let g:solarized_contrast='high'
-  let g:solarized_visibility='high'
-"}}}
 Plugin 'AndrewRadev/splitjoin.vim' "{{{
   let g:splitjoin_ruby_hanging_args=0
   let g:splitjoin_ruby_curly_braces=0
 "}}}
 Plugin 'bruno-/vim-vertical-move'
 Plugin 'chriskempson/base16-vim'
-Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'cohama/lexima.vim'
-Plugin 'croaky/vim-colors-github'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'fweep/vim-zsh-path-completion'
 Plugin 'gmarik/vundle'
 Plugin 'godlygeek/tabular' "{{{
   nmap <Leader>a= :Tabularize /=<CR>
@@ -62,8 +53,6 @@ Plugin 'janko-m/vim-test' "{{{
   nmap <silent> <leader>tl :silent! noautocmd wa \| TestLast<CR>
   nmap <silent> <leader>tg :silent! noautocmd wa \| TestVisit<CR>
 "}}}
-Plugin 'jrestrepo/matlab'
-Plugin 'JuliaLang/julia-vim'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim' "{{{
   let g:fzf_command_prefix = 'Fzf'
@@ -82,94 +71,16 @@ Plugin 'kana/vim-textobj-user'
 Plugin 'Keithbsmiley/swift.vim'
 Plugin 'Konfekt/FastFold'
 Plugin 'ludovicchabant/vim-gutentags'
-Plugin 'majutsushi/tagbar' "{{{
-  let g:tagbar_autoclose = 1
-  let g:tagbar_autofocus = 1
-  let tlist_objc_settings = 'ObjectiveC;P:protocols;i:interfaces;types(...)'
-  let g:tagbar_type_objc = {
-    \ 'ctagstype' : 'ObjectiveC',
-    \ 'kinds' : [
-      \ 'i:interface',
-      \ 'I:implementation',
-      \ 'p:Protocol',
-      \ 'm:Object_method',
-      \ 'c:Class_method',
-      \ 'v:Global_variable',
-      \ 'F:Object field',
-      \ 'f:function',
-      \ 'p:property',
-      \ 't:type_alias',
-      \ 's:type_structure',
-      \ 'e:enumeration',
-      \ 'M:preprocessor_macro',
-    \ ],
-    \ 'sro'        : ' ',
-    \ 'kind2scope' : {
-      \ 'i' : 'interface',
-      \ 'I' : 'implementation',
-      \ 'p' : 'Protocol',
-      \ 's' : 'type_structure',
-      \ 'e' : 'enumeration'
-    \ },
-    \ 'scope2kind' : {
-      \ 'interface'      : 'i',
-      \ 'implementation' : 'I',
-      \ 'Protocol'       : 'p',
-      \ 'type_structure' : 's',
-      \ 'enumeration'    : 'e'
-    \ }
-  \ }
-  let g:tagbar_type_coffee = {
-    \ 'ctagsbin' : 'coffeetags',
-    \ 'ctagsargs' : '',
-    \ 'kinds' : [
-      \ 'f:functions',
-      \ 'o:object',
-    \ ],
-    \ 'sro' : ".",
-    \ 'kind2scope' : {
-      \ 'f' : 'object',
-      \ 'o' : 'object',
-    \ }
-  \ }
-  map <right> <ESC>:TagbarToggle<CR>
-"}}}
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'matchit.zip'
-Plugin 'mkitt/tabline.vim'
-Plugin 'mxw/vim-jsx'
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'nelstrom/vim-textobj-rubyblock'
-Plugin 'ngmy/vim-rubocop'
 Plugin 'pangloss/vim-javascript'
 Plugin 'plasticboy/vim-markdown' "{{{
   let g:vim_markdown_math=1
   let g:vim_markdown_frontmatter=1
 "}}}
-Plugin 'rainbow_parentheses.vim'
 Plugin 'ruby-matchit'
-Plugin 'rust-lang/rust.vim'
-Plugin 'ryan-cf/netrw' "{{{
-  let g:netrw_liststyle=3
-  let g:netrw_browsex_viewer="open"
-  let g:netrw_list_hide='^\(\.bundle\/\|\.sass-cache\/\|\.DS_Store\|\.git\/\|Build\/\|.*\.xcodeproj\/\|.*xcworkspace\/\|\.yardoc\)$'
-"}}}
-Plugin 'scrooloose/nerdtree' "{{{
-  let NERDTreeIgnore=[
-  \ '\.rbc$',
-  \ '\~$',
-  \ 'tags[[file]]',
-  \ '.\.pyc[[file]]',
-  \ 'tmp[[dir]]',
-  \ 'build[[dir]]',
-  \ 'bin[[dir]]',
-  \ 'coverage[[dir]]',
-  \ '__pycache__[[dir]]'
-  \]
-  let NERDTreeQuitOnOpen=1
-  map <left> <ESC>:NERDTreeToggle<CR>
-  map <S-left> <ESC>:NERDTreeFind<CR>
-"}}}
 Plugin 'scrooloose/syntastic'
 Plugin 'SirVer/ultisnips' "{{{
   let g:UltiSnipsListSnippets="<S-Tab>"
@@ -190,7 +101,6 @@ Plugin 'sjl/gundo.vim' "{{{
 "}}}
 Plugin 'sjl/vitality.vim'
 Plugin 'slim-template/vim-slim'
-Plugin 'tomtom/tlib_vim'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-commentary'
@@ -228,11 +138,9 @@ Plugin 'transpose-words' "{{{
   exec "set <M-t>=\<Esc>t"
 "}}}
 Plugin 'udalov/kotlin-vim'
-Plugin 'vim-coffee-script'
 Plugin 'vim-ruby/vim-ruby' "{{{
 let ruby_spellcheck_strings = 1
 "}}}
-Plugin 'vim-utils/vim-husk'
 Plugin 'wlangstroth/vim-haskell'
 
 call vundle#end()
