@@ -121,7 +121,7 @@ Plugin 'tpope/vim-fugitive' "{{{
   map <leader>gn :x<CR><C-w>j<C-n>D
 "}}}
 Plugin 'tpope/vim-git'
-Plugin 'tpope/vim-obsession.git'
+Plugin 'tpope/vim-obsession'
 Plugin 'tpope/vim-projectionist'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-rake'
