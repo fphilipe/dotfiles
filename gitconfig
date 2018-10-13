@@ -28,6 +28,7 @@
   rim = rebase --interactive master
   ru = rebase @{u}
   s = status -sb
+  sh = show
 [branch]
   autosetuprebase = always
   autosetupmerge = true
