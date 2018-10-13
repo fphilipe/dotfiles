@@ -81,6 +81,10 @@ Plugin 'plasticboy/vim-markdown' "{{{
 "}}}
 Plugin 'ruby-matchit'
 Plugin 'scrooloose/syntastic'
+Plugin 'simnalamburt/vim-mundo' "{{{
+  let g:mundo_right = 1
+  map <S-Right> <ESC>:MundoToggle<CR>
+"}}}
 Plugin 'SirVer/ultisnips' "{{{
   let g:UltiSnipsListSnippets="<S-Tab>"
   let g:UltiSnipsExpandTrigger="<Tab>"
@@ -93,10 +97,6 @@ Plugin 'SirVer/ultisnips' "{{{
   set rtp+=~/.vim
   au BufNewFile,BufRead *_spec.rb UltiSnipsAddFiletypes rspec
   map <leader>es :UltiSnipsEdit<CR>:lcd %:p:h<CR>
-"}}}
-Plugin 'sjl/gundo.vim' "{{{
-  let g:gundo_right = 1
-  map <S-right> <ESC>:GundoToggle<CR>
 "}}}
 Plugin 'sjl/vitality.vim'
 Plugin 'slim-template/vim-slim'
