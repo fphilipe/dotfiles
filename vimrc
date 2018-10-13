@@ -9,7 +9,7 @@ set nocompatible
 filetype off
 set encoding=utf-8
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " }}}
@@ -23,7 +23,6 @@ Plugin 'AndrewRadev/splitjoin.vim' "{{{
 Plugin 'bruno-/vim-vertical-move'
 Plugin 'chriskempson/base16-vim'
 Plugin 'cohama/lexima.vim'
-Plugin 'gmarik/vundle'
 Plugin 'godlygeek/tabular' "{{{
   nmap <Leader>a= :Tabularize /=<CR>
   vmap <Leader>a= :Tabularize /=<CR>
@@ -141,6 +140,7 @@ Plugin 'udalov/kotlin-vim'
 Plugin 'vim-ruby/vim-ruby' "{{{
 let ruby_spellcheck_strings = 1
 "}}}
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'wlangstroth/vim-haskell'
 
 call vundle#end()
