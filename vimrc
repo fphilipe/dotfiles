@@ -135,7 +135,7 @@ Plugin 'transpose-words' "{{{
 "}}}
 Plugin 'udalov/kotlin-vim'
 Plugin 'vim-ruby/vim-ruby' "{{{
-let ruby_spellcheck_strings = 1
+  let ruby_spellcheck_strings = 1
 "}}}
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'wlangstroth/vim-haskell'
