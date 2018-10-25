@@ -99,3 +99,5 @@
   prune = true
 [includeIf "gitdir:**/ElectricFeel/"]
   path = .gitconfig-work
+[diff "image"]
+  command = git_diff_image
