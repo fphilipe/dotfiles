@@ -4,6 +4,7 @@
 }
 
 html > body.modal-open {
+  position: initial !important;
   overflow: initial !important;
   -webkit-user-select: initial !important;
 }
