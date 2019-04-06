@@ -305,9 +305,6 @@ map <down> <ESC>:ccl<CR>
 map <up> <ESC>:cope<CR>
 
 " Unimpaired configuration
-" Bubble single lines
-nmap <M-Up> [e
-nmap <M-Down> ]e
 " Bubble multiple lines
 vmap <M-Up> [egv
 vmap <M-Down> ]egv
