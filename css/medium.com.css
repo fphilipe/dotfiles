@@ -1,0 +1,7 @@
+.u-overflowHidden {
+  overflow: initial !important;
+}
+
+.overlay, .butterBar {
+  display: none;
+}

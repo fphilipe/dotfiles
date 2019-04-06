@@ -1,7 +1,11 @@
 .github-jobs-promotion,
 .merge-message .js-merge-branch-action,
-.toolbar-commenting .toolbar-item:not(.js-saved-reply-container) {
+.toolbar-commenting .toolbar-item:not(.js-saved-reply-container, .js-suggested-change-toolbar-item) {
   display: none;
+}
+
+.toolbar-group {
+  margin-left: 0;
 }
 
 .previewable-comment-form textarea {
@@ -17,6 +21,5 @@
 tt,
 code,
 pre {
-  font-family: 'Source Code Pro';
-  font-family: 'Fira Code';
+  font-family: 'Fira Code', 'Source Code Pro', 'Menlo';
 }
