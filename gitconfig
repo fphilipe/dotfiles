@@ -7,6 +7,7 @@
   co = checkout
   cod = checkout --detach
   com = checkout master
+  cp = cherry-pick --ff
   d = diff
   dw = diff --word-diff
   dc = diff --cached
@@ -23,12 +24,14 @@
   pl = pull
   ps = push
   psu = push -u origin HEAD
+  pst = push --tags
   r = rebase
   ri = rebase --interactive
   rim = rebase --interactive master
   ru = rebase @{u}
   s = status -sb
   sh = show
+  st = stash
 [branch]
   autosetuprebase = always
   autosetupmerge = true
