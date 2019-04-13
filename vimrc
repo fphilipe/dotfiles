@@ -147,7 +147,6 @@ call vundle#end()
 syntax on                       " enable syntax highlighting
 filetype plugin indent on
 set showmode                    " always show what mode we're currently editing in
-set nowrap                      " don't wrap lines
 set tabstop=2                   " a tab is two spaces
 set softtabstop=2               " when hitting <BS>, pretend like a tab is removed, even if spaces
 set shiftwidth=2                " number of spaces to use for autoindenting
@@ -206,8 +205,8 @@ endif
 
 set fileformats="unix,dos,mac"
 
-set textwidth=80
 set formatoptions=1cnqroj
+set comments=b:*,b:-,b:>
 
 set synmaxcol=200               " only do syntax highlighting within first 200 columns
 set hidden                      " hide buffers instead of closing them this
