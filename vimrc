@@ -58,7 +58,7 @@ Plugin 'junegunn/fzf.vim' "{{{
   nmap <C-P><C-F> :<C-U>FzfFiles<CR>
   nmap <C-P><C-B> :<C-U>FzfBuffers<CR>
   nmap <C-P><C-T> :<C-U>FzfTags<CR>
-  let $FZF_DEFAULT_COMMAND = 'fd --type f'
+  let $FZF_DEFAULT_COMMAND = 'rg --files'
   let g:fzf_action = {
     \ 'ctrl-t': 'tab split',
     \ 'ctrl-s': 'split',
@@ -418,8 +418,8 @@ set timeoutlen=600            " timeout for leader maps
 
 set diffopt=vertical,filler,hiddenoff
 
-if executable('ag')
-  set grepprg=ag\ --vimgrep
+if executable('rg')
+  set grepprg=rg\ --vimgrep
 endif
 
 if filereadable(expand('~/.vimrc_background'))

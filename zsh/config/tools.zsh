@@ -38,3 +38,5 @@ if which drip > /dev/null 2>&1; then
   export DRIP_SHUTDOWN=30
   export JAVACMD=$(which drip)
 fi
+
+export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc

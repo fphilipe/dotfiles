@@ -1,0 +1,12 @@
+--smart-case
+
+--colors=match:none
+--colors=match:bg:yellow
+--colors=match:fg:black
+
+--colors=path:none
+--colors=path:style:bold
+--colors=path:fg:green
+
+--colors=line:none
+--colors=line:fg:yellow
