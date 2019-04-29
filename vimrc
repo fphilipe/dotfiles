@@ -15,7 +15,6 @@ call vundle#begin()
 " }}}
 " Plugins                                                                    {{{
 
-Plugin 'airblade/vim-gitgutter'
 Plugin 'AndrewRadev/splitjoin.vim' "{{{
   let g:splitjoin_ruby_hanging_args=0
   let g:splitjoin_ruby_curly_braces=0
@@ -71,6 +70,10 @@ Plugin 'kballard/vim-swift'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'matchit.zip'
+Plugin 'mhinz/vim-signify' "{{{
+  let g:signify_vcs_list = ['git']
+  let g:signify_update_on_focusgained = 1
+"}}}
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'pangloss/vim-javascript'
