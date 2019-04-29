@@ -66,7 +66,7 @@ Plugin 'junegunn/fzf.vim' "{{{
 "}}}
 Plugin 'junegunn/goyo.vim'
 Plugin 'kana/vim-textobj-user'
-Plugin 'kballard/vim-swift'
+Plugin 'Keithbsmiley/swift.vim'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'matchit.zip'
