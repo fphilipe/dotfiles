@@ -41,7 +41,6 @@
   excludesfile = ~/.gitignore_global
   attributesfile = ~/.gitattributes_global
   quotepath = false
-  hooksPath = ~/.githooks
 [credential]
   helper = osxkeychain
 [credential "https://github.com"]
@@ -89,6 +88,8 @@
   log = diff-highlight | less
   show = diff-highlight | less
   diff = diff-highlight | less
+[init]
+  templateDir = ~/.git_template
 [interactive]
   diffFilter = diff-highlight
 [url "github.com:"]
