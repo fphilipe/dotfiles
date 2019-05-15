@@ -9,12 +9,12 @@
   com = checkout master
   cp = cherry-pick --ff
   d = diff
-  dw = diff --word-diff
   dc = diff --cached
+  dw = diff --word-diff
   f = fetch
   h = help
-  last = log -n1 --decorate=short --abbrev-commit --format=fuller --stat
   l = log
+  last = log -n1 --decorate=short --abbrev-commit --format=fuller --stat
   lb = log --decorate=short --abbrev-commit --reverse master..
   lg = log --pretty=oneline-extra --date=relative --graph
   lm = log --pretty=oneline-extra --date=relative --first-parent master
@@ -23,8 +23,8 @@
   mt = mergetool
   pl = pull
   ps = push
-  psu = push -u origin HEAD
   pst = push --tags
+  psu = push -u origin HEAD
   r = rebase
   ri = rebase --interactive
   rim = rebase --interactive master
@@ -34,35 +34,55 @@
   st = stash
   t = tag
 [branch]
-  autosetuprebase = always
-  autosetupmerge = true
+  autoSetupMerge = true
+  autoSetupRebase = always
 [color]
   ui = true
+[commit]
+  gpgSign = true
+  verbose = true
 [core]
-  excludesfile = ~/.gitignore_global
-  attributesfile = ~/.gitattributes_global
-  quotepath = false
+  attributesFile = ~/.gitattributes_global
+  excludesFile = ~/.gitignore_global
+  quotePath = false
 [credential]
   helper = osxkeychain
 [credential "https://github.com"]
   username = fphilipe
 [diff]
-  tool = vimdiff
   algorithm = patience
+  tool = vimdiff
+[diff "image"]
+  command = git_diff_image
 [difftool]
   prompt = false
+[fetch]
+  prune = true
+[filter "media"]
+  clean = git-media-clean %f
+  smudge = git-media-smudge %f
 [github]
   user = fphilipe
 [gui]
-  fontdiff = -family Menlo -size 11 -weight normal -slant roman -underline 0 -overstrike 0
+  fontDiff = -family Menlo -size 11 -weight normal -slant roman -underline 0 -overstrike 0
 [help]
-  autocorrect = 1
+  autoCorrect = 1
+[includeIf "gitdir:**/ElectricFeel/"]
+  path = .gitconfig-work
+[init]
+  templateDir = ~/.git_template
+[interactive]
+  diffFilter = diff-highlight
 [merge]
   ff = no
   tool = vimdiff
 [mergetool]
   keepBackup = false
   prompt = false
+[pager]
+  diff = diff-highlight | less
+  log = diff-highlight | less
+  show = diff-highlight | less
 [pretty]
   oneline-extra = format:%C(yellow)%h%Creset%Cred%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset
 [pull]
@@ -70,41 +90,21 @@
 [push]
   default = upstream
 [rebase]
-  autosquash = true
-  autostash = true
-[user]
-  email = me@phili.pe
-  name = Philipe Fatio
-  signkey = F74418A0
-  useconfigonly = true
-[web]
-  browser = open
-[filter "media"]
-  clean = git-media-clean %f
-  smudge = git-media-smudge %f
-[commit]
-  gpgsign = true
-  verbose = true
-[pager]
-  log = diff-highlight | less
-  show = diff-highlight | less
-  diff = diff-highlight | less
-[init]
-  templateDir = ~/.git_template
-[interactive]
-  diffFilter = diff-highlight
+  autoSquash = true
+  autoStash = true
 [rerere]
   enabled = true
+[url "bitbucket:"]
+  insteadOf = git@bitbucket.org:
 [url "github.com:"]
   insteadOf = git@github.com:
   insteadOf = https://github.com/
 [url "gitlab:"]
   insteadOf = git@gitlab.com:
-[url "bitbucket:"]
-  insteadOf = git@bitbucket.org:
-[fetch]
-  prune = true
-[includeIf "gitdir:**/ElectricFeel/"]
-  path = .gitconfig-work
-[diff "image"]
-  command = git_diff_image
+[user]
+  email = me@phili.pe
+  name = Philipe Fatio
+  signKey = F74418A0
+  useConfigOnly = true
+[web]
+  browser = open
