@@ -1,2 +1,1 @@
-install: --document=ri
-update: --document=ri
+gem: --document=ri
