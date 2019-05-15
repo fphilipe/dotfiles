@@ -93,6 +93,8 @@
   templateDir = ~/.git_template
 [interactive]
   diffFilter = diff-highlight
+[rerere]
+  enabled = true
 [url "github.com:"]
   insteadOf = git@github.com:
   insteadOf = https://github.com/
