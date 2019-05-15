@@ -32,6 +32,7 @@
   s = status -sb
   sh = show
   st = stash
+  t = tag
 [branch]
   autosetuprebase = always
   autosetupmerge = true
