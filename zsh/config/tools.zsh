@@ -46,6 +46,7 @@ fi
 
 # Link homebrew cask apps in /Applications.
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+export HOMEBREW_NO_INSTALL_CLEANUP=1
 
 export MATLABPATH=$HOME/.matlab
 
