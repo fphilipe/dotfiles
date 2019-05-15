@@ -17,6 +17,22 @@ chruby() {
 
 chruby ruby
 
+if which fnm > /dev/null 2>&1; then
+  eval "$(fnm env --multi --shell=zsh)"
+
+  # This code was generated using `fnm env --use-on-cd` and modified not to
+  # print anything.
+  autoload -U add-zsh-hook
+  _fnm_autoload_hook () {
+    if [[ -f .node-version && -r .node-version ]]; then
+      fnm use > /dev/null
+    elif [[ -f .nvmrc && -r .nvmrc ]]; then
+      fnm use > /dev/null
+    fi
+  }
+  add-zsh-hook chpwd _fnm_autoload_hook && _fnm_autoload_hook
+fi
+
 # Don't create bytecode files:
 export PYTHONDONTWRITEBYTECODE=1
 # Don't hijack my prompt, please!
