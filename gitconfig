@@ -73,6 +73,7 @@
   templateDir = ~/.git_template
 [interactive]
   diffFilter = diff-highlight
+  singleKey = true
 [merge]
   ff = no
   tool = vimdiff
