@@ -1,4 +1,1 @@
-begin
-  require 'spring/commands/rspec'
-rescue LoadError
-end
+ENV['BUNDLE_GEMFILE'] = 'Gemfile.local' if File.exist?('Gemfile.local')

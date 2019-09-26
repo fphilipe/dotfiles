@@ -60,6 +60,8 @@ __pycache__/
 .coverage
 htmlcov/
 .projections.json
+Gemfile.local
+Gemfile.local.lock
 
 # Private Stuff #
 #################
