@@ -6,9 +6,8 @@ config checkDefaultsOnLoad true
 config focusCheckWidthMax 3000
 
 # Monitor aliases
-alias mon-laptop      1280x800
-alias mon-thunderbolt 2560x1440
-alias mon-cinema      1920x1200
+alias mon-laptop    1280x800
+alias mon-ultrafine 2560x1440
 
 # Size and Position aliases
 alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY
@@ -27,31 +26,21 @@ alias cams ctrl;alt;cmd;shift
 alias ams  alt;cmd;shift
 
 # Default layouts
-default laptop-thunderbolt resolutions:${mon-laptop};${mon-thunderbolt}
-default laptop-cinema resolutions:${mon-laptop};${mon-cinema}
+default laptop-ultrafine resolutions:${mon-laptop};${mon-ultrafine}
 
-# 2 monitor layout thunderbolt
-layout laptop-thunderbolt 'iTerm' ${full} ${mon-thunderbolt}
-layout laptop-thunderbolt 'Safari' throw ${mon-thunderbolt}
-layout laptop-thunderbolt 'Tweetbot' corner top-right none ${mon-laptop}
-layout laptop-thunderbolt 'Slack' ${full} ${mon-laptop}
-layout laptop-thunderbolt 'Mail' ${full} ${mon-laptop}
-layout laptop-thunderbolt 'Spotify' ${full} ${mon-laptop}
-layout laptop-thunderbolt 'Skype' ${leftHalf} ${mon-laptop}
-
-# 2 monitor layout cineam
-layout laptop-cinema 'iTerm' ${full} ${mon-cinema}
-layout laptop-cinema 'Safari' throw ${mon-cinema}
-layout laptop-cinema 'Tweetbot' corner top-right none ${mon-laptop}
-layout laptop-cinema 'Slack' ${full} ${mon-laptop}
-layout laptop-cinema 'Mail' ${full} ${mon-laptop}
-layout laptop-cinema 'Spotify' ${full} ${mon-laptop}
-layout laptop-cinema 'Skype' ${leftHalf} ${mon-laptop}
+# 2 monitor layout ultrafine
+layout laptop-ultrafine 'iTerm' ${full} ${mon-ultrafine}
+layout laptop-ultrafine 'Safari' throw ${mon-ultrafine}
+layout laptop-ultrafine 'Tweetbot' corner top-right none ${mon-laptop}
+layout laptop-ultrafine 'Slack' ${full} ${mon-laptop}
+layout laptop-ultrafine 'Mail' ${full} ${mon-laptop}
+layout laptop-ultrafine 'Spotify' ${full} ${mon-laptop}
+layout laptop-ultrafine 'Skype' ${leftHalf} ${mon-laptop}
 
 # Bindings
 bind r:${cam} relaunch
 bind u:${cam} undo
-bind g:${cam} grid ${mon-laptop}:8,8 ${mon-cinema}:12,12 ${mon-thunderbolt}:16,14
+bind g:${cam} grid ${mon-laptop}:8,8 ${mon-ultrafine}:16,14
 bind n:${cam} throw next
 
 bind m:${cam} ${full}
