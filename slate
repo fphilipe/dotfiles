@@ -40,7 +40,7 @@ layout laptop-ultrafine 'Skype' ${leftHalf} ${mon-laptop}
 # Bindings
 bind r:${cam} relaunch
 bind u:${cam} undo
-bind g:${cam} grid ${mon-laptop}:8,8 ${mon-ultrafine}:16,14
+bind g:${cam} grid ${mon-laptop}:2,2 ${mon-ultrafine}:6,6
 bind n:${cam} throw next
 
 bind m:${cam} ${full}
