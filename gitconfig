@@ -95,6 +95,8 @@
   autoStash = true
 [rerere]
   enabled = true
+[tag]
+  sort = version:refname
 [url "bitbucket:"]
   insteadOf = git@bitbucket.org:
 [url "github.com:"]
