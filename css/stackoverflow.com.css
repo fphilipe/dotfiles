@@ -1,0 +1,9 @@
+.-marketing-link {
+  display: none !important;
+}
+
+body textarea.wmd-input,
+body textarea#wmd-input
+{
+  height: 65vh;
+}

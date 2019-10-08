@@ -1,5 +1,7 @@
 /* Hide the paywall */
-#overlay_wrap {
+#overlay_wrap,
+#tamovl-page-wrap,
+.subscribe {
   display: none;
 }
 

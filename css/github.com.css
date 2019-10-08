@@ -26,3 +26,25 @@ code,
 pre {
   font-family: 'Fira Code', 'Source Code Pro', 'Menlo';
 }
+
+@media (prefers-color-scheme: dark) {
+  html,
+  .octicon,
+  img,
+  .State,
+  .Header,
+  .diffstat,
+  .discussion-item-icon,
+  .btn-primary,
+  g-emoji {
+    filter: invert()
+  }
+
+  .Header .octicon,
+  .Header img,
+  .discussion-item-icon .octicon {
+    filter: none
+  }
+
+  .discussion-item-icon { border-color: black }
+}

@@ -1,0 +1,18 @@
+.new-upsell-wrapper,
+.upsell-card-container,
+.upsell-table-overlay {
+  display: none !important;
+}
+
+.blurred-row .component--grid-row {
+  -webkit-filter: none !important;
+  filter: none !important;
+}
+
+.cdk-overlay-container {
+  display: none;
+}
+
+.cdk-global-scrollblock {
+  position: initial;
+}

@@ -9,3 +9,6 @@ xmp
 {
   font-family: Menlo;
 }
+
+/* Fake push notification confirmation dialog */
+#onesignal-popover-container { display: none }
