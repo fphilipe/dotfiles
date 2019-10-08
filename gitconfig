@@ -11,6 +11,7 @@
   d = diff
   dc = diff --cached
   dw = diff --word-diff
+  dn = diff --no-index
   f = fetch
   h = help
   l = log
