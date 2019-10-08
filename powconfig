@@ -1,1 +1,10 @@
-export POW_TIMEOUT=3600
+CHRUBY="/usr/local/opt/chruby/share/chruby/chruby.sh"
+if [ -e "$CHRUBY" ]; then
+  source "$CHRUBY"
+  chruby "$(cat .ruby-version)"
+fi
+
+GEMFILE="Gemfile.local"
+if [ -f "$GEMFILE" ]; then
+  export BUNDLE_GEMFILE="$GEMFILE"
+fi
