@@ -318,9 +318,6 @@ nnoremap <leader>ll /\%>80v.\+<CR>
 " Quickly open certain files for editing
 map <leader>ev :tabe ~/dotfiles/vimrc<CR>:lcd %:p:h<CR>
 
-" CTags
-map <leader>ct :!ctags --extra=+f -R<CR><CR>
-
 " }}}
 " Folding Rules                                                              {{{
 
