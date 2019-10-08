@@ -137,7 +137,9 @@ Plugin 'transpose-words' "{{{
 "}}}
 Plugin 'udalov/kotlin-vim'
 Plugin 'vim-ruby/vim-ruby' "{{{
-  let ruby_spellcheck_strings = 1
+  let g:ruby_spellcheck_strings = 1
+  let g:ruby_indent_assignment_style = 'variable'
+  let g:ruby_indent_block_style = 'do'
 "}}}
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'wlangstroth/vim-haskell'
