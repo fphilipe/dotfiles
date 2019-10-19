@@ -1,1 +1,1 @@
-ENV['BUNDLE_GEMFILE'] = 'Gemfile.local' if File.exist?('Gemfile.local')
+ENV['BUNDLE_GEMFILE'] = 'Gemfile.private' if File.exist?('Gemfile.private')

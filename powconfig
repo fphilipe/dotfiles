@@ -4,7 +4,7 @@ if [ -e "$CHRUBY" ]; then
   chruby "$(cat .ruby-version)"
 fi
 
-GEMFILE="Gemfile.local"
+GEMFILE="Gemfile.private"
 if [ -f "$GEMFILE" ]; then
   export BUNDLE_GEMFILE="$GEMFILE"
 fi
