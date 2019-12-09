@@ -1,0 +1,13 @@
+[id^="sp_message_"] {
+  display: none;
+}
+
+html.sp-message-open {
+  margin-top: initial !important;
+  overflow: initial !important;
+  left: initial !important;
+  right: initial !important;
+  top: initial !important;
+  bottom: initial !important;
+  position: initial !important;
+}
