@@ -1,3 +1,6 @@
 ---
 BUNDLE_JOBS: "3"
 BUNDLE_GITHUB__HTTPS: "true"
+BUNDLE_GEM__TEST: "false"
+BUNDLE_GEM__MIT: "true"
+BUNDLE_GEM__COC: "false"
