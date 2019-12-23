@@ -4,6 +4,12 @@ if [ -e "$CHRUBY" ]; then
   chruby "$(cat .ruby-version)"
 fi
 
+FNM="/usr/local/bin/fnm"
+if [ -e "$FNM" ]; then
+  source "$FNM"
+  fnm use "$(cat .node-version)"
+fi
+
 GEMFILE="Gemfile.private"
 if [ -f "$GEMFILE" ]; then
   export BUNDLE_GEMFILE="$GEMFILE"
