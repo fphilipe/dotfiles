@@ -18,6 +18,10 @@ autoload compinit && compinit
 # Disable reflow so that ^Q works in vim.
 stty -ixon
 
+# Disable "delayed suspension" in order for C-y to work correctly in GHCi.
+# See https://stackoverflow.com/questions/46290504/haskell-ghci-treats-ctrl-y-like-ctrl-z
+stty dsusp undef
+
 # Quote pasted URLs.
 autoload -U url-quote-magic
 zle -N self-insert url-quote-magic
