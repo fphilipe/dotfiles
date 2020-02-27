@@ -1,12 +1,9 @@
-/* Hide the paywall */
-#overlay_wrap,
-#tamovl-page-wrap,
-.subscribe {
-  display: none;
+html body.h-disable-scroll,
+html body.modal-open {
+  overflow: auto !important;
+  position: initial !important;
 }
 
-html > body.modal-open {
-  position: initial !important;
-  overflow: initial !important;
-  -webkit-user-select: initial !important;
+.o-tamedia-wrapper, .overlay-adblocker {
+  display: none;
 }
