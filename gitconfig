@@ -68,8 +68,6 @@
   fontDiff = -family Menlo -size 11 -weight normal -slant roman -underline 0 -overstrike 0
 [help]
   autoCorrect = 1
-[includeIf "gitdir:**/ElectricFeel/"]
-  path = .gitconfig-work
 [init]
   templateDir = ~/.git_template
 [interactive]
@@ -112,3 +110,6 @@
   useConfigOnly = true
 [web]
   browser = open
+
+[includeIf "gitdir:**/Valora/"]
+  path = .gitconfig-work
