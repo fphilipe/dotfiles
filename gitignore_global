@@ -46,7 +46,6 @@ bin
 .rbx/
 .sass-cache/
 .yardoc/
-doc/
 todo.txt
 node_modules/
 .powrc
