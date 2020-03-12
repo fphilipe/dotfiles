@@ -61,6 +61,7 @@ htmlcov/
 .projections.json
 Gemfile.private
 Gemfile.private.lock
+.git/
 
 # Private Stuff #
 #################
