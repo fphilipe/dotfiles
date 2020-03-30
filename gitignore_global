@@ -51,6 +51,8 @@ node_modules/
 .powrc
 .powder
 .python-version
+.ruby-version
+.rgignore
 .byebug_history
 Session.vim
 __pycache__/
