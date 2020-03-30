@@ -5,3 +5,7 @@
 .overlay, .butterBar {
   display: none;
 }
+
+[aria-modal="true"] {
+  display: none;
+}

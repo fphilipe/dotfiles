@@ -2,11 +2,16 @@ body {
   min-width: initial;
 }
 
-.l--holder {
-  width: auto;
-  max-width: 980px;
-  padding-right: 30px;
-  margin: 0 auto;
+.pageholder {
+  width: auto !important;
+  max-width: 1092px !important;
+  padding-right: 24px !important;
+  margin: 0 auto !important;
+}
+
+.header__stay-on-top--fixed {
+  max-width: 1044px !important;
+  padding-right: 0 !important;
 }
 
 .content__main>.headline.headline {
