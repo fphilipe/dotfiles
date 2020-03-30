@@ -1,4 +1,4 @@
-set makeprg=open\ -a\ Markoff
+set makeprg=open\ -a\ Markoff\ %
 
 syntax match EmojiTail contained conceal ':' cchar= 
 
