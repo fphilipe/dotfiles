@@ -469,7 +469,7 @@ au BufNewFile,BufRead *.yml.enc set filetype=yaml
 
 " Don't autowrap lines when writing a pull request as line breaks are preserved
 " on GitHub; softwrap instead:
-au VimEnter PULLREQ_EDITMSG setlocal formatoptions-=t wrap
+au VimEnter {PULL,MERGE}REQ_EDITMSG setlocal formatoptions-=t wrap
 
 " }}}
 " Searches                                                                   {{{
