@@ -57,7 +57,7 @@ Plugin 'junegunn/fzf.vim' "{{{
   nmap <C-P><C-F> :<C-U>FzfFiles<CR>
   nmap <C-P><C-B> :<C-U>FzfBuffers<CR>
   nmap <C-P><C-T> :<C-U>FzfTags<CR>
-  let $FZF_DEFAULT_COMMAND = 'rg --files'
+  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
   let g:fzf_action = {
     \ 'ctrl-t': 'tab split',
     \ 'ctrl-s': 'split',
