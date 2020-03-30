@@ -83,6 +83,7 @@ Plugin 'plasticboy/vim-markdown' "{{{
 "}}}
 Plugin 'romainl/vim-qlist'
 Plugin 'ruby-matchit'
+Plugin 'shumphrey/fugitive-gitlab.vim'
 Plugin 'simnalamburt/vim-mundo' "{{{
   let g:mundo_right = 1
   map <S-Right> <ESC>:MundoToggle<CR>
