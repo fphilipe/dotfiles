@@ -101,8 +101,9 @@
 [url "github.com:"]
   insteadOf = git@github.com:
   insteadOf = https://github.com/
-[url "gitlab:"]
+[url "git@gitlab.com:"]
   insteadOf = git@gitlab.com:
+  insteadOf = https://gitlab.com/
 [user]
   email = me@phili.pe
   name = Philipe Fatio
