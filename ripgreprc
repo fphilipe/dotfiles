@@ -1,4 +1,5 @@
 --smart-case
+--hidden
 
 --colors=match:none
 --colors=match:bg:yellow
