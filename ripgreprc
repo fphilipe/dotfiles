@@ -11,3 +11,5 @@
 
 --colors=line:none
 --colors=line:fg:yellow
+
+--type-add=xcconfig:*.xcconfig
