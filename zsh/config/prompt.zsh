@@ -13,7 +13,7 @@ function git_prompt_info() {
   [ "$s" = '' ] && echo "\n." && return
   local sha="$(git rev-parse --short HEAD 2> /dev/null)"
   local first_line="$(head -n1 <<< $s)"
-  local branch="$(<<< "$first_line" | sed -E 's/^## (.*)\.\.\..*$/\1/')"
+  local branch="$(<<< "$first_line" | sed -E 's/^## (.*)(\.\.\..*)?$/\1/')"
   local ahead="$(sed -e '/ahead/!d' -e 's/.*ahead \([0-9]*\).*/+\1/' <<< $first_line)"
   local behind="$(sed -e '/behind/!d' -e 's/.*behind \([0-9]*\).*/-\1/' <<< $first_line)"
   local staged="$(awk '/^[MDA]. / { print "•"; exit }' <<< $s)"
