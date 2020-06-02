@@ -56,4 +56,7 @@ if which drip > /dev/null 2>&1; then
   export JAVACMD=$(which drip)
 fi
 
+# Android:
+export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/jdk/Contents/Home
+
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
