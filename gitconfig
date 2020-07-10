@@ -46,6 +46,7 @@
   attributesFile = ~/.gitattributes_global
   excludesFile = ~/.gitignore_global
   quotePath = false
+  trustctime = false
 [credential]
   helper = osxkeychain
 [credential "https://github.com"]
