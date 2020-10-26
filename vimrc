@@ -464,7 +464,7 @@ au BufReadPost fugitive://* set bufhidden=delete
 au BufReadPost ~/.gem/* set bufhidden=delete
 au BufReadPost ~/dotfiles/* set bufhidden=delete
 
-au BufNewFile,BufRead {Gem,Pod,Rake}file,*.{rabl,podspec} set filetype=ruby
+au BufNewFile,BufRead {Gem,Pod,Rake,Fast}file,*.{rabl,podspec} set filetype=ruby
 au BufNewFile,BufRead *.yml.enc set filetype=yaml
 
 " Don't autowrap lines when writing a pull request as line breaks are preserved
