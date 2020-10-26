@@ -53,15 +53,14 @@ Plugin 'janko-m/vim-test' "{{{
 "}}}
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim' "{{{
+  set rtp+=/usr/local/opt/fzf
+  let g:fzf_layout = { 'down': '40%' }
+  let g:fzf_preview_window = []
   let g:fzf_command_prefix = 'Fzf'
   nmap <C-P><C-F> :<C-U>FzfFiles<CR>
   nmap <C-P><C-B> :<C-U>FzfBuffers<CR>
   nmap <C-P><C-T> :<C-U>FzfTags<CR>
   let $FZF_DEFAULT_COMMAND = 'rg --files'
-  let g:fzf_action = {
-    \ 'ctrl-t': 'tab split',
-    \ 'ctrl-s': 'split',
-    \ 'ctrl-v': 'vsplit' }
   let g:fzf_history_dir = '~/.local/share/fzf-history'
 "}}}
 Plugin 'junegunn/goyo.vim'
