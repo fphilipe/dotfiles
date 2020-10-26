@@ -1,0 +1,7 @@
+.main-content .inside {
+  display: initial !important;
+}
+
+#pos-validation-api {
+  display: none !important;
+}
