@@ -87,7 +87,7 @@
 [pretty]
   oneline-extra = format:%C(yellow)%h%Creset%Cred%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset
 [pull]
-  rebase = preserve
+  rebase = merges
 [push]
   default = upstream
 [rebase]
