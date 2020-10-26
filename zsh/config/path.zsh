@@ -7,6 +7,8 @@ paths=(
   # Node Packace Manager
   '/usr/local/share/npm/bin'
   './node_modules/.bin'
+  "$HOME/.yarn/bin"
+  "$HOME/.config/yarn/global/node_modules/.bin"
   # Haskell
   "$HOME/.cabal/bin"
   # Rust
