@@ -1,3 +1,5 @@
+[advice]
+  detachedHead = false
 [alias]
   ai = add -i
   ap = add -p
