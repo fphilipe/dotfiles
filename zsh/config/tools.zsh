@@ -18,7 +18,7 @@ chruby() {
 chruby ruby
 
 if which fnm > /dev/null 2>&1; then
-  eval "$(fnm env --multi --shell=zsh)"
+  eval "$(fnm env --shell=zsh)"
 
   # This code was generated using `fnm env --use-on-cd` and modified not to
   # print anything.
