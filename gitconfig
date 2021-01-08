@@ -120,5 +120,5 @@
 [web]
   browser = open
 
-[includeIf "gitdir:**/Valora/"]
+[includeIf "gitdir/i:valora/"]
   path = .gitconfig-work
