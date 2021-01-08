@@ -16,11 +16,11 @@
   dn = diff --no-index
   f = fetch
   h = help
-  l = log
+  l = log --pretty=oneline-extra --date=human
   last = log -n1 --decorate=short --abbrev-commit --format=fuller --stat
   lb = log --decorate=short --abbrev-commit --reverse master..
-  lg = log --pretty=oneline-extra --date=human --graph
-  lm = log --pretty=oneline-extra --date=human --first-parent master
+  lg = l --graph
+  lm = l --first-parent master
   ; Print just the commit message
   msg = show --no-patch --format=%B
   mt = mergetool
