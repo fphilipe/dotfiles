@@ -36,6 +36,7 @@
   sh = show
   st = stash
   t = tag
+  wip = !git add . && git commit --message WIP --no-verify
 [branch]
   autoSetupMerge = true
   autoSetupRebase = always
