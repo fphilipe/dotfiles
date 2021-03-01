@@ -1,3 +1,5 @@
+source /usr/local/opt/fzf/shell/completion.zsh
+
 # Load chruby and enable auto switching when entering a directory containing
 # a .ruby-version file.
 source '/usr/local/share/chruby/chruby.sh'
