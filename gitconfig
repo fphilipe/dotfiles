@@ -1,9 +1,9 @@
 [advice]
   detachedHead = false
 [alias]
-  ai = add -i
-  ap = add -p
-  b = branch -vv
+  ai = add --interactive
+  ap = add --patch
+  b = branch --verbose --verbose
   cm = commit
   cma = commit --amend --no-edit
   co = checkout
@@ -17,7 +17,7 @@
   f = fetch
   h = help
   l = log --pretty=oneline-extra --date=human
-  last = log -n1 --decorate=short --abbrev-commit --format=fuller --stat
+  last = log --max-count=1 --decorate=short --abbrev-commit --format=fuller --stat
   lb = log --decorate=short --abbrev-commit --reverse master..
   lg = l --graph
   lm = l --first-parent master
@@ -27,12 +27,12 @@
   pl = pull
   ps = push
   pst = push --tags
-  psu = push -u origin HEAD
+  psu = push --set-upstream origin HEAD
   r = rebase
   ri = rebase --interactive
   rim = rebase --interactive master
   ru = rebase @{u}
-  s = status -sb
+  s = status --short --branch
   sh = show
   st = stash
   t = tag
