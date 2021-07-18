@@ -299,10 +299,12 @@ nnoremap <leader>z zMzvzczOzz
 
 " Yank/paste to the OS clipboard with ,y and ,p
 nmap <leader>y "*y
+nmap <leader>d "*d
 nmap <leader>Y "*y$
 nmap <leader>p "*p
 nmap <leader>P "*P
 vmap <leader>y "*y
+vmap <leader>d "*d
 vmap <leader>p "*p
 
 " Make Arrow Keys Useful Again
