@@ -99,8 +99,10 @@
 [push]
   default = upstream
 [rebase]
+  abbreviateCommands = true
   autoSquash = true
   autoStash = true
+  missingCommitsCheck = warn
 [rerere]
   enabled = true
 [tag]
