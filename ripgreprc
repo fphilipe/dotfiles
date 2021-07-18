@@ -1,5 +1,6 @@
 --smart-case
 --hidden
+--engine=auto
 
 --colors=match:none
 --colors=match:bg:yellow
