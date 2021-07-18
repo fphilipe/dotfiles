@@ -22,7 +22,6 @@ Plugin 'AndrewRadev/splitjoin.vim' "{{{
 Plugin 'bruno-/vim-vertical-move'
 Plugin 'chriskempson/base16-vim'
 Plugin 'cohama/lexima.vim'
-Plugin 'fsharp/vim-fsharp'
 Plugin 'godlygeek/tabular' "{{{
   nmap <Leader>a= :Tabularize /=<CR>
   vmap <Leader>a= :Tabularize /=<CR>
