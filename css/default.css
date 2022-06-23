@@ -12,3 +12,24 @@ xmp
 
 /* Fake push notification confirmation dialog */
 #onesignal-popover-container { display: none }
+
+/* Some input fields don't have a border when increased contrast is enabled in
+ * macOS. Telling them to appear as textarea adds a visible border. */
+@media screen and (prefers-contrast: more) {
+  input[type=date],
+  input[type=datetime-local],
+  input[type=datetime],
+  input[type=email],
+  input[type=month],
+  input[type=number],
+  input[type=password],
+  input[type=tel],
+  input[type=text],
+  input[type=time],
+  input[type=url],
+  input[type=week],
+  input:not([type])
+  {
+    -webkit-appearance: textarea;
+  }
+}
