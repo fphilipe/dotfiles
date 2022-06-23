@@ -8,29 +8,32 @@
   cma = commit --amend --no-edit
   co = checkout
   cod = checkout --detach
-  com = checkout master
-  cp = cherry-pick --ff
+  com = !git checkout "$(git config init.defaultBranch)"
+  cp = cherry-pick
   d = diff
+  db = !git d "$(git config init.defaultBranch)"..
   dc = diff --cached
   dw = diff --word-diff
   dn = diff --no-index
   f = fetch
+  files = diff-tree --no-commit-id --name-only -r
   h = help
   l = log --pretty=oneline-extra --date=human
   last = log --max-count=1 --decorate=short --abbrev-commit --format=fuller --stat
-  lb = log --decorate=short --abbrev-commit --reverse master..
+  lb = !git log --decorate=short --abbrev-commit --reverse "$(git config init.defaultBranch)"..
   lg = l --graph
-  lm = l --first-parent master
+  lm = !git l --first-parent "$(git config init.defaultBranch)"
   ; Print just the commit message
   msg = show --no-patch --format=%B
   mt = mergetool
   pl = pull
   ps = push
+  psfrc = push --force-with-lease --force-if-includes
   pst = push --tags
   psu = push --set-upstream origin HEAD
   r = rebase
   ri = rebase --interactive
-  rim = rebase --interactive master
+  rim = !git rebase --interactive "$(git config init.defaultBranch)"
   ru = rebase @{u}
   s = status --short --branch
   sh = show
@@ -50,12 +53,14 @@
   excludesFile = ~/.gitignore_global
   quotePath = false
   trustctime = false
+  commentChar = ";"
 [credential]
   helper = osxkeychain
 [credential "https://github.com"]
   username = fphilipe
 [diff]
-  algorithm = patience
+  algorithm = histogram
+  colorMoved = true
   tool = vimdiff
 [diff "image"]
   command = git_diff_image
@@ -79,10 +84,12 @@
   autoCorrect = 1
 [init]
   templateDir = ~/.git_template
+  defaultBranch = main
 [interactive]
   diffFilter = diff-highlight
   singleKey = true
 [merge]
+  conflictStyle = zdiff3
   ff = no
   tool = vimdiff
 [mergetool]
