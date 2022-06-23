@@ -15,3 +15,7 @@
 
 --type-add=xcconfig:*.xcconfig
 --type-add=strings:*.strings
+--type-add=kt:*.kt
+--type-add=kts:*.kts
+--type-add=pro:*.pro
+--type-add=plist:*.plist
