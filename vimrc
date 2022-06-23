@@ -43,6 +43,7 @@ Plugin 'godlygeek/tabular' "{{{
     endif
   endfunction
 "}}}
+Plugin 'ionide/Ionide-vim'
 Plugin 'janko-m/vim-test' "{{{
   let test#strategy = "dispatch"
   nmap <silent> <leader>tn :silent! noautocmd wa \| TestNearest<CR>

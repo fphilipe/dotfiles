@@ -13,6 +13,8 @@ paths=(
   "$HOME/.cabal/bin"
   # Rust
   "$HOME/.cargo/bin"
+  # .NET
+  "$HOME/.dotnet/tools"
   # Heroku toolbelt
   '/usr/local/heroku/bin'
   # Bundler binstubs
