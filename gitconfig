@@ -34,6 +34,9 @@
   r = rebase
   ri = rebase --interactive
   rim = !git rebase --interactive "$(git config init.defaultBranch)"
+  ; Quickly rebase without opening the editor
+  riq = -c sequence.editor=: rebase --autosquash --interactive
+  riqm = !git riq "$(git config init.defaultBranch)"
   ru = rebase @{u}
   s = status --short --branch
   sh = show
