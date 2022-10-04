@@ -6,9 +6,9 @@
   b = branch --verbose --verbose
   cm = commit
   cma = commit --amend --no-edit
-  co = checkout
-  cod = checkout --detach
-  com = !git checkout "$(git config init.defaultBranch)"
+  sw = switch
+  swd = switch --detach
+  swm = !git switch "$(git config init.defaultBranch)"
   cp = cherry-pick
   d = diff
   db = !git d "$(git config init.defaultBranch)"..
