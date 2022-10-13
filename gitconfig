@@ -30,7 +30,6 @@
   ps = push
   psfrc = push --force-with-lease --force-if-includes
   pst = push --tags
-  psu = push --set-upstream origin HEAD
   r = rebase
   ri = rebase --interactive
   rim = !git rebase --interactive "$(git config init.defaultBranch)"
@@ -108,6 +107,7 @@
   rebase = merges
 [push]
   default = upstream
+  autoSetupRemote = true
 [rebase]
   abbreviateCommands = true
   autoSquash = true
