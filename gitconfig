@@ -106,7 +106,7 @@
 [pull]
   rebase = merges
 [push]
-  default = upstream
+  default = current
   autoSetupRemote = true
 [rebase]
   abbreviateCommands = true
