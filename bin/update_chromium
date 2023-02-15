@@ -6,10 +6,10 @@ SUPPORT_DIR="`dirname "$0"`/.support"      # where the version number will be st
 ############################################
 
 VERSION_FILE="$SUPPORT_DIR/chromium_version"
-NEWEST_VERSION=`curl -s http://commondatastorage.googleapis.com/chromium-browser-snapshots/Mac/LAST_CHANGE`
+NEWEST_VERSION=`curl -s http://commondatastorage.googleapis.com/chromium-browser-snapshots/Mac_Arm/LAST_CHANGE`
 TMP_DIR="/tmp/chromium-$NEWEST_VERSION"
 ZIP_FILE="$TMP_DIR.zip"
-ZIP_URL="http://commondatastorage.googleapis.com/chromium-browser-snapshots/Mac/$NEWEST_VERSION/chrome-mac.zip"
+ZIP_URL="http://commondatastorage.googleapis.com/chromium-browser-snapshots/Mac_Arm/$NEWEST_VERSION/chrome-mac.zip"
 TMP_APP="$TMP_DIR/chrome-mac/Chromium.app"
 
 [[ -e "$VERSION_FILE" ]] && CURRENT_VERSION=`cat "$VERSION_FILE"`
