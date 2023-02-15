@@ -70,3 +70,4 @@ source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.
 
 # .NET:
 export DOTNET_ROOT="/usr/local/opt/dotnet/libexec"
+export PLAYWRIGHT_NODEJS_PATH=$(which node)
