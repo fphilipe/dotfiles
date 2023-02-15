@@ -6,9 +6,6 @@
   b = branch --verbose --verbose
   cm = commit
   cma = commit --amend --no-edit
-  sw = switch
-  swd = switch --detach
-  swm = !git switch "$(git config init.defaultBranch)"
   cp = cherry-pick
   d = diff
   db = !git d "$(git config init.defaultBranch)"..
@@ -40,6 +37,10 @@
   s = status --short --branch
   sh = show
   st = stash
+  sw = switch
+  swd = switch --detach
+  swi = !git switch "$(git b | fzf | awk '{print $1}')"
+  swm = !git switch "$(git config init.defaultBranch)"
   t = tag
   wip = !git add . && git commit --message WIP --no-verify
 [branch]
