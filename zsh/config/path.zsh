@@ -1,7 +1,6 @@
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 paths=(
-  # Homebrew
-  '/usr/local/bin'
-  '/usr/local/sbin'
   # personal scripts
   "$HOME/.bin"
   # Node Packace Manager
