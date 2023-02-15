@@ -113,13 +113,13 @@ Plugin 'tpope/vim-dispatch' "{{{
   map <silent> <leader>d :silent! noautocmd wa \| Dispatch<CR>
 "}}}
 Plugin 'tpope/vim-fugitive' "{{{
-  map <leader>gs :Gstatus<CR>
+  map <leader>gs :Git<CR>
   map <leader>gS :Gtabedit :<CR>
   map <leader>gd :Gdiff<CR>
   map <leader>gc :Gcommit<CR>
   map <leader>gw :Gwrite<CR>
   map <leader>gr :Gread<CR>
-  map <leader>gb :Gblame<CR>
+  map <leader>gb :Git blame<CR>
   " When diffing two files, save and close the index file, go to the git status
   " split below and jump to the next file:
   map <leader>gn :x<CR><C-w>j<C-n>D
