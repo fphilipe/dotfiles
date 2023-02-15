@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+git config --file .gitmodules --get-regexp path \
+  | awk '{print $2}' \
+  | while read -r submodule; do
+      diff="$(git diff -- "$submodule")"
+      if [[ "$diff" = *-dirty ]]; then
+        echo "Submodule path '$submodule': dirty, not updating"
+      elif [[ -n "$diff" ]]; then
+        git submodule update --init -- "$submodule"
+      fi
+    done
