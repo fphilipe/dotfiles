@@ -71,3 +71,6 @@ source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/compl
 # .NET:
 export DOTNET_ROOT="/usr/local/opt/dotnet/libexec"
 export PLAYWRIGHT_NODEJS_PATH=$(which node)
+
+# 1Password biometric unlock:
+export OP_BIOMETRIC_UNLOCK_ENABLED=true
