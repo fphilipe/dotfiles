@@ -1,9 +1,9 @@
-source /usr/local/opt/fzf/shell/completion.zsh
+source "$HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh"
 
 # Load chruby and enable auto switching when entering a directory containing
 # a .ruby-version file.
-source '/usr/local/share/chruby/chruby.sh'
-source '/usr/local/share/chruby/auto.sh'
+source "$HOMEBREW_PREFIX/share/chruby/chruby.sh"
+source "$HOMEBREW_PREFIX/share/chruby/auto.sh"
 
 save_function()
 {
@@ -64,9 +64,9 @@ export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jbr/Contents/Home
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
 # Google Cloud:
-export CLOUDSDK_PYTHON="/usr/local/opt/python@3.8/libexec/bin/python"
-source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+export CLOUDSDK_PYTHON=$(which python3)
+source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 
 # .NET:
 export DOTNET_ROOT="/usr/local/opt/dotnet/libexec"
