@@ -18,6 +18,8 @@ paths=(
   '/usr/local/heroku/bin'
   # Bundler binstubs
   './bin'
+  # PNPM
+  "$HOME/Library/pnpm"
 )
 
 for i in $paths; do
