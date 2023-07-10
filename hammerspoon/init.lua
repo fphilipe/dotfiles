@@ -30,3 +30,10 @@ spoon.WindowHalfsAndThirds:bindHotkeys({
     undo        = { {"ctrl", "alt", "cmd"}, "u" },
     center      = { {"ctrl", "alt", "cmd"}, "=" },
 })
+
+hs.hotkey.bind({"ctrl", "alt", "cmd"}, "n", function()
+  local win = hs.window.focusedWindow()
+  local screen = win:screen()
+  local nextScreen = screen:next()
+  win:moveToScreen(nextScreen, true, true)
+end)
