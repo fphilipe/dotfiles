@@ -1,16 +1,4 @@
-.github-jobs-promotion,
-.merge-message .js-merge-branch-action,
-.toolbar-commenting .toolbar-item:not(.js-saved-reply-container, .js-suggested-change-toolbar-item),
-[href="https://guides.github.com/features/mastering-markdown/"],
-.js-manual-file-chooser
-{
-  display: none !important;
-}
-
-.toolbar-group {
-  margin-left: 0;
-}
-
-.issue-milestone .css-truncate-target {
-  max-width: none;
+.CommentBox-input {
+  min-height: 300px;
+  max-height: none;
 }
