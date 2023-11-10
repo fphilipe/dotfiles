@@ -9,20 +9,19 @@ set nocompatible
 filetype off
 set encoding=utf-8
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
 " }}}
 " Plugins                                                                    {{{
 
-Plugin 'AndrewRadev/splitjoin.vim' "{{{
+call plug#begin('~/.vim/plugged')
+
+Plug 'AndrewRadev/splitjoin.vim' "{{{
   let g:splitjoin_ruby_hanging_args=0
   let g:splitjoin_ruby_curly_braces=0
 "}}}
-Plugin 'bruno-/vim-vertical-move'
-Plugin 'chriskempson/base16-vim'
-Plugin 'cohama/lexima.vim'
-Plugin 'godlygeek/tabular' "{{{
+Plug 'bruno-/vim-vertical-move'
+Plug 'chriskempson/base16-vim'
+Plug 'cohama/lexima.vim'
+Plug 'godlygeek/tabular' "{{{
   nmap <Leader>a= :Tabularize /=<CR>
   vmap <Leader>a= :Tabularize /=<CR>
   nmap <Leader>a: :Tabularize /:\zs/l0r1<CR>
@@ -43,8 +42,7 @@ Plugin 'godlygeek/tabular' "{{{
     endif
   endfunction
 "}}}
-Plugin 'ionide/Ionide-vim'
-Plugin 'janko-m/vim-test' "{{{
+Plug 'janko-m/vim-test' "{{{
   let test#strategy = "dispatch"
   nmap <silent> <leader>tn :silent! noautocmd wa \| TestNearest<CR>
   nmap <silent> <leader>tf :silent! noautocmd wa \| TestFile<CR>
@@ -52,8 +50,8 @@ Plugin 'janko-m/vim-test' "{{{
   nmap <silent> <leader>tl :silent! noautocmd wa \| TestLast<CR>
   nmap <silent> <leader>tg :silent! noautocmd wa \| TestVisit<CR>
 "}}}
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim' "{{{
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim' "{{{
   set rtp+=$HOMEBREW_PREFIX/opt/fzf
   let g:fzf_layout = { 'down': '40%' }
   let g:fzf_preview_window = []
@@ -64,32 +62,23 @@ Plugin 'junegunn/fzf.vim' "{{{
   let $FZF_DEFAULT_COMMAND = 'rg --files'
   let g:fzf_history_dir = '~/.local/share/fzf-history'
 "}}}
-Plugin 'junegunn/goyo.vim'
-Plugin 'kana/vim-textobj-user'
-Plugin 'Keithbsmiley/swift.vim'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'ludovicchabant/vim-gutentags'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'matchit.zip'
-Plugin 'mhinz/vim-signify' "{{{
+Plug 'junegunn/goyo.vim'
+Plug 'kana/vim-textobj-user'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'mhinz/vim-signify' "{{{
   let g:signify_vcs_list = ['git']
   let g:signify_update_on_focusgained = 1
 "}}}
-Plugin 'nelstrom/vim-markdown-folding'
-Plugin 'nelstrom/vim-textobj-rubyblock'
-Plugin 'pangloss/vim-javascript'
-Plugin 'plasticboy/vim-markdown' "{{{
-  let g:vim_markdown_math=1
-  let g:vim_markdown_frontmatter=1
-"}}}
-Plugin 'romainl/vim-qlist'
-Plugin 'ruby-matchit'
-Plugin 'shumphrey/fugitive-gitlab.vim'
-Plugin 'simnalamburt/vim-mundo' "{{{
+Plug 'nelstrom/vim-markdown-folding'
+Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'romainl/vim-qlist'
+Plug 'sheerun/vim-polyglot'
+Plug 'simnalamburt/vim-mundo' "{{{
   let g:mundo_right = 1
   map <S-Right> <ESC>:MundoToggle<CR>
 "}}}
-Plugin 'SirVer/ultisnips' "{{{
+Plug 'SirVer/ultisnips' "{{{
   let g:UltiSnipsListSnippets="<S-Tab>"
   let g:UltiSnipsExpandTrigger="<Tab>"
   let g:UltiSnipsJumpForwardTrigger="<C-J>"
@@ -102,18 +91,16 @@ Plugin 'SirVer/ultisnips' "{{{
   au BufNewFile,BufRead *_spec.rb UltiSnipsAddFiletypes rspec
   map <leader>es :UltiSnipsEdit<CR>:lcd %:p:h<CR>
 "}}}
-Plugin 'sjl/vitality.vim'
-Plugin 'slim-template/vim-slim'
-Plugin 'tpope/vim-abolish'
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-cucumber'
-Plugin 'tpope/vim-dispatch' "{{{
+Plug 'sjl/vitality.vim'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch' "{{{
   let g:dispatch_tmux_height=15
   map <silent> <leader>d :silent! noautocmd wa \| Dispatch<CR>
 "}}}
-Plugin 'tpope/vim-eunuch'
-Plugin 'tpope/vim-fugitive' "{{{
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive' "{{{
   map <leader>gs :Git<CR>
   map <leader>gS :Gtabedit :<CR>
   map <leader>gd :Gdiff<CR>
@@ -125,35 +112,27 @@ Plugin 'tpope/vim-fugitive' "{{{
   " split below and jump to the next file:
   map <leader>gn :x<CR><C-w>j<C-n>D
 "}}}
-Plugin 'tpope/vim-git'
-Plugin 'tpope/vim-obsession'
-Plugin 'tpope/vim-projectionist'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-rake'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-rhubarb'
-Plugin 'tpope/vim-rsi'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'transpose-words' "{{{
+Plug 'tpope/vim-git'
+Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-rsi'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'vim-scripts/matchit.zip'
+Plug 'vim-scripts/ruby-matchit'
+Plug 'vim-scripts/transpose-words' "{{{
   exec "set <M-t>=\<Esc>t"
 "}}}
-Plugin 'udalov/kotlin-vim'
-Plugin 'vim-ruby/vim-ruby' "{{{
-  let g:ruby_spellcheck_strings = 1
-  let g:ruby_indent_assignment_style = 'variable'
-  let g:ruby_indent_block_style = 'do'
-"}}}
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'wlangstroth/vim-haskell'
 
-call vundle#end()
+call plug#end()
 
 " }}}
 " Editing Behavior                                                           {{{
 
-syntax on                       " enable syntax highlighting
-filetype plugin indent on
 set regexpengine=1              " newer engine is slow with vim-ruby
 set showmode                    " always show what mode we're currently editing in
 set tabstop=2                   " a tab is two spaces
