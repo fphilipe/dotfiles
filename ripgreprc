@@ -19,3 +19,4 @@
 --type-add=kts:*.kts
 --type-add=pro:*.pro
 --type-add=plist:*.plist
+--type-add=ts:*.ts{,x}
