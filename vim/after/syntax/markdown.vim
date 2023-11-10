@@ -1,5 +1,7 @@
 set makeprg=open\ -a\ Markoff\ %
 
+set synmaxcol=1000
+
 syntax match EmojiTail contained conceal ':' cchar= 
 
 syntax match EmojiIcon contained conceal ':+1' cchar=👍
