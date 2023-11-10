@@ -39,7 +39,7 @@ do
     fi
 
     # Check for WIP commits
-    commit=`git rev-list -n 1 --grep '^WIP' "$range"`
+    commit=`git rev-list -n 1 --grep '^WIP:' "$range"`
     if [ -n "$commit" ]
     then
       echo "\nPush rejected: WIP commit detected\n"
