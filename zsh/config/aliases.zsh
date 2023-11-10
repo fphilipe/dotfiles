@@ -8,4 +8,4 @@ alias g="git"
 alias gn="git --no-pager"
 # Use Android Studio's keytool instead of global keytool that would require
 # installing a Java runtime.
-alias keytool="/Applications/Android\ Studio.app/Contents/jre/Contents/Home/bin/keytool"
+alias keytool="/Applications/Android\ Studio.app/Contents/jbr/Contents/Home/bin/keytool"
