@@ -54,7 +54,7 @@ Plugin 'janko-m/vim-test' "{{{
 "}}}
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim' "{{{
-  set rtp+=/usr/local/opt/fzf
+  set rtp+=$HOMEBREW_PREFIX/opt/fzf
   let g:fzf_layout = { 'down': '40%' }
   let g:fzf_preview_window = []
   let g:fzf_command_prefix = 'Fzf'
