@@ -112,6 +112,7 @@ Plugin 'tpope/vim-dispatch' "{{{
   let g:dispatch_tmux_height=15
   map <silent> <leader>d :silent! noautocmd wa \| Dispatch<CR>
 "}}}
+Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-fugitive' "{{{
   map <leader>gs :Git<CR>
   map <leader>gS :Gtabedit :<CR>
