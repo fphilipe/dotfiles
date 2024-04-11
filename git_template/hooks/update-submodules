@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+git submodule status \
+  | while read -r sha submodule rest; do
+      if [[ "$sha" = [-+]* ]]; then
+        git submodule update --init -- "$submodule"
+      elif [[ "$(git diff -- "$submodule")" = *-dirty ]]; then
+        echo "Submodule path '$submodule': dirty, not updating"
+      fi
+    done
