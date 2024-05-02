@@ -13,10 +13,12 @@
 --colors=line:none
 --colors=line:fg:yellow
 
---type-add=xcconfig:*.xcconfig
---type-add=strings:*.strings
+--type-add=fsproj:*.fsproj
+--type-add=csproj:*.csproj
 --type-add=kt:*.kt
 --type-add=kts:*.kts
---type-add=pro:*.pro
 --type-add=plist:*.plist
+--type-add=pro:*.pro
+--type-add=strings:*.strings
 --type-add=ts:*.ts{,x}
+--type-add=xcconfig:*.xcconfig
