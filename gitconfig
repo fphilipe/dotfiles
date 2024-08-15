@@ -42,6 +42,7 @@
   swi = !git switch "$(git b | fzf | awk '{print $1}')"
   swm = !git switch "$(git config init.defaultBranch)"
   t = tag
+  tidy = !git branch --merged "$(git config init.defaultBranch)"  | grep -Fv "$(git config init.defaultBranch)" | grep -vF '*' | grep -vF '+' | xargs git branch -d && git fetch && git remote prune origin && git branch -v | grep -F '[gone]' | grep -vF '*' | grep -vF '+' | awk '{print $1}' | xargs git branch -D
   wip = !git add . && git commit --message WIP --no-verify
 [branch]
   autoSetupMerge = true
