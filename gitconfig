@@ -12,6 +12,7 @@
   dc = diff --cached
   dw = diff --word-diff
   dn = diff --no-index
+  dt = -c diff.external=difft diff
   f = fetch
   files = diff-tree --no-commit-id --name-only -r
   h = help
@@ -19,6 +20,7 @@
   last = log --max-count=1 --decorate=short --abbrev-commit --format=fuller --stat
   lb = !git log --decorate=short --abbrev-commit --reverse "$(git config init.defaultBranch)"..
   lg = l --graph
+  lgb = lg --branches
   lm = !git l --first-parent "$(git config init.defaultBranch)"
   ; Print just the commit message
   msg = show --no-patch --format=%B
@@ -31,15 +33,23 @@
   ri = rebase --interactive
   rim = !git rebase --interactive "$(git config init.defaultBranch)"
   ; Quickly rebase without opening the editor
-  riq = -c sequence.editor=: rebase --autosquash --interactive
+  riq = -c sequence.editor=: rebase --interactive
   riqm = !git riq "$(git config init.defaultBranch)"
+  rom = !git rebase "origin/$(git config init.defaultBranch)"
   ru = rebase @{u}
   s = status --short --branch
   sh = show
+  sht = -c diff.external=difft show --ext-diff
+  ; Print just the long hash
+  sha = show --no-patch --format=%H
+  ; Print just the abbreviated hash
+  sha-short = show --no-patch --format=%h
+  sm = submodule
   st = stash
   sw = switch
   swd = switch --detach
-  swi = !git switch "$(git b | fzf | awk '{print $1}')"
+  swi = !git switch "$(git b --color | grep -v '*' | fzf --ansi | awk '{print $1}')"
+  swir = !git switch --detach "$(git b -r | grep -v HEAD | fzf | awk '{print $1}')"
   swm = !git switch "$(git config init.defaultBranch)"
   t = tag
   tidy = !git branch --merged "$(git config init.defaultBranch)"  | grep -Fv "$(git config init.defaultBranch)" | grep -vF '*' | grep -vF '+' | xargs git branch -d && git fetch && git remote prune origin && git branch -v | grep -F '[gone]' | grep -vF '*' | grep -vF '+' | awk '{print $1}' | xargs git branch -D
@@ -58,6 +68,7 @@
   quotePath = false
   trustctime = false
   commentChar = ";"
+  pager = diff-highlight | less
 [credential]
   helper = osxkeychain
 [credential "https://github.com"]
@@ -85,10 +96,10 @@
 [gui]
   fontDiff = -family Menlo -size 11 -weight normal -slant roman -underline 0 -overstrike 0
 [help]
-  autoCorrect = 1
+  autoCorrect = prompt
 [init]
-  templateDir = ~/.git_template
   defaultBranch = main
+  templateDir = ~/.git_template
 [interactive]
   diffFilter = diff-highlight
   singleKey = true
@@ -99,10 +110,6 @@
 [mergetool]
   keepBackup = false
   prompt = false
-[pager]
-  diff = diff-highlight | less
-  log = diff-highlight | less
-  show = diff-highlight | less
 [pretty]
   oneline-extra = format:%C(yellow)%h%Creset%Cred%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset
 [pull]
@@ -118,12 +125,17 @@
   updateRefs = true
 [rerere]
   enabled = true
+[stash]
+  showIncludeUntracked = true
+  showPatch = true
+  showStat = true
 [tag]
   sort = version:refname
 [url "bitbucket:"]
   insteadOf = git@bitbucket.org:
 [url "github.com:"]
   insteadOf = git@github.com:
+  insteadOf = git://github.com/
   insteadOf = https://github.com/
 [url "git@gitlab.com:"]
   insteadOf = git@gitlab.com:
