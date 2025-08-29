@@ -40,7 +40,7 @@ export default {
     },
     // Notion
     {
-      match: "www.notion.so/*",
+      match: /www\.notion\.so\/(?!invoice\/).*/,
       browser: "Notion"
     },
   ]
