@@ -1,9 +1,9 @@
 export default {
   defaultBrowser: "Safari",
   rewrite: [
-    // Skip Outlook link protection which significantly slows down opening URLs
+    // Skip Microsoft Office link protection which significantly slows down opening URLs
     {
-      match: "*.safelinks.protection.outlook.com/*",
+      match: /https:\/\/(\w+\.safelinks\.protection\.outlook\.com\/|statics\.teams\.cdn\.office\.net\/evergreen-assets\/safelinks\/2\/atp-safelinks.html)/,
       url: url => url.searchParams.get("url") || url
     },
     // Strip UTM parameters
@@ -30,7 +30,7 @@ export default {
     },
     // Figma
     {
-      match: "www.figma.com/*",
+      match: /www\.figma\.com\/(?!app_auth\/).*/,
       browser: "Figma"
     },
     // Microsoft Teams
@@ -40,7 +40,7 @@ export default {
     },
     // Notion
     {
-      match: /www\.notion\.so\/(?!invoice\/).*/,
+      match: /www\.notion\.so\/(?!(invoice\/|passkeyauthverify)).*/,
       browser: "Notion"
     },
   ]
