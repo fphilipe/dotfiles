@@ -62,6 +62,7 @@ htmlcov/
 Gemfile.private
 Gemfile.private.lock
 .git/
+.claude/
 
 # Private Stuff #
 #################
