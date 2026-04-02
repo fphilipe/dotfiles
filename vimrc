@@ -125,7 +125,6 @@ call plug#end()
 " }}}
 " Editing Behavior                                                           {{{
 
-set regexpengine=1              " newer engine is slow with vim-ruby
 set showmode                    " always show what mode we're currently editing in
 set tabstop=2                   " a tab is two spaces
 set softtabstop=2               " when hitting <BS>, pretend like a tab is removed, even if spaces
