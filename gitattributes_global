@@ -4,3 +4,4 @@
 *.jpeg diff=image
 *.jpg diff=image
 *.png diff=image
+*.webp diff=image
