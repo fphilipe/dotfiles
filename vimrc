@@ -83,19 +83,6 @@ Plug 'simnalamburt/vim-mundo' "{{{
   let g:mundo_right = 1
   map <S-Right> <ESC>:MundoToggle<CR>
 "}}}
-Plug 'SirVer/ultisnips' "{{{
-  let g:UltiSnipsListSnippets="<S-Tab>"
-  let g:UltiSnipsExpandTrigger="<Tab>"
-  let g:UltiSnipsJumpForwardTrigger="<C-J>"
-  let g:UltiSnipsJumpBackwardTrigger="<C-K>"
-  let g:UltiSnipsSnippetsDir="~/.vim/snips"
-  let g:UltiSnipsSnippetDirectories=["snips"]
-  let g:UltiSnipsEditSplit='context'
-  let g:UltiSnipsEnableSnipMate=0
-  set rtp+=~/.vim
-  au BufNewFile,BufRead *_spec.rb UltiSnipsAddFiletypes rspec
-  map <leader>es :UltiSnipsEdit<CR>:lcd %:p:h<CR>
-"}}}
 Plug 'sjl/vitality.vim'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-bundler'
