@@ -15,12 +15,15 @@ setopt no_correct_all
 # Enable tab completion for binaries such as git.
 autoload compinit && compinit
 
-# Disable reflow so that ^Q works in vim.
-stty -ixon
+# Only run stty if stdin is actually a terminal.
+if [ -t 0 ]; then
+  # Disable reflow so that ^Q works in vim.
+  stty -ixon
 
-# Disable "delayed suspension" in order for C-y to work correctly in GHCi.
-# See https://stackoverflow.com/questions/46290504/haskell-ghci-treats-ctrl-y-like-ctrl-z
-stty dsusp undef
+  # Disable "delayed suspension" in order for C-y to work correctly in GHCi.
+  # See https://stackoverflow.com/questions/46290504/haskell-ghci-treats-ctrl-y-like-ctrl-z
+  stty dsusp undef
+fi
 
 # Quote pasted URLs.
 autoload -U url-quote-magic
