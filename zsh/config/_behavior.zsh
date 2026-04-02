@@ -33,3 +33,7 @@ zle -N self-insert url-quote-magic
 autoload -z edit-command-line
 zle -N edit-command-line
 bindkey '^X^E' edit-command-line
+
+(( ${+aliases[run-help]} )) && unalias run-help
+autoload -Uz run-help
+autoload -Uz run-help-docker run-help-git run-help-ip run-help-openssl run-help-ssh run-help-sudo
