@@ -10,7 +10,7 @@ if has("gui_macvim")
   set guioptions-=R
 
   set macligatures
-  set guifont=Fira\ Code:h15
+  set guifont=Iosevka\ Term:h15
   set linespace=4
   set transparency=0
 endif
