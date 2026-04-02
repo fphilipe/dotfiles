@@ -149,5 +149,5 @@
 [web]
   browser = open
 
-[includeIf "gitdir/i:valora/"]
+[includeIf "gitdir/i:livemap/"]
   path = .gitconfig-work
