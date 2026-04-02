@@ -6,6 +6,9 @@ alias tmux='tmux -S /tmp/tmux'
 alias ql='qlmanage -p "$@" &> /dev/null'
 alias g="git"
 alias gn="git --no-pager"
+# ripgrep with just the matches.
+alias rgm='rg --only-matching --no-filename --no-line-number --no-heading'
+alias rgf='rg --files-with-matches'
 # Use Android Studio's keytool instead of global keytool that would require
 # installing a Java runtime.
 alias keytool="/Applications/Android\ Studio.app/Contents/jbr/Contents/Home/bin/keytool"
