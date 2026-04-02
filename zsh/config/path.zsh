@@ -20,6 +20,8 @@ paths=(
   './bin'
   # PNPM
   "$HOME/Library/pnpm"
+  # Python via Homebrew
+  "$(brew --prefix python)/libexec/bin"
 )
 
 for i in $paths; do
