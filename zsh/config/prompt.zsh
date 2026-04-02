@@ -9,7 +9,7 @@ TRAPALRM() {
 
 # Returns the current branch name and its status using colored dots as indicator.
 function git_prompt_info() {
-  local s="$(git status --short --branch --porcelain 2> /dev/null)"
+  local s="$(git --no-optional-locks status --short --branch --porcelain 2> /dev/null)"
   [ "$s" = '' ] && echo "\n." && return
   local sha="$(git rev-parse --short HEAD 2> /dev/null)"
   local first_line="$(head -n1 <<< $s)"
