@@ -30,7 +30,7 @@ export default {
     },
     // Figma
     {
-      match: /www\.figma\.com\/(?!app_auth\/).*/,
+      match: /www\.figma\.com\/(?!app_auth|email\/).*/,
       browser: "Figma"
     },
     // Microsoft Teams
