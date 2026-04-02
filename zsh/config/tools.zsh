@@ -63,11 +63,6 @@ export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jbr/Contents/Home
 
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
-# Google Cloud:
-export CLOUDSDK_PYTHON=$(which python3)
-source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
-
 # .NET:
 export DOTNET_ROOT="/usr/local/opt/dotnet/libexec"
 export PLAYWRIGHT_NODEJS_PATH=$(which node)
