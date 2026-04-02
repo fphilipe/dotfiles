@@ -1,9 +1,0 @@
-tags
-*.log
-logs/*
-tmp/*
-.tmp/*
-bin/*
-*.ipynb
-target/*
-build/*
