@@ -2,6 +2,7 @@
   detachedHead = false
 [alias]
   ai = add --interactive
+  aint = add --intent-to-add .
   ap = add --patch
   b = branch --verbose --verbose
   cm = commit
