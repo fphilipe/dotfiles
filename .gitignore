@@ -3,3 +3,4 @@ bundle/
 vim/spell/
 tmux/resurrect/
 .netrwhist
+vim/plugged/
