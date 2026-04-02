@@ -170,6 +170,15 @@ if &term =~ '^tmux'
   execute "set <xLeft>=\e[1;*D"
 endif
 
+" Styled and colored underline support
+let &t_AU = "\e[58:5:%dm"
+let &t_8u = "\e[58:2:%lu:%lu:%lum"
+let &t_Us = "\e[4:2m"
+let &t_Cs = "\e[4:3m"
+let &t_ds = "\e[4:4m"
+let &t_Ds = "\e[4:5m"
+let &t_Ce = "\e[4:0m"
+
 " suppress all bells
 set novisualbell
 set noerrorbells
@@ -399,24 +408,21 @@ if executable('rg')
   set grepprg=rg\ --vimgrep
 endif
 
-if filereadable(expand('~/.vimrc_background'))
-  " Fix highlighting for spell checks in terminal
-  function! s:base16_customize() abort
-    " Colors: https://github.com/chriskempson/base16/blob/master/styling.md
-    " Arguments: group, guifg, guibg, ctermfg, ctermbg, attr, guisp
-    call Base16hi("SpellBad",   "", "", g:base16_cterm08, g:base16_cterm00, "", "")
-    call Base16hi("SpellCap",   "", "", g:base16_cterm0A, g:base16_cterm00, "", "")
-    call Base16hi("SpellLocal", "", "", g:base16_cterm0D, g:base16_cterm00, "", "")
-    call Base16hi("SpellRare",  "", "", g:base16_cterm0B, g:base16_cterm00, "", "")
-  endfunction
+function! s:base16_customize() abort
+  highlight SpellBad   cterm=undercurl ctermul=red    guisp=Red    ctermbg=NONE ctermfg=NONE guifg=NONE term=NONE
+  highlight SpellCap   cterm=undercurl ctermul=yellow guisp=Yellow ctermbg=NONE ctermfg=NONE guifg=NONE term=NONE
+  highlight SpellLocal cterm=undercurl ctermul=blue   guisp=Blue   ctermbg=NONE ctermfg=NONE guifg=NONE term=NONE
+  highlight SpellRare  cterm=undercurl ctermul=green  guisp=Green  ctermbg=NONE ctermfg=NONE guifg=NONE term=NONE
+endfunction
 
-  augroup on_change_colorschema
-    autocmd!
-    autocmd ColorScheme * call s:base16_customize()
-  augroup end
+augroup on_change_colorschema
+  autocmd!
+  autocmd ColorScheme * call s:base16_customize()
+augroup end
 
+if exists('$BASE16_THEME') && (!exists('g:colors_name') || g:colors_name != 'base16-$BASE16_THEME')
   let base16colorspace=256
-  source ~/.vimrc_background
+  colorscheme base16-$BASE16_THEME
 endif
 
 " }}}
