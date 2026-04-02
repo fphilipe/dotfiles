@@ -1,0 +1,7 @@
+body {
+  overflow: initial !important;
+}
+
+#aab-overlay {
+  display: none !important;
+}
