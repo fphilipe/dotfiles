@@ -69,3 +69,6 @@ export PLAYWRIGHT_NODEJS_PATH=$(which node)
 
 # 1Password biometric unlock:
 export OP_BIOMETRIC_UNLOCK_ENABLED=true
+
+# GPG signing:
+export GPG_TTY=$(tty)
