@@ -67,12 +67,16 @@ Plug 'junegunn/goyo.vim'
 Plug 'kana/vim-textobj-user'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'mattn/vim-lsp-settings'
 Plug 'mhinz/vim-signify' "{{{
   let g:signify_vcs_list = ['git']
   let g:signify_update_on_focusgained = 1
 "}}}
 Plug 'nelstrom/vim-markdown-folding'
 Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'prabirshrestha/vim-lsp' "{{{
+  let g:lsp_semantic_enabled=1
+"}}}
 Plug 'romainl/vim-qlist'
 Plug 'sheerun/vim-polyglot'
 Plug 'simnalamburt/vim-mundo' "{{{
