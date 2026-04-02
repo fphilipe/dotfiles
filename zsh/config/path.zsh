@@ -23,6 +23,8 @@ paths=(
   "$HOME/Library/pnpm"
   # Python via Homebrew
   "$(brew --prefix python)/libexec/bin"
+  # Git contrib (diff-highlight)
+  "$(brew --prefix git)/share/git-core/contrib/diff-highlight"
 )
 
 for i in $paths; do
