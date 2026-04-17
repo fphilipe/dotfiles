@@ -4,6 +4,7 @@
   ai = add --interactive
   aint = add --intent-to-add .
   ap = add --patch
+  authors = !git log --pretty=author | sort | uniq --count | sort --numeric --reverse
   b = branch --verbose --verbose
   cm = commit
   cma = commit --amend --no-edit
@@ -29,6 +30,7 @@
   pl = pull
   ps = push
   psfrc = push --force-with-lease --force-if-includes
+  psfrc-all = -c push.default=matching psfrc
   pst = push --tags
   r = rebase
   ri = rebase --interactive
@@ -113,6 +115,7 @@
   prompt = false
 [pretty]
   oneline-extra = format:%C(yellow)%h%Creset%Cred%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset
+  author = format:%an <%ae>
 [pull]
   rebase = merges
 [push]

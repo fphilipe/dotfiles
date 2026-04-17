@@ -61,7 +61,7 @@ htmlcov/
 Gemfile.private
 Gemfile.private.lock
 .git/
-.claude/
+.claude/settings.local.json
 
 # Private Stuff #
 #################
