@@ -14,3 +14,5 @@ alias cdr='cd "$(git rev-parse --show-cdup)"'
 # Use Android Studio's keytool instead of global keytool that would require
 # installing a Java runtime.
 alias keytool="/Applications/Android\ Studio.app/Contents/jbr/Contents/Home/bin/keytool"
+# Use Claude's new renderer and keep showing a summary of what it thought.
+alias claude="CLAUDE_CODE_NO_FLICKER=1 claude --thinking-display summarized"
