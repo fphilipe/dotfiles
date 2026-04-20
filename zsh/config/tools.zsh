@@ -72,3 +72,6 @@ export OP_BIOMETRIC_UNLOCK_ENABLED=true
 
 # GPG signing:
 export GPG_TTY=$(tty)
+
+# pnpm:
+export PNPM_HOME="$HOME/Library/pnpm"
