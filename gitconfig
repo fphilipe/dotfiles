@@ -147,7 +147,7 @@
 [user]
   email = me@phili.pe
   name = Philipe Fatio
-  signKey = F74418A0
+  signingKey = F74418A0
   useConfigOnly = true
 [web]
   browser = open
