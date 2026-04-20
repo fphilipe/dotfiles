@@ -75,3 +75,6 @@ export GPG_TTY=$(tty)
 
 # pnpm:
 export PNPM_HOME="$HOME/Library/pnpm"
+
+# Disable Husky (https://github.com/typicode/husky) globally (I have my own Git hooks):
+export HUSKY=0
