@@ -3,3 +3,4 @@ export LC_ALL=$LANG
 export EDITOR=vim
 export PAGER=less
 export LESS=-iR
+export DO_NOT_TRACK=1
