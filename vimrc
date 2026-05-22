@@ -235,11 +235,6 @@ set noshowmode                  " Hide the default mode text (e.g. -- INSERT -- 
 set spell
 set spelllang=en_us
 
-" LaTeX settings
-set cole=2
-let g:tex_conceal='adgm'
-hi Conceal guibg=bg guifg=#66d9ef
-
 " Save whenever switching windows or leaving vim.
 au FocusLost * :silent! wa
 " Trigger autoread when coming back to vim.
