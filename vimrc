@@ -65,7 +65,6 @@ Plug 'junegunn/fzf.vim' "{{{
 "}}}
 Plug 'junegunn/goyo.vim'
 Plug 'kana/vim-textobj-user'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'mattn/vim-lsp-settings'
 Plug 'mhinz/vim-signify' "{{{
