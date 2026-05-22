@@ -19,3 +19,8 @@ bindkey '^[[Z' reverse-menu-complete
 
 # Make the delete key work instead of outputting a ~.
 bindkey "^[[3~" delete-char
+
+# Edit the command line with $EDITOR.
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey '^X^E' edit-command-line

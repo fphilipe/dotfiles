@@ -29,11 +29,6 @@ fi
 autoload -U url-quote-magic
 zle -N self-insert url-quote-magic
 
-# Edit the command line with $EDITOR.
-autoload -z edit-command-line
-zle -N edit-command-line
-bindkey '^X^E' edit-command-line
-
 (( ${+aliases[run-help]} )) && unalias run-help
 autoload -Uz run-help
 autoload -Uz run-help-docker run-help-git run-help-ip run-help-openssl run-help-ssh run-help-sudo
