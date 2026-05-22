@@ -28,6 +28,8 @@
   lm = !git l --first-parent "$(git config init.defaultBranch)"
   ; Print just the commit message
   msg = show --no-patch --format=%B
+  mg = merge
+  mgff = merge --ff-only
   mt = mergetool
   pl = pull
   ps = push
