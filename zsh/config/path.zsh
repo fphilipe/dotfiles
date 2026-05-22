@@ -15,6 +15,8 @@ paths=(
   "$HOME/.cargo/bin"
   # .NET
   "$HOME/.dotnet/tools"
+  # Mint
+  "$HOME/.mint/bin"
   # Heroku toolbelt
   '/usr/local/heroku/bin'
   # Bundler binstubs
