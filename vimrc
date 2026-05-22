@@ -425,6 +425,11 @@ if exists('$BASE16_THEME') && (!exists('g:colors_name') || g:colors_name != 'bas
   colorscheme base16-$BASE16_THEME
 endif
 
+augroup LspDiffDisable
+  autocmd!
+  autocmd OptionSet diff if v:option_new | call lsp#disable() | else | call lsp#enable() | endif
+augroup end
+
 " }}}
 " File Type Configurations                                                   {{{
 
