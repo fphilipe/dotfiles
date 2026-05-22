@@ -1,3 +1,5 @@
+[absorb]
+  autoStageIfNothingStaged = true
 [advice]
   detachedHead = false
 [alias]
