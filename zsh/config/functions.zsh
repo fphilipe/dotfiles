@@ -48,11 +48,11 @@ function new_workspace() {
   local working_dir="$worktree_dir/$prefix"
   local current_branch="$(git rev-parse --abbrev-ref HEAD)"
 
-  git worktree add -b "$branch" "$worktree_dir" "${base:-$current_branch}" || return
+  git worktree add -B "$branch" "$worktree_dir" "${base:-$current_branch}" || return
 
   if [[ -f "$main_repo_dir/.claude/settings.local.json" ]]; then
-    mkdir -p "$worktree_dir/.claude"
-    ln -s "$main_repo_dir/.claude/settings.local.json" "$worktree_dir/.claude/settings.local.json"
+    mkdir -p "$working_dir/.claude"
+    ln -s "$main_repo_dir/.claude/settings.local.json" "$working_dir/.claude/settings.local.json"
   fi
 
   local window_id
@@ -91,11 +91,6 @@ function kill_workspace() {
 
     git -C "$worktree" switch --detach "$default_branch" || {
       echo "kill_workspace: failed to detach to '$default_branch'" >&2
-      return 1
-    }
-    git -C "$main_repo_dir" branch -d "$branch" || {
-      echo "kill_workspace: branch '$branch' not deleted (unmerged?), restoring" >&2
-      git -C "$worktree" switch "$branch"
       return 1
     }
   fi
