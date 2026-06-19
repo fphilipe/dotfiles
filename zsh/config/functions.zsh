@@ -48,7 +48,11 @@ function new_workspace() {
   local working_dir="$worktree_dir/$prefix"
   local current_branch="$(git rev-parse --abbrev-ref HEAD)"
 
-  git worktree add -B "$branch" "$worktree_dir" "${base:-$current_branch}" || return
+  if git show-ref --verify --quiet "refs/heads/$branch"; then
+    git worktree add "$worktree_dir" "$branch" || return
+  else
+    git worktree add -b "$branch" "$worktree_dir" "${base:-$current_branch}" || return
+  fi
 
   if [[ -f "$main_repo_dir/.claude/settings.local.json" ]]; then
     mkdir -p "$working_dir/.claude"
