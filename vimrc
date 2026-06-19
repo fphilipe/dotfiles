@@ -60,7 +60,7 @@ Plug 'junegunn/fzf.vim' "{{{
   nmap <C-P><C-B> :<C-U>FzfBuffers<CR>
   nmap <C-P><C-T> :<C-U>FzfTags<CR>
   nmap <C-P><C-G> :<C-U>FzfCommits<CR>
-  let $FZF_DEFAULT_COMMAND = 'rg --files'
+  let $FZF_DEFAULT_COMMAND = 'rg --files --follow'
   let g:fzf_history_dir = '~/.local/share/fzf-history'
 "}}}
 Plug 'junegunn/goyo.vim'
