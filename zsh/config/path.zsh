@@ -1,9 +1,6 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 paths=(
-  "$HOME/.local/bin:$PATH"
-  # personal scripts
-  "$HOME/.bin"
   # Node Packace Manager
   '/usr/local/share/npm/bin'
   './node_modules/.bin'
@@ -19,14 +16,19 @@ paths=(
   "$HOME/.mint/bin"
   # Heroku toolbelt
   '/usr/local/heroku/bin'
-  # Bundler binstubs
-  './bin'
   # PNPM
-  "$HOME/Library/pnpm"
+  "$PNPM_HOME"
   # Python via Homebrew
   "$(brew --prefix python)/libexec/bin"
   # Git contrib (diff-highlight)
   "$(brew --prefix git)/share/git-core/contrib/diff-highlight"
+  # Android
+  "$ANDROID_HOME/platform-tools"
+  "$HOME/.local/bin:$PATH"
+  # personal scripts
+  "$HOME/.bin"
+  # project scripts
+  './bin'
 )
 
 for i in $paths; do
