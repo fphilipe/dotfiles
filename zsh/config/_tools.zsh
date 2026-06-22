@@ -59,7 +59,8 @@ if which drip > /dev/null 2>&1; then
 fi
 
 # Android:
-export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jbr/Contents/Home
+export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
+export ANDROID_HOME="$HOME/Library/Android/sdk"
 
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
