@@ -67,3 +67,6 @@ Gemfile.private.lock
 #################
 _stuff/
 .ctagsignore
+
+**/.claude/settings.local.json
+.sourcekit-lsp/
