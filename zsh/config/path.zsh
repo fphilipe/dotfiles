@@ -1,5 +1,3 @@
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
 paths=(
   # Node Packace Manager
   '/usr/local/share/npm/bin'
