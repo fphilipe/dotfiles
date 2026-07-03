@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+target=$(tmux list-windows -a -F '#{window_bell_flag} #{session_name}:#{window_index}' | awk '$1==1{print $2; exit}')
+if [ -n "$target" ]; then
+  tmux switch-client -t "$target"
+else
+  tmux display-message "No bell"
+fi
+exit 0
