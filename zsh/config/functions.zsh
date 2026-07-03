@@ -74,9 +74,9 @@ function new-workspace() {
   tmux new-session -d -s "$session_name" -c "$working_dir" -n vim
   tmux new-window -t "$session_name" -c "$working_dir" -n sh
   tmux new-window -t "$session_name" -c "$working_dir" -n claude
-  local claude_cmd="claude --name '$branch'"
+  local claude_cmd="claude --name ${(qq)branch}"
   if [[ -n "$prompt" ]]; then
-    claude_cmd+=" '${prompt//\'/\'\\\'\'}'"
+    claude_cmd+=" ${(qq)prompt}"
   fi
 
   tmux send-keys -t "${session_name}:vim" vim Enter
