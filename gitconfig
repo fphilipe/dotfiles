@@ -158,3 +158,5 @@
 
 [includeIf "gitdir/i:livemap/"]
   path = .gitconfig-work
+[include]
+  path = .gitconfig-private
