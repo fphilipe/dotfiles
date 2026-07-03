@@ -12,7 +12,7 @@
   cma = commit --amend --no-edit
   cp = cherry-pick
   d = diff
-  db = !git d "$(git config init.defaultBranch)"..
+  db = !git d "$(git config init.defaultBranch)"...
   dc = diff --cached
   dw = diff --word-diff
   dn = diff --no-index
