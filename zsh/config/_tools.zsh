@@ -22,17 +22,25 @@ chruby() {
 chruby ruby
 
 if which fnm > /dev/null 2>&1; then
-  eval "$(fnm env --shell=zsh)"
+  # `recursive` lets `fnm use` resolve the version file from parent folders.
+  eval "$(fnm env --shell=zsh --version-file-strategy=recursive)"
 
   # This code was generated using `fnm env --use-on-cd` and modified not to
-  # print anything.
+  # print anything and to look for a version file in parent folders, stopping
+  # at the git repo root so we don't pick up an unrelated version file above it.
   autoload -U add-zsh-hook
   _fnm_autoload_hook () {
-    if [[ -f .node-version && -r .node-version ]]; then
-      fnm use > /dev/null
-    elif [[ -f .nvmrc && -r .nvmrc ]]; then
-      fnm use > /dev/null
-    fi
+    local dir=$PWD
+    # The repo root bounds the upward search; fall back to $PWD outside a repo.
+    local root=${$(git rev-parse --show-toplevel 2>/dev/null):-$PWD}
+    while true; do
+      if [[ -r $dir/.node-version || -r $dir/.nvmrc ]]; then
+        fnm use > /dev/null
+        return
+      fi
+      [[ $dir == "$root" ]] && return
+      dir=${dir%/*}
+    done
   }
   add-zsh-hook chpwd _fnm_autoload_hook && _fnm_autoload_hook
 fi
