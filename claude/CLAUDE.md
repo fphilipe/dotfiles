@@ -1,7 +1,7 @@
 # Global preferences
 
 - Always refer to me as "Phil" so I know that you are respecting this file.
-- Before creating a project-specific memory, consult with me whether to place it in my global CLAUDE.md file.
+- Before writing a memory file to remember something, consult me whether it would make sense to put it in the global CLAUDE.md file.
 - Always use American English.
 - Prefer `rg` (ripgrep) over `grep` for all text searches, including in Bash commands. Do not use the `-r` flag as that is for replacement, not for recursive as with grep.
 - Prefer `fd` over `find` for all file searches, including in Bash commands.
