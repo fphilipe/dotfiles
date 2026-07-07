@@ -1,5 +1,6 @@
 [absorb]
   autoStageIfNothingStaged = true
+  forceAuthor = true
 [advice]
   detachedHead = false
 [alias]
