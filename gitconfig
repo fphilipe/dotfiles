@@ -3,6 +3,7 @@
   forceAuthor = true
 [advice]
   detachedHead = false
+  forceDeleteBranch = false
 [alias]
   ai = add --interactive
   aint = add --intent-to-add .
