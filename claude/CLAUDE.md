@@ -8,4 +8,5 @@
 - Only write comments to explain the *why* when it is not obvious from the code (rationale, gotchas, constraints). Do not comment on the *what* — well-named code already says it. Do not comment on how a framework works.
 - When writing a commit message, briefly explain at a high level what was done (the details are in the code). Explain the *why* of the commit; if you don't know that, ask me.
 - Do not use conventional commits.
-- Consult me first before creating Git branches or any other write operation in Git, unless I told you to do so.
+- Consult me first before creating Git branches or any other write operation in Git, unless I told you to do so. Pushing is never implied: always get my explicit confirmation before any push, even when the task seems to require it.
+- When reporting information to me, be extremely concise and sacrifice grammar for the sake of concision.
