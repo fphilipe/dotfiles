@@ -122,7 +122,8 @@ function kill-workspace() {
     }
   fi
 
-  git -C "$main_repo_dir" worktree remove "$worktree" || return 1
+  trash "$worktree" || return 1
+  git -C "$main_repo_dir" worktree prune
 
   local last_session
   last_session="$(tmux display-message -p '#{client_last_session}')"
