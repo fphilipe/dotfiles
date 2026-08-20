@@ -44,6 +44,7 @@
   ; Quickly rebase without opening the editor
   riq = -c sequence.editor=: rebase --interactive
   riqm = !git riq "$(git config init.defaultBranch)"
+  riqom = !git riq origin/"$(git config init.defaultBranch)"
   rom = !git rebase "origin/$(git config init.defaultBranch)"
   ru = rebase @{u}
   s = status --short --branch
@@ -63,6 +64,7 @@
   t = tag
   tidy = !git branch --merged "$(git config init.defaultBranch)"  | grep -Fv "$(git config init.defaultBranch)" | grep -vF '*' | grep -vF '+' | xargs git branch -d && git fetch && git remote prune origin && git branch -v | grep -F '[gone]' | grep -vF '*' | grep -vF '+' | awk '{print $1}' | xargs git branch -D
   wip = !git add . && git commit --message WIP --no-verify
+  wt = worktree
 [branch]
   autoSetupMerge = true
   autoSetupRebase = always
