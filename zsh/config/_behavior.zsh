@@ -12,6 +12,11 @@ setopt histignorespace
 # Don't use auto correction.
 setopt no_correct_all
 
+# zsh detects EDITOR=vim and switches to vi key bindings. Use emacs bindings
+# instead. This must run before fzf's completion script is sourced so that fzf
+# binds tab in the emacs keymap, not the vi one.
+bindkey -e
+
 # Enable tab completion for binaries such as git.
 autoload compinit && compinit
 

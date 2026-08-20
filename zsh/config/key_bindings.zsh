@@ -1,10 +1,6 @@
 # To find out what the escaped key combination is, open a shell and press ^V
 # followed by the combination.
 
-# zsh detects EDITOR=vim and switches to vi key bingings. Use emacs bindings
-# instead.
-bindkey -e
-
 bindkey '^P' up-line-or-search
 bindkey '^N' down-line-or-search
 
