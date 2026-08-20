@@ -1,8 +1,4 @@
-.CommentBox-input {
+textarea[data-component="Textarea"][data-resize="both"] {
   min-height: 300px !important;
   max-height: none !important;
-}
-
-textarea[aria-label="Markdown value"] {
-  font-family: var(--fontStack-monospace);
 }
