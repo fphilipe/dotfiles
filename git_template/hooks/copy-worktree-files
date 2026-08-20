@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+# .gitcopy has one worktree-relative path per line. No comments. No globs.
+#
+# The main worktree is always the source. Git gives a post-checkout hook no
+# data about the directory where `git worktree add` ran.
+
+set -u
+
+main_worktree="$(dirname "$(git rev-parse --path-format=absolute --git-common-dir)")"
+worktree="$(git rev-parse --show-toplevel)"
+list="$main_worktree/.gitcopy"
+
+[[ -f "$list" && "$main_worktree" != "$worktree" ]] || exit 0
+
+# Without the second test, a file with no final newline loses its last path.
+while IFS= read -r path || [[ -n "$path" ]]; do
+  [[ -n "$path" ]] || continue
+
+  if [[ "$path" == /* || "$path" == '~'* || "/$path/" == */../* ]]; then
+    echo "gitcopy: skipped '$path': not a path inside the worktree" >&2
+    continue
+  fi
+
+  source="$main_worktree/$path"
+  destination="$worktree/$path"
+
+  if [[ ! -e "$source" && ! -L "$source" ]]; then
+    echo "gitcopy: skipped '$path': missing in $main_worktree" >&2
+    continue
+  fi
+
+  [[ -e "$destination" || -L "$destination" ]] && continue
+
+  mkdir -p "$(dirname "$destination")" \
+    && cp -Rc "$source" "$destination" \
+    && echo "gitcopy: copied $path"
+done < "$list"

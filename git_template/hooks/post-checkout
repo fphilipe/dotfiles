@@ -1,3 +1,11 @@
 #!/usr/bin/env bash
 
-. ${0%/*}/update-submodules
+# Only `git worktree add` sets a null previous HEAD and also uses a git dir
+# that differs from the common dir. A clone sets the null HEAD but shares them.
+if [[ "$1" =~ ^0+$ ]] &&
+  [[ "$(git rev-parse --absolute-git-dir)" != "$(git rev-parse --path-format=absolute --git-common-dir)" ]]
+then
+  "${0%/*}"/copy-worktree-files
+fi
+
+. "${0%/*}"/update-submodules

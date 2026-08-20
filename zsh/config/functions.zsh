@@ -64,11 +64,6 @@ function new-workspace() {
     git worktree add -b "$branch" "$worktree_dir" "${base:-$current_branch}" || return
   fi
 
-  if [[ -f "$main_repo_dir/.claude/settings.local.json" ]]; then
-    mkdir -p "$working_dir/.claude"
-    ln -s "$main_repo_dir/.claude/settings.local.json" "$working_dir/.claude/settings.local.json"
-  fi
-
   local current_session="$(tmux display-message -p '#S')"
   local session_name="${current_session%%/*}/${branch//\//-}"
   tmux new-session -d -s "$session_name" -c "$working_dir" -n vim
