@@ -67,6 +67,7 @@ if which drip > /dev/null 2>&1; then
   export DRIP_SHUTDOWN=30
   export JAVACMD=$(which drip)
 fi
+export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
 
 # Android:
 export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
