@@ -8,6 +8,7 @@
 - Prefer `fd` over `find` for all file searches, including in Bash commands.
 - Only write code comments to explain the *why* when it is not obvious from the code (rationale, gotchas, constraints). Do not comment on the *what*, well-named code already says it. Do not comment on how a framework works. Do not reference implementation details that are not strictly necessary, especially details of code far away as they go stale.
 - The comment rule above beats the style of the surrounding code: neighboring files with what-style comments are not license to write more of them, and comments carried along when porting or copying code must be re-judged against the rule, not kept for consistency.
+- In code comments and commit messages (except first line), put code references in backticks: identifiers, file names and paths, CLI commands and flags, config keys, URL paths, and version pins. Prose words stay unquoted.
 - When writing a commit message, briefly explain at a high level what was done (the details are in the code). Explain the *why* of the commit; if you don't know that, ask me.
 - Commit messages must describe only what is in the commit's diff. Out-of-repo actions (dashboard/settings changes, external services) and work that was reverted before committing don't belong; if external state is essential context, phrase it as existing state, not as something the commit did.
 - Do not use conventional commits.
