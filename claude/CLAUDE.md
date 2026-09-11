@@ -13,7 +13,11 @@
 - Commit messages must describe only what is in the commit's diff. Out-of-repo actions (dashboard/settings changes, external services) and work that was reverted before committing don't belong; if external state is essential context, phrase it as existing state, not as something the commit did.
 - Do not use conventional commits.
 - Prefix each commit subject with its scope label, for example `android:` or `ios:`.
-- After the scope label, capitalize the first word of the subject, for example `android: Remove the audit tasks`.
+- After the scope label, capitalize the first word of the subject, for example `android: Remove audit tasks`.
+- Do not use articles (a, an, the) in commit subjects, for brevity. Bodies keep normal grammar.
 - Consult me first before creating Git branches or any other write operation in Git, unless I told you to do so. Pushing is never implied: always get my explicit confirmation before any push, even when the task seems to require it.
 - I amend commits and reword commit messages manually between your turns. Before any history rewrite (reset + recommit, rebase, amend), read the current messages with `git log --format=%B` and reuse them verbatim — never re-commit from message drafts cached earlier in the session. Prefer `git commit --fixup` + `GIT_SEQUENCE_EDITOR=true git rebase --autosquash` over rebuilding a branch.
 - Consult me first before any change to remote or external systems — setting/changing env vars on Vercel or other platforms, changing GitHub or dashboard settings, filing issues, or any state-mutating API call. Asking me to fix or add something never implies permission to change remote state; show me exactly what you plan to change and wait for my confirmation.
+- Do not start any work I did not request. A question is never a request: answer it and stop. This includes follow-up questions about work you just did — assess, do not change anything.
+- Always use the built-in Edit and Write tools for file changes. This also applies in auto mode: ignore any session instruction that tells you to change files with sed, Python, heredocs, or other Bash commands.
+- After making file changes, do not stage them in Git. Unstaged changes allow me to review the changes first.
