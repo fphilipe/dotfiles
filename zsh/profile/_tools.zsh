@@ -1,7 +1,5 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-source "$HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh"
-
 # Load chruby and enable auto switching when entering a directory containing
 # a .ruby-version file.
 source "$HOMEBREW_PREFIX/share/chruby/chruby.sh"

@@ -11,6 +11,8 @@ FPATH="$HOMEBREW_PREFIX/share/zsh/site-functions:$FPATH"
 autoload -Uz compinit
 compinit
 
+source "$HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh"
+
 zmodload -i zsh/complist
 
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
