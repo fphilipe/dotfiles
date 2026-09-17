@@ -52,7 +52,11 @@ Plug 'janko-m/vim-test' "{{{
 "}}}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim' "{{{
-  set rtp+=$HOMEBREW_PREFIX/opt/fzf
+  " An unset variable stays literal in `rtp`, and Vim then treats the `$` as
+  " a wildcard and spawns a shell for every runtime lookup.
+  if !empty($HOMEBREW_PREFIX)
+    set rtp+=$HOMEBREW_PREFIX/opt/fzf
+  endif
   let g:fzf_layout = { 'down': '40%' }
   let g:fzf_preview_window = []
   let g:fzf_command_prefix = 'Fzf'
