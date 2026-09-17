@@ -418,9 +418,12 @@ augroup on_change_colorschema
   autocmd ColorScheme * call s:base16_customize()
 augroup end
 
-if exists('$BASE16_THEME') && (!exists('g:colors_name') || g:colors_name != 'base16-$BASE16_THEME')
+" The theme comes from the `~/.base16_theme` symlink, not from `$BASE16_THEME`,
+" so it also works when Vim starts without shell env (MacVim from Finder).
+let s:base16_theme = fnamemodify(resolve(expand('~/.base16_theme')), ':t:r')
+if s:base16_theme =~# '^base16-' && get(g:, 'colors_name', '') != s:base16_theme
   let base16colorspace=256
-  colorscheme base16-$BASE16_THEME
+  execute 'colorscheme' s:base16_theme
 endif
 
 augroup LspDiffDisable
