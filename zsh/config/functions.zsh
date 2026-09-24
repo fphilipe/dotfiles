@@ -130,3 +130,71 @@ function kill-workspace() {
   fi
   tmux kill-session -t "$session"
 }
+
+function tidy-workspaces() {
+  local -a run
+  local OPTIND opt
+  while getopts "n" opt; do
+    case "$opt" in
+      n) run=(echo "Would run:") ;;
+      *) echo "usage: tidy-workspaces [-n]" >&2; return 1 ;;
+    esac
+  done
+
+  local common_dir main_repo_dir
+  common_dir="$(git rev-parse --path-format=absolute --git-common-dir 2>/dev/null)" || {
+    echo "tidy-workspaces: not in a git repo" >&2
+    return 1
+  }
+  main_repo_dir="${common_dir:h}"
+
+  # Upstream shows as `[gone]` only after stale remote-tracking refs are pruned.
+  git -C "$main_repo_dir" fetch --prune --quiet
+
+  local line session session_path worktree branch current_session kill_current
+  [[ -n "$TMUX" ]] && current_session="$(tmux display-message -p '#S')"
+
+  for line in ${(f)"$(tmux list-sessions -F "#{session_name}"$'\t'"#{session_path}" 2>/dev/null)"}; do
+    session="${line%%$'\t'*}"
+    session_path="${line#*$'\t'}"
+    [[ -d "$session_path" ]] || continue
+    [[ "$(git -C "$session_path" rev-parse --path-format=absolute --git-common-dir 2>/dev/null)" == "$common_dir" ]] || continue
+    worktree="$(git -C "$session_path" rev-parse --show-toplevel)"
+    [[ "$worktree" == "$main_repo_dir" ]] && continue
+
+    branch="$(git -C "$worktree" rev-parse --abbrev-ref HEAD)"
+    [[ "$(git -C "$worktree" for-each-ref --format='%(upstream:track)' "refs/heads/$branch")" == "[gone]" ]] || continue
+
+    if [[ -n "$(git -C "$worktree" status --porcelain)" ]]; then
+      echo "Skipped $session: $worktree is dirty"
+      continue
+    fi
+
+    echo "Trash workspace $session: $worktree"
+    $run trash "$worktree" || continue
+    if [[ "$session" == "$current_session" ]]; then
+      kill_current=1
+    else
+      $run tmux kill-session -t "$session"
+    fi
+  done
+
+  $run git -C "$main_repo_dir" worktree prune
+
+  local dir
+  local -a worktrees
+  worktrees=(${(f)"$(git -C "$main_repo_dir" worktree list --porcelain | sed -n 's/^worktree //p')"})
+  for dir in "$main_repo_dir"@*(N/); do
+    (( ${worktrees[(Ie)$dir]} )) && continue
+    echo "Trash leftover: $dir"
+    $run trash "$dir"
+  done
+
+  $run git -C "$main_repo_dir" tidy
+
+  # Killing the current session also kills this shell, so do it last.
+  if [[ -n "$kill_current" ]]; then
+    $run tmux switch-client -l
+    $run tmux kill-session -t "$current_session"
+  fi
+}
