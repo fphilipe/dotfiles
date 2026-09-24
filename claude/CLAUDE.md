@@ -15,6 +15,8 @@
 - Prefix each commit subject with its scope label, for example `android:` or `ios:`.
 - After the scope label, capitalize the first word of the subject, for example `android: Remove audit tasks`.
 - Do not use articles (a, an, the) in commit subjects, for brevity. Bodies keep normal grammar.
+- Try to limit commit message subject lines to 50 chars. Wrap the body to 72 chars.
+- Wrap only commit messages to 72 chars. Do not wrap text that shows on the web, for example PR descriptions, issue comments and review comments. The browser wraps this text.
 - Consult me first before creating Git branches or any other write operation in Git, unless I told you to do so. Pushing is never implied: always get my explicit confirmation before any push, even when the task seems to require it.
 - I amend commits and reword commit messages manually between your turns. Before any history rewrite (reset + recommit, rebase, amend), read the current messages with `git log --format=%B` and reuse them verbatim — never re-commit from message drafts cached earlier in the session. Prefer `git commit --fixup` + `GIT_SEQUENCE_EDITOR=true git rebase --autosquash` over rebuilding a branch.
 - Consult me first before any change to remote or external systems — setting/changing env vars on Vercel or other platforms, changing GitHub or dashboard settings, filing issues, or any state-mutating API call. Asking me to fix or add something never implies permission to change remote state; show me exactly what you plan to change and wait for my confirmation.
