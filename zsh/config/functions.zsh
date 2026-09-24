@@ -44,6 +44,8 @@ function new-workspace() {
     esac
   done
 
+  [[ -z "$prompt" && ! -t 0 ]] && prompt="$(cat)"
+
   [[ -z "$TMUX" ]] && { echo "new-workspace: must be run inside tmux" >&2; return 1; }
 
   local common_dir
@@ -71,7 +73,8 @@ function new-workspace() {
   tmux new-window -t "$session_name" -c "$working_dir" -n claude
   local claude_cmd="claude --name ${(qq)branch}"
   if [[ -n "$prompt" ]]; then
-    claude_cmd+=" ${(qq)prompt}"
+    # `send-keys` types newlines as Enter, so encode them as `$'\n'`.
+    claude_cmd+=" ${(q+)prompt}"
   fi
 
   tmux send-keys -t "${session_name}:vim" vim Enter
