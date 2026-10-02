@@ -51,6 +51,14 @@ function new-workspace() {
 }
 
 function kill-workspace() {
+  local force OPTIND opt
+  while getopts "f" opt; do
+    case "$opt" in
+      f) force=1 ;;
+      *) echo "usage: kill-workspace [-f]" >&2; return 1 ;;
+    esac
+  done
+
   [[ -z "$TMUX" ]] && { echo "kill-workspace: must be run inside tmux" >&2; return 1; }
 
   local session common_dir main_repo_dir worktree branch
@@ -73,17 +81,19 @@ function kill-workspace() {
     return 1
   fi
 
-  if [[ -n "$(git -C "$worktree" status --porcelain)" ]]; then
-    echo "kill-workspace: working directory is dirty, refusing to proceed" >&2
+  if [[ -z "$force" && -n "$(git -C "$worktree" status --porcelain)" ]]; then
+    echo "kill-workspace: working directory is dirty, refusing to proceed (use -f to force)" >&2
     return 1
   fi
 
   branch="$(git -C "$worktree" rev-parse --abbrev-ref HEAD)"
   if [[ -n "$branch" && "$branch" != "HEAD" ]]; then
-    local default_branch="$(git config init.defaultBranch)"
+    # With local changes, a switch to another commit can fail on conflicts.
+    local target="$(git config init.defaultBranch)"
+    [[ -n "$force" ]] && target=HEAD
 
-    git -C "$worktree" switch --detach "$default_branch" || {
-      echo "kill-workspace: failed to detach to '$default_branch'" >&2
+    git -C "$worktree" switch --detach "$target" || {
+      echo "kill-workspace: failed to detach to '$target'" >&2
       return 1
     }
   fi
