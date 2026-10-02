@@ -7,6 +7,7 @@
 - Always use American English.
 - Do not start any work I did not request. A question is never a request: answer it and stop. This includes follow-up questions about work you just did — assess, do not change anything.
 - Before writing a memory file to remember something, consult me whether it would make sense to put it in the global CLAUDE.md file.
+- Always ask me questions with the question UI (`AskUserQuestion`), never as plain text.
 
 ## Tools
 
