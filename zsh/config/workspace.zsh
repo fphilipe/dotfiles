@@ -47,7 +47,9 @@ function new-workspace() {
 
   tmux send-keys -t "${session_name}:vim" vim Enter
   tmux send-keys -t "${session_name}:claude" "$claude_cmd" Enter
-  tmux switch-client -t "$session_name"
+  if [[ -z "$prompt" ]]; then
+    tmux switch-client -t "$session_name"
+  fi
 }
 
 function kill-workspace() {
