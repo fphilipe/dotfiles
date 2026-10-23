@@ -103,10 +103,15 @@ function kill-workspace() {
   trash "$worktree" || return 1
   git -C "$main_repo_dir" worktree prune
 
-  local last_session
-  last_session="$(tmux display-message -p '#{client_last_session}')"
-  if [[ -n "$last_session" && "$last_session" != "$session" ]]; then
-    tmux switch-client -l
+  local main_session="${session%%/*}"
+  if tmux has-session -t "=$main_session" 2>/dev/null; then
+    tmux switch-client -t "=$main_session"
+  else
+    local last_session
+    last_session="$(tmux display-message -p '#{client_last_session}')"
+    if [[ -n "$last_session" && "$last_session" != "$session" ]]; then
+      tmux switch-client -l
+    fi
   fi
   tmux kill-session -t "$session"
 }
