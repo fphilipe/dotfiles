@@ -103,6 +103,12 @@ function kill-workspace() {
   trash "$worktree" || return 1
   git -C "$main_repo_dir" worktree prune
 
+  _switch-to-main-session "$session"
+  tmux kill-session -t "$session"
+}
+
+function _switch-to-main-session() {
+  local session="$1"
   local main_session="${session%%/*}"
   if tmux has-session -t "=$main_session" 2>/dev/null; then
     tmux switch-client -t "=$main_session"
@@ -113,7 +119,6 @@ function kill-workspace() {
       tmux switch-client -l
     fi
   fi
-  tmux kill-session -t "$session"
 }
 
 function tidy-workspaces() {
@@ -179,7 +184,7 @@ function tidy-workspaces() {
 
   # Killing the current session also kills this shell, so do it last.
   if [[ -n "$kill_current" ]]; then
-    $run tmux switch-client -l
+    $run _switch-to-main-session "$current_session"
     $run tmux kill-session -t "$current_session"
   fi
 }
