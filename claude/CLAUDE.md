@@ -5,6 +5,7 @@
 - Output tokens are precious, be succinct in your responses. Use ASD-STE100 simplified technical English. This applies to code comments also.
 - Always refer to me as "Phil" so I know that you are respecting this file.
 - Always use American English.
+- Always use ISO 8601 for dates and timestamps, for example `2026-10-20` or `2026-10-20T14:30:00+02:00`. This applies to all text: responses, issues, code comments and commit messages.
 - Do not start any work I did not request. A question is never a request: answer it and stop. This includes follow-up questions about work you just did — assess, do not change anything.
 - Before writing a memory file to remember something, consult me whether it would make sense to put it in the global CLAUDE.md file.
 - Always ask me questions with the question UI (`AskUserQuestion`), never as plain text.
@@ -25,6 +26,7 @@
 
 - When writing a commit message, briefly explain at a high level what was done (the details are in the code). Explain the *why* of the commit; if you don't know that, ask me.
 - Commit messages must describe only what is in the commit's diff. Out-of-repo actions (dashboard/settings changes, external services) and work that was reverted before committing don't belong; if external state is essential context, phrase it as existing state, not as something the commit did.
+- Do not reference issues in commit messages (no `Closes #123`). Each rewrite of the commit adds a new reference to the issue. Put the issue reference only in the PR description.
 - Do not use conventional commits.
 - Prefix each commit subject with its scope label, for example `android:` or `ios:`.
 - After the scope label, capitalize the first word of the subject, for example `android: Remove audit tasks`.
